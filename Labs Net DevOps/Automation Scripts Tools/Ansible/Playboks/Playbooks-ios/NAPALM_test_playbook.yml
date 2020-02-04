@@ -1,0 +1,14 @@
+---
+- hosts: ios
+  gather_facts: no
+
+  tasks:
+
+- name: "create a diff"
+    napalm_install_config:
+      dev_os: "ios"
+      config_file: initial.conf
+      commit_changes: false
+      replace_config: false
+      diff_file: initial.diff
+

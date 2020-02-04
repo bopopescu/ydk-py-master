@@ -1,0 +1,40 @@
+{
+  "labId": "apic-em-policy",
+  "title": "APIC-EM APIs with Python: Part 3 - Policy Labs",
+  "slug": "Learn about and how to use the APIC-EM Policy based APIs",
+  "time": "30",
+  "tags": [
+    {"title": "SDN"},
+    {"title": "DNA"},
+    {"title": "Cisco DNA"},
+    {"title": "Networking"},
+    {"title": "Intermediate"},
+    {"title": "APIC-EM"},
+    {"title": "Sandbox"},
+    {"title": "Coding"},
+    {"title": "Python"},
+    {"title": "REST"},
+    {"title": "JSON"}
+  ],
+  "poweredBy": "<a href='https://developer.cisco.com/site/devnet/sandbox/' target=_blank>DevNet Sandbox</a>",
+  "files": [
+    {"title": "Step 1: Understand EasyQoS and related APIs",
+     "file": "1.md"},
+    {"title": "Step 2: Create policy tag",
+     "file": "2.md"},
+    {"title": "Step 3: Create policy tag association",
+     "file": "3.md"},
+    {"title": "Step 4: Create Custom NBAR2 Application",
+     "file": "4.md"},
+    {"title": "Step 5: Preview policy",
+     "file": "5.md"},
+    {"title": "Step 6: Create and apply policy",
+     "file": "6.md"},
+    {"title": "Step 7: Delete policy, custom NBAR2 application, policy tag association, and policy tag",
+     "file": "7.md"}
+  ],
+  "authors": [
+  	{"name": "yawchen", "email": "yawchen@cisco.com"}
+  ],
+  "byod": true
+}

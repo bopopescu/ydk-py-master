@@ -1,0 +1,19 @@
+---
+- hosts: ios
+  gather_facts: no
+
+ 
+  tasks: 
+  
+  - name: CHANGE VTP MODE
+    ios_config:
+      lines:
+        - vtp mode transparent
+      
+  - name: SHOW VTP STATUS
+    ios_command:
+      commands:
+        - show vtp status 
+    register: after_vtp
+ 
+  - debug: var=after_vtp.stdout_lines

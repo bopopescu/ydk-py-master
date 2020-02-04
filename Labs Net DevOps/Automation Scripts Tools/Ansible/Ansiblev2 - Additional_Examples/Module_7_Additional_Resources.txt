@@ -1,0 +1,9 @@
+- Ansible 2.2 to 2.5 Network Changes
+2.2: https://www.ansible.com/blog/ansible-network-updates
+2.3: https://docs.ansible.com/ansible/2.5/porting_guides/porting_guide_2.3.html#networking
+2.4: https://www.ansible.com/blog/networking-features-in-ansible-2-4
+2.5: https://www.ansible.com/blog/coming-soon-networking-features-in-ansible-2.5
+
+
+
+

@@ -1,0 +1,13 @@
+---
+- hosts: ios
+  gather_facts: no
+
+  tasks:
+
+  - name: GATHER FACTS
+    ios_facts:
+    
+    register: facts
+
+  - debug: var=facts.stdout_lines
+

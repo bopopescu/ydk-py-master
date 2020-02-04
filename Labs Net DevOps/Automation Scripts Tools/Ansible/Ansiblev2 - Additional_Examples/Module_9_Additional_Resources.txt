@@ -1,0 +1,10 @@
+- Arista eAPI 101
+https://eos.arista.com/arista-eapi-101/
+
+- Arista Ansible Getting Started
+https://eos.arista.com/arista-ansible-getting-started/
+
+- PyEAPI Python client
+http://pyeapi.readthedocs.io/
+
+

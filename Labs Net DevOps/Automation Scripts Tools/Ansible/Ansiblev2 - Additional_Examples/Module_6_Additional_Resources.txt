@@ -1,0 +1,115 @@
+- Working with Modules
+http://docs.ansible.com/ansible/latest/user_guide/modules.html
+
+- Intro to Playbooks
+http://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html
+
+- YAML Syntax
+http://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
+
+- YAML Lint
+http://www.yamllint.com/
+
+- Ansible Ad-Hoc Command
+
+echou@ubuntu:~/INE_Ansible_v2$ ansible all -i "172.16.1.100", -c network_cli -u vyos -k -m vyos_facts -e ansible_network_os=vyos
+SSH password:
+172.16.1.100 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_net_gather_subset": [
+            "neighbors",
+            "default"
+        ],
+        "ansible_net_hostname": "vyos",
+        "ansible_net_model": "VMware",
+        "ansible_net_serialnum": "VMware-56",
+        "ansible_net_version": "VyOS"
+    },
+    "changed": false
+}
+
+echou@ubuntu:~/INE_Ansible_v2$ ansible all -i "172.16.1.83", -c network_cli -u cisco -k -m ios_facts -e ansible_network_os=ios
+SSH password:
+172.16.1.83 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_net_all_ipv4_addresses": [
+            "10.0.0.6",
+            "172.16.1.83",
+            "192.168.0.2"
+        ],
+        "ansible_net_all_ipv6_addresses": [],
+        "ansible_net_filesystems": [
+            "flash0:"
+        ],
+        "ansible_net_gather_subset": [
+            "hardware",
+            "default",
+            "interfaces"
+        ],
+        "ansible_net_hostname": "iosv-2",
+        "ansible_net_image": "flash0:/vios-adventerprisek9-m",
+        "ansible_net_interfaces": {
+            "GigabitEthernet0/0": {
+                "bandwidth": 1000000,
+                "description": "OOB Management",
+                "duplex": "Full",
+                "ipv4": [
+                    {
+                        "address": "172.16.1.83",
+                        "subnet": "24"
+                    }
+                ],
+                "lineprotocol": "up ",
+                "macaddress": "5e00.0001.0000",
+                "mediatype": "RJ45",
+                "mtu": 1500,
+                "operstatus": "up",
+                "type": "iGbE"
+            },
+            "GigabitEthernet0/1": {
+                "bandwidth": 1000000,
+                "description": "to iosv-1",
+                "duplex": "Full",
+                "ipv4": [
+                    {
+                        "address": "10.0.0.6",
+                        "subnet": "30"
+                    }
+                ],
+                "lineprotocol": "up ",
+                "macaddress": "fa16.3e3a.8743",
+                "mediatype": "RJ45",
+                "mtu": 1500,
+                "operstatus": "up",
+                "type": "iGbE"
+            },
+            "Loopback0": {
+                "bandwidth": 8000000,
+                "description": "Loopback",
+                "duplex": null,
+                "ipv4": [
+                    {
+                        "address": "192.168.0.2",
+                        "subnet": "32"
+                    }
+                ],
+                "lineprotocol": "up ",
+                "macaddress": "192.168.0.2/32",
+                "mediatype": null,
+                "mtu": 1514,
+                "operstatus": "up",
+                "type": null
+            }
+        },
+        "ansible_net_memfree_mb": 262183,
+        "ansible_net_memtotal_mb": 335761,
+        "ansible_net_model": "IOSv",
+        "ansible_net_serialnum": "9FOH7JAR3R2W9TJIA1XPV",
+        "ansible_net_version": "15.6(3)M2"
+    },
+    "changed": false
+}
+
+
+
+

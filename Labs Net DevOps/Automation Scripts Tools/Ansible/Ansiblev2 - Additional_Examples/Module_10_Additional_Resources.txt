@@ -1,0 +1,6 @@
+- VyOS Network Modules
+http://docs.ansible.com/ansible/latest/modules/list_of_network_modules.html#vyos
+http://docs.ansible.com/ansible/latest/modules/vyos_facts_module.html#vyos-facts-module
+http://docs.ansible.com/ansible/latest/modules/vyos_command_module.html#vyos-command-module
+http://docs.ansible.com/ansible/latest/modules/vyos_config_module.html#vyos-config-module
+

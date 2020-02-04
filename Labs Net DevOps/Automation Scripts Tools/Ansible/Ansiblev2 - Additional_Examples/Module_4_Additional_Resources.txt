@@ -1,0 +1,6 @@
+- INI File Format
+https://en.wikipedia.org/wiki/INI_file
+
+- Working with Inventory
+http://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#working-with-inventory
+

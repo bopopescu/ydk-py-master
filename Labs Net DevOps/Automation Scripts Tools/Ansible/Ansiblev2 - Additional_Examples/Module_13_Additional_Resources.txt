@@ -1,0 +1,18 @@
+- Network Best Practices for Ansible 2.5
+https://docs.ansible.com/ansible/2.5/network/user_guide/network_best_practices_2.5.html
+
+- Ansible Roles
+https://docs.ansible.com/ansible/2.5/user_guide/playbooks_reuse_roles.html
+
+- Beyond Playbooks: Moving Tasks and Variables into Roles
+https://docs.ansible.com/ansible/2.5/network/getting_started/intermediate_concepts.html#beyond-playbooks-moving-tasks-and-variables-into-roles
+
+- Ansible Galaxy
+https://galaxy.ansible.com/
+
+- Ansible Galaxy search for Roles
+https://galaxy.ansible.com/list#/roles?page=1&page_size=10
+
+
+
+

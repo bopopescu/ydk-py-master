@@ -1,0 +1,15 @@
+- Declarative vs Imperative
+https://en.wikipedia.org/wiki/Declarative_programming
+https://en.wikipedia.org/wiki/Imperative_programming
+
+- YAML Syntax
+https://docs.ansible.com/ansible/2.5/reference_appendices/YAMLSyntax.html
+
+- YAML Lint:
+http://www.yamllint.com/
+
+- Network Best Practices for Ansible 2.5
+https://docs.ansible.com/ansible/2.5/network/user_guide/network_best_practices_2.5.html
+
+
+

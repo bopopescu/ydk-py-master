@@ -1,0 +1,73 @@
+- Ansible Tower
+https://www.ansible.com/products/tower
+
+- Red Hat AWX FAQ
+https://www.ansible.com/products/awx-project/faq
+
+- AWX GitHub
+https://github.com/ansible/awx
+
+- Installation on clean Ubuntu 16.04 with Docker
+https://github.com/ansible/awx/blob/devel/INSTALL.md
+
+[ Install Dependencies ]
+sudo -i 
+apt-add-repository ppa:ansible/ansible
+apt-get update
+apt-get upgrade
+apt-get install -y ansible docker docker.io git python-pip
+apt-get install -y nodejs npm
+pip install docker-py
+service docker start
+exit
+
+[ Check Dependencies ]
+root@ansible-awx:~# docker --version
+Docker version 1.13.1, build 092cba3
+root@ansible-awx:~# npm --version
+3.5.2
+root@ansible-awx:~# nodejs --version
+v4.2.6
+root@ansible-awx:~# ansible --version
+ansible 2.5.4
+
+[ Clone Repository ]
+mkdir awx-install
+cd awx-install
+git clone https://github.com/ansible/awx.git
+(optional - see below for logo) git clone https://github.com/ansible/awx-logos.git
+cd awx/installer/
+
+(opitonal for logo) In invetory file, change this line:
+# Build AWX with official logos
+# Requires cloning awx-logos repo into the project root.
+# Review the trademark guidelines at https://github.com/ansible/awx-logos/blob/master/TRADEMARKS.md
+awx_official=true
+
+[ Start Installation]
+sudo ansible-playbook -i inventory install.yml
+
+
+[ Check for Container Status]
+echou@ansible-awx:~/awx-install/awx/installer$ sudo docker ps
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                                 NAMES
+49e512b27032        ansible/awx_task:latest      "/tini -- /bin/sh ..."   2 minutes ago       Up 2 minutes        8052/tcp                                              awx_task
+eed2002e2b20        ansible/awx_web:latest       "/tini -- /bin/sh ..."   2 minutes ago       Up 2 minutes        0.0.0.0:80->8052/tcp                                  awx_web
+9db9f8fa5e67        memcached:alpine             "docker-entrypoint..."   5 minutes ago       Up 5 minutes        11211/tcp                                             memcached
+466402d6cd06        ansible/awx_rabbitmq:3.7.4   "docker-entrypoint..."   5 minutes ago       Up 5 minutes        4369/tcp, 5671-5672/tcp, 15671-15672/tcp, 25672/tcp   rabbitmq
+b914932f5b48        postgres:9.6                 "docker-entrypoint..."   6 minutes ago       Up 6 minutes        5432/tcp
+
+sudo docker logs -f awx_task
+
+
+- If you want to put Nginx and SSL in front of it: 
+https://techbloc.net/archives/2389
+
+- Ansible Tower User Guide
+http://docs.ansible.com/ansible-tower/2.3.0/html/userguide/index.html#ug-start
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+- Tempalte Module
+http://docs.ansible.com/ansible/template_module.html
+
+- Jinja2 Filters
+http://docs.ansible.com/ansible/playbooks_filters.html
+
+- Ansible-Vault
+http://docs.ansible.com/ansible/2.5/user_guide/vault.html
+
+- Conditionals
+http://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html
+
+- Lookup Plugin
+https://docs.ansible.com/ansible/2.5/plugins/lookup.html
+

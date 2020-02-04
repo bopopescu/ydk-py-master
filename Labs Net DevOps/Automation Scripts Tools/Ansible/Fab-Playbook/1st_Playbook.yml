@@ -1,0 +1,16 @@
+---
+  name: Show version
+  connection: local
+  hosts: iosv-devices
+  tasks:
+
+    - name: Gather IOS Facts
+    ios_facts:
+      when: ansible_network_os == 'ios'
+
+    - name: Gather VyOS Facts
+    when: ansible_network_os == 'VyOS'
+
+    - name: Display Facts
+    debug:
+      msg: "The hostname is {{ ansible_net_hostname }} and the os is {{ ansible_net_version }}"

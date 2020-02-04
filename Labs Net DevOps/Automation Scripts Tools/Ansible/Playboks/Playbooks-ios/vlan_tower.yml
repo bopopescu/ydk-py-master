@@ -1,0 +1,33 @@
+---
+- hosts: ios
+  gather_facts: no
+
+
+# {{vlan}} & {{ interface }} input  will be a survey in Ansible Tower
+
+
+  tasks:
+     - name: Create VLAN
+       ios_vlan:
+         vlan_id: "{{ vlan }}"
+         name: test-vlan
+         state: present
+
+     - name: Add interfaces to VLAN
+       ios_vlan:
+         vlan_id: "{{ vlan }}"
+         interfaces:
+           - "{{ interface }}"
+           
+     - name: Verify VLAN
+       ios_command:
+         commands: 
+           - show run int {{ interface }}          
+       register: int
+
+     - debug: var=int.stdout_lines  
+                  
+         
+
+         
+

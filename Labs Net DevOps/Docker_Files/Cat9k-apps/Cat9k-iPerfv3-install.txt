@@ -1,0 +1,37 @@
+# docker pull mlabbe/iperf3
+# docker save mlabbe/iperf3:latest -o iperf3.tar
+copy scp: usbflash1: vrf Mgmt-vrf
+app-hosting install appid iperf package usbflash1:<path to tar file
+ app-hosting activate appid iperf
+   app-hosting start appid iperf
+     app-hosting start appid iperf
+
+     app-hosting stop appid iperf
+  app-hosting deactivate appid iperf
+  app-hosting uninstall appid iperf
+
+docker pull trexcisco/trex-dev
+app-hosting install appid trex package usbflash1:<path to tar file>
+app-hosting activate appid trex
+app-hosting start appid iperf
+
+
+esting
+
+    Connect to container and start TRex server.
+
+    app-hosting connect appid trex session
+
+    trex_shell$ ./t-rex-64 -i --cfg /iox_data/appdata/trex_cfg.yaml
+
+    Connect to container again from different terminal and generate traffic
+
+    app-hosting connect appid trex session
+
+    trex_shell$ ./trex-console
+
+    // start 500Mbps multi stream UDP traffic
+    trex_console> start -f stl/udp_1pkt_multi.py -m 500mbps -a
+
+    //view stats
+    trex_console> stats

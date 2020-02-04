@@ -1,0 +1,13 @@
+---
+- hosts: ios
+  gather_facts: no
+
+
+  tasks:
+  - name: REGISTER VTY CONFIG ON DEVICE
+    ios_command:
+      commands:
+        - show run | beg line vty
+    register: vty
+
+  - debug: var=vty.stdout_lines

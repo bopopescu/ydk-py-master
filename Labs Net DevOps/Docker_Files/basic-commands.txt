@@ -1,0 +1,5 @@
+docker -v
+docker run filename
+docker search filename
+
+docker run -ti <your image ID>

@@ -1,0 +1,13 @@
+
+- Ansible Documentation
+http://docs.ansible.com/ansible/latest/index.html
+
+- Ansible for Network Automation
+http://docs.ansible.com/ansible/latest/network/index.html
+
+- Ansible list of Network Modules
+http://docs.ansible.com/ansible/latest/modules/list_of_network_modules.html
+
+- Ansible GitHub
+https://github.com/ansible/ansible
+

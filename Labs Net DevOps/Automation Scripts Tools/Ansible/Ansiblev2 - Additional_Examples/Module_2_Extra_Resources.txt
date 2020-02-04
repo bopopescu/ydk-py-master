@@ -1,0 +1,106 @@
+- NUC Server Components: 
+Intel NUC mini PC kit NUC7i5BNH Core i5, Tall version
+Samsung 860 EVO 500GB 2.5 Inch SATA III Internal SSD (MZ-76E500B/AM)
+Timetec Hynix IC 16GB DDR4 2400MHz PC4-19200 Non ECC Unbuffered 1.2V CL16 2Rx8 Dual Rank 260 Pin SODIMM Laptop Notebook Computer Memory Ram Module Upgrade (16GB) x 2
+StarTech.com USB 3.0 to Gigabit Ethernet NIC Network Adapter - 10/100/1000 Network Adapter - USB to Ethernet LAN Adapter - USB to RJ45
+
+- Additional USB Ethernet for NUC
+https://www.virten.net/2016/06/additional-usb-nic-for-intel-nucs/
+
+- ESXi 6.7
+https://blogs.vmware.com/vsphere/2018/04/introducing-vmware-vsphere-6-7.html
+
+- VIRL PE
+https://learningnetworkstore.cisco.com/virtual-internet-routing-lab-virl/cisco-personal-edition-pe-20-nodes-virl-20
+
+- Ubuntu 16.04 Network Configuration
+echou@ubuntu:~$ cat /etc/network/interfaces
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo ens33 ens34
+iface lo inet loopback
+
+iface ens33 inet static
+  address 192.168.2.120
+  netmask 255.255.255.0
+  network 192.168.2.0
+  broadcast 192.168.2.255
+  gateway 192.168.2.1
+  dns-nameservers 192.168.2.1 8.8.8.8
+
+iface ens34 inet static
+  address 172.16.1.120
+  netmask 255.255.255.0
+  network 172.16.1.0
+  broadcast 172.16.1.255
+
+- Ansible Instllation
+http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+
+echou@ubuntu:~$ sudo apt-get update
+echou@ubuntu:~$ sudo apt-get install software-properties-common
+echou@ubuntu:~$ sudo apt-add-repository ppa:ansible/ansible
+echou@ubuntu:~$ sudo apt-get update
+echou@ubuntu:~$ sudo apt-get install ansible
+
+echou@ubuntu:~$ ansible --version
+ansible 2.5.3
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/echou/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.12 (default, Dec  4 2017, 14:50:18) [GCC 5.4.0 20160609]
+
+echou@ubuntu:~$ ansible-playbook --version
+ansible-playbook 2.5.3
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/echou/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 2.7.12 (default, Dec  4 2017, 14:50:18) [GCC 5.4.0 20160609]
+
+
+- Run Ansible from Source
+http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#running-from-source
+
+git branch --all
+git tag --list
+git checkout <branch>
+git checkout <tag>
+source hacking/env-setup
+
+echou@ubuntu:~$ git clone https://github.com/ansible/ansible.git
+
+echou@ubuntu:~$ cd ansible/
+echou@ubuntu:~/ansible$ source hacking/env-setup
+echou@ubuntu:~/ansible$ ansible --version
+ansible 2.6.0 (devel a996d4836a) last updated 2018/05/17 23:15:01 (GMT -700)
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/echou/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/echou/ansible/lib/ansible
+  executable location = /home/echou/ansible/bin/ansible
+  python version = 2.7.12 (default, Dec  4 2017, 14:50:18) [GCC 5.4.0 20160609]
+echou@ubuntu:~/ansible$
+
+echou@ubuntu:~/ansible$ git branch —all
+echou@ubuntu:~/ansible$ git checkout --track remotes/origin/stable-2.4
+Branch stable-2.4 set up to track remote branch stable-2.4 from origin.
+Switched to a new branch 'stable-2.4'
+echou@ubuntu:~/ansible$ git checkout stable-2.4
+Already on 'stable-2.4'
+Your branch is up-to-date with 'origin/stable-2.4’.
+
+echou@ubuntu:~/ansible$ source hacking/env-setup
+echou@ubuntu:~/ansible$ ansible --version
+ansible 2.4.4.0 (stable-2.4 e450722867) last updated 2018/05/17 23:22:11 (GMT -700)
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/home/echou/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/echou/ansible/lib/ansible
+  executable location = /home/echou/ansible/bin/ansible
+  python version = 2.7.12 (default, Dec  4 2017, 14:50:18) [GCC 5.4.0 20160609]
+
+
+
+
+
+
+

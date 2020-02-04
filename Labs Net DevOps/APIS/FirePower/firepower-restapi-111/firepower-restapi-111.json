@@ -1,0 +1,57 @@
+{
+    "labId": "firepower-restapi-111",
+    "title": "FMC-REST-API-111: Cisco Threat Intelligence Director (TID) APIs and their usage via API Explorer and Postman",
+    "slug": "This lab gives basic understanding of the available FMC TID APIs and their usage",
+    "time": "30",
+    "tags": [{
+        "title": "Firepower Management Center"
+    }, {
+        "title": "Firepower"
+    },
+    {
+        "title": "FMC"
+    },
+    {
+        "title": "TID"
+    },
+    {
+        "title": "Threat Intelligence Director"
+    },
+    {
+        "title": "Security"
+    },
+    {
+        "title": "Firewalls"
+    },{
+        "title": "FTD"
+    }, {
+        "title": "NGFW"
+    }, {
+        "title": "NGIPS"
+    }, {
+        "title": "ASA with FP services"
+    }, {
+        "title": "Firepower Threat Defence"
+    }, {
+        "title": "Cisco Security REST API"
+    }],
+    "files": [{
+        "title": "FMC REST API 111",
+        "file": "1.md"
+    }, {
+        "title": "Using Postman",
+        "file": "2.md"
+    }, {
+        "title": "Here is the sample Perl script",
+        "file": "3.md"
+    }],
+   "related": [{
+        "labId": "firepower-restapi-102",
+        "title": "FMC rest api Lab 2"
+    }],
+    "authors": [{
+        "name": "Krishan Veer",
+        "email": "veer@cisco.com"
+    }],
+    "byod": true
+}

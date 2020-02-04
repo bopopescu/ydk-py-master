@@ -1,0 +1,48 @@
+{
+  "labId": "firepower-restapi-109",
+  "title": "Threat-centric access control policies for the Firepower Management Center (FMC)",
+  "slug": "This Learning Lab teaches you how to create a threat-centric access control (AC) policy.",
+  "time": "25",
+    "tags": [
+      {"title": "Firepower Management Center"},
+      {"title": "Firepower"},
+      {"title": "FMC"},
+      {"title": "Security"},
+      {"title": "Firewalls"},
+      {"title": "FTD"},
+      {"title": "NGFW"},
+      {"title": "NGIPS"},
+      {"title": "ASA with FP services"},
+      {"title": "Firepower Threat Defence"},
+      {"title": "Cisco Security REST API"}
+    ],
+    "files": [
+      {"title": "Introduction",
+        "file": "0.md"},
+      {"title": "Creating a threat-centric AC policy using the FMC API Explorer",
+        "file": "1.md"},
+      {"title": "Creating access control rules",
+        "file": "2.md"},
+      {"title": "Sample Python script to create threat-centric AC policy",
+        "file": "3.md"},
+      {"title": "Sample Perl script to create threat-centric AC policy",
+        "file": "4.md"}
+      ],
+      "related": [
+        {"labId": "firepower-restapi-101",
+         "title": "Exploring Firepower Management Center (FMC) REST APIs"},
+        {"labId": "firepower-restapi-102",
+         "title": "Firepower Management Center (FMC) REST API token-based authentication"},
+        {"labId": "firepower-restapi-103",
+         "title": "Firewall devices and sensors and the Firepower Management Center (FMC)"},
+        {"labId": "firepower-restapi-106",
+         "title": "FMC objects and CRUD operations"},
+        {"labId": "firepower-restapi-107",
+         "title": "Firewall Management Center (FMC) access control policies"}
+        ],
+    "authors": [{
+        "name": "Krishan Veer",
+        "email": "veer@cisco.com"
+    }],
+    "byod": true
+}

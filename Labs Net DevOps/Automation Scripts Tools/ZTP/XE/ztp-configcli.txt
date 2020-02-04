@@ -1,0 +1,115 @@
+Sample Zero-Touch Provisioning Configurations
+Sample DHCP Server Configuration on a Management Port Using TFTP Copy
+
+The following is a sample DHCP server configuration using TFTP copy, when connected via the management port on a device:
+
+
+Device> enable
+Device# configure terminal
+Device(config)# ip dhcp excluded-address 10.1.1.1
+Device(config)# ip dhcp excluded-address vrf Mgmt-vrf 10.1.1.1 10.1.1.10
+Device(config)# ip dhcp pool pnp_device_pool
+Device(config-dhcp)# vrf Mgmt-vrf
+Device(config-dhcp)# network 10.1.1.0 255.255.255.0
+Device(config-dhcp)# default-router 10.1.1.1
+Device(config-dhcp)# option 150 ip 203.0.113.254
+Device(config-dhcp)# option 67 ascii /sample_python_dir/python_script.py
+Device(config-dhcp)# exit
+Device(config)# interface gigabitethernet 1/0/2
+Device(config-if)# no ip dhcp client request tftp-server-address
+Device(config-if)# end
+
+
+Sample DHCP Server Configuration on a Management Port Using HTTP Copy
+
+The following is a sample DHCP server configuration using HTTP copy, when connected via the management port on a device:
+
+
+Device> enable
+Device# configure terminal
+Device(config)# ip dhcp pool pnp_device_pool
+Device(config-dhcp)# vrf Mgmt-vrf
+Device(config-dhcp)# network 10.1.1.0 255.255.255.0
+Device(config-dhcp)# default-router 10.1.1.1
+Device(config-dhcp)# option 67 ascii http://198.51.100.1:8000/sample_python_2.py
+Device(config-dhcp)# end
+
+Sample DHCP Server Configuration on an In-Band Port Using TFTP Copy
+The following is a sample DHCP server configuration using TFTP copy, when connected via the in-band port on a device:
+
+
+Device> enable
+Device# configure terminal
+Device(config)# ip dhcp excluded-address 10.1.1.1
+Device(config)# ip dhcp pool pnp_device_pool
+Device(config-dhcp)# network 10.1.1.0 255.255.255.0
+Device(config-dhcp)# default-router 10.1.1.1
+Device(config-dhcp)# option 150 ip 203.0.113.254
+Device(config-dhcp)# option 67 ascii /sample_python_dir/python_script.py
+Device(config-dhcp)# exit
+Device(config)# interface gigabitethernet 1/0/2
+Device(config-if)# no ip dhcp client request tftp-server-address
+Device(config-if)# end
+
+Sample DHCP Server Configuration on an In-Band Port Using HTTP Copy
+The following is a sample DHCP server configuration using HTTP copy, when connected via the in-band port on a device:
+
+
+Device> enable
+Device# configure terminal
+Device(config)# ip dhcp excluded-address 10.1.1.1
+Device(config)# ip dhcp pool pnp_device_pool
+Device(config-dhcp)# network 10.1.1.0 255.255.255.0
+Device(config-dhcp)# default-router 10.1.1.1
+Device(config-dhcp)# option 67 ascii http://192.0.2.1:8000/sample_python_2.py
+Device(config-dhcp)# end
+
+
+Sample DHCP Server Configuration on a Linux Ubuntu Device
+
+The following sample DHCP server configuration displays that the server is either connected to the management port or in-band port on a device, and a Python script is copied from a TFTP server.
+
+
+root@ubuntu-server:/etc/dhcp# more dhcpd.conf
+subnet 10.1.1.0 netmask 255.255.255.0 {
+range 10.1.1.2  10.1.1.255;
+      host 3850 {
+          fixed-address                      10.1.1.246 ;
+          hardware ethernet                  CC:D8:C1:85:6F:00;
+          option bootfile-name !<opt 67>     " /python_dir/python_script.py";
+         option tftp-server-name !<opt 150>  "203.0.113.254";
+      }
+  }
+
+
+  The following sample DHCP configuration shows that a Python script is copied from an HTTP server to the device:
+
+
+
+  Day0_with_mgmt_port_http
+  -------------------------
+  subnet 192.168.1.0 netmask 255.255.255.0 {
+   range 192.168.1.2 192.168.1.255;
+        host C2-3850 {
+            fixed-address                   192.168.1.246 ;
+            hardware ethernet               CC:D8:C1:85:6F:00;
+            option bootfile-name            "http://192.168.1.46/sample_python_2.py";
+        }
+    }
+
+  Once the DHCP server is running, boot a management-network connected device, and the rest of the configuration is automatic.
+  Sample DHCPv6 Server Configuration on a Management Port Using TFTP Copy
+
+  The following is a sample DHCPv6 server configuration using TFTP copy, when connected via the management port on a device:
+
+
+  Device> enable
+  Device# configure terminal
+  Device(config)# ipv6 dhcp pool ztp
+  Device(config-dhcpv6)# address prefix 2001:DB8::1/64
+  Device(config-dhcpv6)# domain-name cisco.com
+  Device(config-dhcpv6)# bootfile-url tftp://[2001:db8::46]/sample_day0_script.py
+  Device(config-dhcpv6)# exit
+  Device(config)# interface vlan 20
+  Device(config-if)# ipv6 dhcp server ztp
+  Device(config-if)# end

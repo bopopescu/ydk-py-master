@@ -1,0 +1,16 @@
+[nxos-devices]
+
+[iosxe-devices]
+
+[ios-devices]
+
+[iosv-devices]
+
+iosv-1
+iosv-2 ansible_host=0.0.0.0 ansible_user=pass
+
+[fabnet-devices]
+
+iosv-1
+
+[vyos-devices]

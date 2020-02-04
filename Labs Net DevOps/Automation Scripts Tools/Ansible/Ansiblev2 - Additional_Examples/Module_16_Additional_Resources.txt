@@ -1,0 +1,6 @@
+- Amazon Web Services Guide
+http://docs.ansible.com/ansible/2.4/guide_aws.html
+
+
+
+

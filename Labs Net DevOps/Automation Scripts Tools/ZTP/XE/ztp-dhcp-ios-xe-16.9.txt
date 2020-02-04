@@ -1,0 +1,23 @@
+#The following is a sample DHCPv4: /etc/dhcp/dhcpd.conf:
+
+
+host <hostname> {
+  hardware ethernet xx:xx:xx:xx:xx:xx;
+  option dhcp-client-identifier "xxxxxxxxxxxxxx";
+  option host-name "<hostname>".
+  option log-servers x.x.x.x;
+  fixed-address x.x.x.x;
+  if option vendor-class-identifier = "..." {
+    option vendor-class-identifier "...";
+    if exists user-class and option user-class = "iPXE" {
+      filename "http://x.x.x.x/…/<image>";
+    } else {
+      filename "http://x.x.x.x/…/<script-name>";
+    }
+  }
+}
+
+#]'The following is a sample ISC DHCPv6 server configuration:
+
+
+ option dhcp6.bootfile-url  "http://[2001:DB8::21]/sample_day0_script.py";

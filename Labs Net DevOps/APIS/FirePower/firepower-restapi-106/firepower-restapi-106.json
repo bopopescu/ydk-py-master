@@ -1,0 +1,48 @@
+{
+    "labId": "firepower-restapi-106",
+    "title": "FMC objects and CRUD operations",
+    "slug": "This Learning Lab provides an overview of how to interact with FMC objects and run Create, Read, Update, and Delete (CRUD) operations with the FMC REST API.",
+    "time": "30",
+    "tags": [
+       {"title": "Firepower Management Center"},
+       {"title": "Firepower"},
+       {"title": "FMC" },
+       {"title": "Security"},
+       {"title": "Firewalls"},
+       {"title": "FTD"},
+       {"title": "NGFW"},
+       {"title": "NGIPS"},
+       {"title": "ASA with FP services"},
+       {"title": "Firepower Threat Defence"},
+       {"title": "Cisco Security REST API"}
+     ],
+    "files": [
+      {"file": "0.md",
+      "title": "Introduction"},
+      {"file": "1.md",
+      "title": "Firepower Management Center (FMC) objects"},
+      {"file": "2.md",
+      "title": "The FMC network object"},
+      {"file": "3.md",
+      "title": "Retrieving a network object with a GET operation"},
+      {"file": "4.md",
+      "title": "Adding a network object with a POST operation"}
+    ],
+    "related": [
+      {"labId": "firepower-restapi-101",
+       "title": "Exploring Firepower Management Center (FMC) REST APIs"},
+      {"labId": "firepower-restapi-102",
+       "title": "Firepower Management Center (FMC) REST API token-based authentication"},
+      {"labId": "firepower-restapi-103",
+       "title": "Firewall devices and sensors and the Firepower Management Center (FMC)"},
+      {"labId": "firepower-restapi-107",
+       "title": "Firewall Management Center (FMC) access control policies"},
+      {"labId": "firepower-restapi-109",
+       "title": "Threat-centric access control policies for the Firepower Management Center (FMC)"}
+      ],
+    "authors": [{
+        "name": "Krishan Veer",
+        "email": "veer@cisco.com"
+    }],
+    "byod": true
+  }

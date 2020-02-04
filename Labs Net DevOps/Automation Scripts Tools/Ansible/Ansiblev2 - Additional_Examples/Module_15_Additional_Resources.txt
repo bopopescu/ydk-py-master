@@ -1,0 +1,6 @@
+- Network Developers Guide
+https://github.com/ansible/community/blob/master/group-network/network_dev_network_cli.rst#requirements-for-network-module-developers
+
+- A10 Networks Self Module Example
+https://github.com/a10networks/tps-collection/tree/master/Ansible/SimpleCustomModuleExample
+
