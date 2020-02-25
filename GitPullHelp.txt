@@ -18,6 +18,15 @@ git push -u origin master
 
 Check:
 git remote -v 
+
 Change URL :
 git remote set-url origin URL
+
+Delete:
+git remote rm origin
+
+
+Git show
+
+Git Config -l
 
