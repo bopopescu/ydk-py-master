@@ -1,3 +1,5 @@
+
+
 Create 
 
 echo "# Devnetasc" >> README.md
@@ -12,3 +14,10 @@ Push
 
 git remote add origin https://github.com/NigarumOvum/Devnetasc.git
 git push -u origin master
+
+
+Check:
+git remote -v 
+Change URL :
+git remote set-url origin URL
+
