@@ -1,0 +1,14 @@
+Create 
+
+echo "# Devnetasc" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/NigarumOvum/Devnetasc.git
+git push -u origin master
+
+
+Push 
+
+git remote add origin https://github.com/NigarumOvum/Devnetasc.git
+git push -u origin master
