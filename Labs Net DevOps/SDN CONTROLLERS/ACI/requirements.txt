@@ -1,4 +1,0 @@
-acicobra
-acitoolkit
-graphviz==0.8
-requests==2.18.2

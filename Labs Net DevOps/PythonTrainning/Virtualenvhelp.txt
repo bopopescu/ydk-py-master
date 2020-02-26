@@ -1,0 +1,62 @@
+
+
+# python version in env:
+virtualenv --python=/usr/bin/python2.6 <path/to/new/virtualenv/>
+
+python3 -m venv <myenvname>
+
+# new env: 
+pyvenv /path/to/new/virtual/environment
+
+pyenv virtualenv <version> <name-to-give-it>
+
+pyenv virtualenvs
+
+pyenv activate <name>
+
+#Python version & Path using
+which python
+echo $PATH
+# Python 2:
+$ virtualenv env
+
+# Python 3
+$ python3 -m venv env
+
+
+#Python version & Path using
+which python
+echo $PATH
+
+
+#Manage virtualenvs easily
+pip install virtualenvwrapper
+
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Reload startup line: 
+source ~/.bashrc
+
+#Switch Virtualenv:
+workon VIRTUALENV
+
+virtualenv -p $(which python3) blog_virtualenv
+
+#Pyenv Commands
+$ pyenv install 3.5.0   # Install new version
+$ pyenv versions        # List installed versions
+$ pyenv exec python -V  # Execute 'python -V' using pyenv version
+
+# This creates the .python-version file in our current directory,
+pyenv local 2.7.11
+ls -la
+
+$ python main.py
+#Using version: 2.7.5
+$ pyenv global 3.5.0
+$ pyenv exec python main.py
+#Using version: 3.5.0
+$ pyenv local 2.7.11
+$ pyenv exec python main.py
+#Using version: 2.7.11
+

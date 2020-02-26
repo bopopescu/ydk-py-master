@@ -1,3 +1,0 @@
-# Simple Ansible Hosts File for a "device"
-# Device details pulled from vault encrypted host_vars/device.yml
-device
