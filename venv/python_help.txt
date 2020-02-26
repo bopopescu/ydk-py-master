@@ -1,0 +1,5 @@
+
+Look Path working on:
+
+echo $PATH
+which python

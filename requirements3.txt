@@ -1,0 +1,8 @@
+ansible
+acicobra
+acitoolkit
+ciscosparkapi
+graphviz==0.8
+ncclient
+paramiko
+requests==2.18.2
