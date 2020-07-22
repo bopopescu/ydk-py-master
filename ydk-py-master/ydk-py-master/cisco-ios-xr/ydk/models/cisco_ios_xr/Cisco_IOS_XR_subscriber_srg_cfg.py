@@ -56,19 +56,19 @@ class SubscriberRedundancyGroupRole(Enum):
 
     Subscriber redundancy group role
 
-    .. data:: master = 1
+    .. data:: main = 1
 
-    	Master Role
+    	Main Role
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
-    	Slave Role
+    	Subordinate Role
 
     """
 
-    master = Enum.YLeaf(1, "master")
+    main = Enum.YLeaf(1, "main")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
     @staticmethod
@@ -77,11 +77,11 @@ class SubscriberRedundancyGroupRole(Enum):
         return meta._meta_table['SubscriberRedundancyGroupRole']
 
 
-class SubscriberRedundancyGroupSlaveMode(Enum):
+class SubscriberRedundancyGroupSubordinateMode(Enum):
     """
-    SubscriberRedundancyGroupSlaveMode (Enum Class)
+    SubscriberRedundancyGroupSubordinateMode (Enum Class)
 
-    Subscriber redundancy group slave mode
+    Subscriber redundancy group subordinate mode
 
     .. data:: warm = 1
 
@@ -101,7 +101,7 @@ class SubscriberRedundancyGroupSlaveMode(Enum):
     @staticmethod
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_subscriber_srg_cfg as meta
-        return meta._meta_table['SubscriberRedundancyGroupSlaveMode']
+        return meta._meta_table['SubscriberRedundancyGroupSubordinateMode']
 
 
 
@@ -150,10 +150,10 @@ class SubscriberRedundancy(_Entity_):
     
     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
     
-    .. attribute:: slave_mode
+    .. attribute:: subordinate_mode
     
-    	Set slave
-    	**type**\:  :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
+    	Set subordinate
+    	**type**\:  :py:class:`SubscriberRedundancyGroupSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSubordinateMode>`
     
     .. attribute:: hold_timer
     
@@ -207,7 +207,7 @@ class SubscriberRedundancy(_Entity_):
             ('virtual_mac_prefix', (YLeaf(YType.str, 'virtual-mac-prefix'), ['str'])),
             ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg', 'SubscriberRedundancyGroupRole', '')])),
             ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
-            ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg', 'SubscriberRedundancyGroupSlaveMode', '')])),
+            ('subordinate_mode', (YLeaf(YType.enumeration, 'subordinate-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg', 'SubscriberRedundancyGroupSubordinateMode', '')])),
             ('hold_timer', (YLeaf(YType.uint32, 'hold-timer'), ['int'])),
             ('sync_timer', (YLeaf(YType.uint32, 'sync-timer'), ['int'])),
             ('redundancy_disable', (YLeaf(YType.empty, 'redundancy-disable'), ['Empty'])),
@@ -217,7 +217,7 @@ class SubscriberRedundancy(_Entity_):
         self.virtual_mac_prefix = None
         self.preferred_role = None
         self.source_interface = None
-        self.slave_mode = None
+        self.subordinate_mode = None
         self.hold_timer = None
         self.sync_timer = None
         self.redundancy_disable = None
@@ -233,7 +233,7 @@ class SubscriberRedundancy(_Entity_):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(SubscriberRedundancy, ['cpe_tracking', 'enable', 'virtual_mac_prefix', 'preferred_role', 'source_interface', 'slave_mode', 'hold_timer', 'sync_timer', 'redundancy_disable'], name, value)
+        self._perform_setattr(SubscriberRedundancy, ['cpe_tracking', 'enable', 'virtual_mac_prefix', 'preferred_role', 'source_interface', 'subordinate_mode', 'hold_timer', 'sync_timer', 'redundancy_disable'], name, value)
 
 
     class Groups(_Entity_):
@@ -347,10 +347,10 @@ class SubscriberRedundancy(_Entity_):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
-            .. attribute:: slave_mode
+            .. attribute:: subordinate_mode
             
-            	Set Slave Mode
-            	**type**\:  :py:class:`SubscriberRedundancyGroupSlaveMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSlaveMode>`
+            	Set Subordinate Mode
+            	**type**\:  :py:class:`SubscriberRedundancyGroupSubordinateMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg.SubscriberRedundancyGroupSubordinateMode>`
             
             .. attribute:: hold_timer
             
@@ -403,7 +403,7 @@ class SubscriberRedundancy(_Entity_):
                     ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg', 'SubscriberRedundancyGroupRole', '')])),
                     ('description', (YLeaf(YType.str, 'description'), ['str'])),
                     ('l2tp_source_ip_address', (YLeaf(YType.str, 'l2tp-source-ip-address'), ['str'])),
-                    ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg', 'SubscriberRedundancyGroupSlaveMode', '')])),
+                    ('subordinate_mode', (YLeaf(YType.enumeration, 'subordinate-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg', 'SubscriberRedundancyGroupSubordinateMode', '')])),
                     ('hold_timer', (YLeaf(YType.uint32, 'hold-timer'), ['int'])),
                     ('access_tracking_object', (YLeaf(YType.str, 'access-tracking-object'), ['str'])),
                     ('enable_fast_switchover', (YLeaf(YType.empty, 'enable-fast-switchover'), ['Empty'])),
@@ -416,7 +416,7 @@ class SubscriberRedundancy(_Entity_):
                 self.preferred_role = None
                 self.description = None
                 self.l2tp_source_ip_address = None
-                self.slave_mode = None
+                self.subordinate_mode = None
                 self.hold_timer = None
                 self.access_tracking_object = None
                 self.enable_fast_switchover = None
@@ -445,7 +445,7 @@ class SubscriberRedundancy(_Entity_):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SubscriberRedundancy.Groups.Group, ['group_id', 'disable_tracking_object', 'core_tracking_object', 'enable', 'preferred_role', 'description', 'l2tp_source_ip_address', 'slave_mode', 'hold_timer', 'access_tracking_object', 'enable_fast_switchover', 'redundancy_disable'], name, value)
+                self._perform_setattr(SubscriberRedundancy.Groups.Group, ['group_id', 'disable_tracking_object', 'core_tracking_object', 'enable', 'preferred_role', 'description', 'l2tp_source_ip_address', 'subordinate_mode', 'hold_timer', 'access_tracking_object', 'enable_fast_switchover', 'redundancy_disable'], name, value)
 
 
             class InterfaceList(_Entity_):

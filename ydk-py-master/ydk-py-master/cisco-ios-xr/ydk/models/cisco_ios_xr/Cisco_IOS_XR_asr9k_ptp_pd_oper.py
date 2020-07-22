@@ -274,9 +274,9 @@ class PlatformPtp(_Entity_):
         
         	**config**\: False
         
-        .. attribute:: offset_from_master
+        .. attribute:: offset_from_main
         
-        	Time Offset From Master
+        	Time Offset From Main
         	**type**\: int
         
         	**range:** \-9223372036854775808..9223372036854775807
@@ -328,7 +328,7 @@ class PlatformPtp(_Entity_):
                 ('num_discard_sync_timestamp', (YLeaf(YType.uint32, 'num-discard-sync-timestamp'), ['int'])),
                 ('num_discard_delay_timestamp', (YLeaf(YType.uint32, 'num-discard-delay-timestamp'), ['int'])),
                 ('flagof_last_set_time', (YLeaf(YType.boolean, 'flagof-last-set-time'), ['bool'])),
-                ('offset_from_master', (YLeaf(YType.int64, 'offset-from-master'), ['int'])),
+                ('offset_from_main', (YLeaf(YType.int64, 'offset-from-main'), ['int'])),
                 ('mean_path_delay', (YLeaf(YType.int64, 'mean-path-delay'), ['int'])),
             ])
             self.lock_status = None
@@ -347,7 +347,7 @@ class PlatformPtp(_Entity_):
             self.num_discard_sync_timestamp = None
             self.num_discard_delay_timestamp = None
             self.flagof_last_set_time = None
-            self.offset_from_master = None
+            self.offset_from_main = None
             self.mean_path_delay = None
 
             self.last_set_time = PlatformPtp.PlatformPtpServo.LastSetTime()
@@ -390,7 +390,7 @@ class PlatformPtp(_Entity_):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PlatformPtp.PlatformPtpServo, ['lock_status', 'running', 'device_status', 'log_level', 'phase_accuracy_last', 'num_sync_timestamp', 'num_delay_timestamp', 'num_set_time', 'num_step_time', 'num_adjust_freq', 'num_adjust_freq_time', 'last_adjust_freq', 'last_step_time', 'num_discard_sync_timestamp', 'num_discard_delay_timestamp', 'flagof_last_set_time', 'offset_from_master', 'mean_path_delay'], name, value)
+            self._perform_setattr(PlatformPtp.PlatformPtpServo, ['lock_status', 'running', 'device_status', 'log_level', 'phase_accuracy_last', 'num_sync_timestamp', 'num_delay_timestamp', 'num_set_time', 'num_step_time', 'num_adjust_freq', 'num_adjust_freq_time', 'last_adjust_freq', 'last_step_time', 'num_discard_sync_timestamp', 'num_discard_delay_timestamp', 'flagof_last_set_time', 'offset_from_main', 'mean_path_delay'], name, value)
 
 
         class LastSetTime(_Entity_):

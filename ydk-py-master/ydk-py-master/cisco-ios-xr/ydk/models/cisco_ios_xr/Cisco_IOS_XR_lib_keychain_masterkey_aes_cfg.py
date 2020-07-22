@@ -1,11 +1,11 @@
-""" Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg 
+""" Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg 
 
 This module contains a collection of YANG definitions
-for Cisco IOS\-XR lib\-keychain\-masterkey\-aes package configuration.
+for Cisco IOS\-XR lib\-keychain\-mainkey\-aes package configuration.
 
 This module contains definitions
 for the following management objects\:
-  password\: Configure masterkey
+  password\: Configure mainkey
 
 Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
@@ -40,25 +40,25 @@ class KeyEncryption(Enum):
 
     @staticmethod
     def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg as meta
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg as meta
         return meta._meta_table['KeyEncryption']
 
 
 
 class Password(_Entity_):
     """
-    Configure masterkey
+    Configure mainkey
     
     .. attribute:: encryption
     
     	Enable password encryption
-    	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg.Password.Encryption>`
+    	**type**\:  :py:class:`Encryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg.Password.Encryption>`
     
     
 
     """
 
-    _prefix = 'lib-keychain-masterkey-aes-cfg'
+    _prefix = 'lib-keychain-mainkey-aes-cfg'
     _revision = '2017-09-07'
 
     def __init__(self):
@@ -69,7 +69,7 @@ class Password(_Entity_):
         self._top_entity = None
 
         self.yang_name = "password"
-        self.yang_parent_name = "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg"
+        self.yang_parent_name = "Cisco-IOS-XR-lib-keychain-mainkey-aes-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
@@ -79,7 +79,7 @@ class Password(_Entity_):
         self.encryption = Password.Encryption()
         self.encryption.parent = self
         self._children_name_map["encryption"] = "encryption"
-        self._segment_path = lambda: "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password"
+        self._segment_path = lambda: "Cisco-IOS-XR-lib-keychain-mainkey-aes-cfg:password"
         self._is_frozen = True
 
     def __setattr__(self, name, value):
@@ -93,13 +93,13 @@ class Password(_Entity_):
         .. attribute:: aes
         
         	encryption type used to store key
-        	**type**\:  :py:class:`KeyEncryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg.KeyEncryption>`
+        	**type**\:  :py:class:`KeyEncryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg.KeyEncryption>`
         
         
 
         """
 
-        _prefix = 'lib-keychain-masterkey-aes-cfg'
+        _prefix = 'lib-keychain-mainkey-aes-cfg'
         _revision = '2017-09-07'
 
         def __init__(self):
@@ -115,11 +115,11 @@ class Password(_Entity_):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('aes', (YLeaf(YType.enumeration, 'aes'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg', 'KeyEncryption', '')])),
+                ('aes', (YLeaf(YType.enumeration, 'aes'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg', 'KeyEncryption', '')])),
             ])
             self.aes = None
             self._segment_path = lambda: "encryption"
-            self._absolute_path = lambda: "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-lib-keychain-mainkey-aes-cfg:password/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
@@ -127,7 +127,7 @@ class Password(_Entity_):
 
         @staticmethod
         def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg as meta
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg as meta
             return meta._meta_table['Password.Encryption']['meta_info']
 
     def clone_ptr(self):
@@ -136,7 +136,7 @@ class Password(_Entity_):
 
     @staticmethod
     def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg as meta
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg as meta
         return meta._meta_table['Password']['meta_info']
 
 

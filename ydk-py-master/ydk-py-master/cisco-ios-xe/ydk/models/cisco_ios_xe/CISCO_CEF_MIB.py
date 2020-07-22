@@ -103,8 +103,8 @@ on the RP). CEF consistency checkers (CC) detects
 this inconsistency.
 
 When two databases are compared by a consistency checker, 
-a set of records from the first (master) database is 
-looked up in the second (slave).
+a set of records from the first (main) database is 
+looked up in the second (subordinate).
 
 There are two types of consistency checkers, 
 active and passive. Active consistency checkers 
@@ -3172,7 +3172,7 @@ class CISCOCEFMIB(Entity):
             
             .. attribute:: cefccqueriesiterated
             
-            	Number of prefix consistency queries iterated back to the master database by this consistency checker
+            	Number of prefix consistency queries iterated back to the main database by this consistency checker
             	**type**\: int
             
             	**range:** 0..4294967295

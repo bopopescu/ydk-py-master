@@ -436,25 +436,25 @@ class SubscriberSrgOperFilterFlag(Enum):
 
     	SRG Role None
 
-    .. data:: srg_master = 16384
+    .. data:: srg_main = 16384
 
-    	SRG Role Master
+    	SRG Role Main
 
-    .. data:: srg_slave = 65536
+    .. data:: srg_subordinate = 65536
 
-    	SRG Role Slave
+    	SRG Role Subordinate
 
     .. data:: srg_both = 81920
 
-    	SRG Role Master Slave
+    	SRG Role Main Subordinate
 
     """
 
     srg_none = Enum.YLeaf(0, "srg-none")
 
-    srg_master = Enum.YLeaf(16384, "srg-master")
+    srg_main = Enum.YLeaf(16384, "srg-main")
 
-    srg_slave = Enum.YLeaf(65536, "srg-slave")
+    srg_subordinate = Enum.YLeaf(65536, "srg-subordinate")
 
     srg_both = Enum.YLeaf(81920, "srg-both")
 
@@ -9136,36 +9136,36 @@ class Subscriber(_Entity_):
                         
                         	**config**\: False
                         
-                        .. attribute:: slave_recv_entry
+                        .. attribute:: subordinate_recv_entry
                         
-                        	Slave Recieved Sync
+                        	Subordinate Recieved Sync
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         	**config**\: False
                         
-                        .. attribute:: slave_decode_fail
+                        .. attribute:: subordinate_decode_fail
                         
-                        	Decode failed on Slave
+                        	Decode failed on Subordinate
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         	**config**\: False
                         
-                        .. attribute:: slave_create_update
+                        .. attribute:: subordinate_create_update
                         
-                        	Create Update received on slave
+                        	Create Update received on subordinate
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         	**config**\: False
                         
-                        .. attribute:: slave_delete
+                        .. attribute:: subordinate_delete
                         
-                        	Delete received on slave
+                        	Delete received on subordinate
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -9318,7 +9318,7 @@ class Subscriber(_Entity_):
                         
                         .. attribute:: txlist_remove_all_internal_error
                         
-                        	Number of Internal errors upon Master Txlist remove all call
+                        	Number of Internal errors upon Main Txlist remove all call
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -9458,27 +9458,27 @@ class Subscriber(_Entity_):
                         
                         	**config**\: False
                         
-                        .. attribute:: total_srg_not_master
+                        .. attribute:: total_srg_not_main
                         
-                        	Total No of times SRG Not Master
+                        	Total No of times SRG Not Main
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         	**config**\: False
                         
-                        .. attribute:: total_master_eoms_pending
+                        .. attribute:: total_main_eoms_pending
                         
-                        	Total No of times Master EOMS Pending
+                        	Total No of times Main EOMS Pending
                         	**type**\: int
                         
                         	**range:** 0..4294967295
                         
                         	**config**\: False
                         
-                        .. attribute:: total_master_eoms_pending_cleared
+                        .. attribute:: total_main_eoms_pending_cleared
                         
-                        	Total No of times Master EOMS Pending Cleared
+                        	Total No of times Main EOMS Pending Cleared
                         	**type**\: int
                         
                         	**range:** 0..4294967295
@@ -9552,10 +9552,10 @@ class Subscriber(_Entity_):
                                 ('delete_encode', (YLeaf(YType.uint32, 'delete-encode'), ['int'])),
                                 ('create_upd_clean_callback', (YLeaf(YType.uint32, 'create-upd-clean-callback'), ['int'])),
                                 ('delete_clean_callback', (YLeaf(YType.uint32, 'delete-clean-callback'), ['int'])),
-                                ('slave_recv_entry', (YLeaf(YType.uint32, 'slave-recv-entry'), ['int'])),
-                                ('slave_decode_fail', (YLeaf(YType.uint32, 'slave-decode-fail'), ['int'])),
-                                ('slave_create_update', (YLeaf(YType.uint32, 'slave-create-update'), ['int'])),
-                                ('slave_delete', (YLeaf(YType.uint32, 'slave-delete'), ['int'])),
+                                ('subordinate_recv_entry', (YLeaf(YType.uint32, 'subordinate-recv-entry'), ['int'])),
+                                ('subordinate_decode_fail', (YLeaf(YType.uint32, 'subordinate-decode-fail'), ['int'])),
+                                ('subordinate_create_update', (YLeaf(YType.uint32, 'subordinate-create-update'), ['int'])),
+                                ('subordinate_delete', (YLeaf(YType.uint32, 'subordinate-delete'), ['int'])),
                                 ('srg_context_malloc', (YLeaf(YType.uint32, 'srg-context-malloc'), ['int'])),
                                 ('srg_context_free', (YLeaf(YType.uint32, 'srg-context-free'), ['int'])),
                                 ('sod_count', (YLeaf(YType.uint32, 'sod-count'), ['int'])),
@@ -9588,9 +9588,9 @@ class Subscriber(_Entity_):
                                 ('total_resume_count', (YLeaf(YType.uint32, 'total-resume-count'), ['int'])),
                                 ('total_dont_send_to_txlist', (YLeaf(YType.uint32, 'total-dont-send-to-txlist'), ['int'])),
                                 ('total_srg_txlist_no_add_restore_flag_set', (YLeaf(YType.uint32, 'total-srg-txlist-no-add-restore-flag-set'), ['int'])),
-                                ('total_srg_not_master', (YLeaf(YType.uint32, 'total-srg-not-master'), ['int'])),
-                                ('total_master_eoms_pending', (YLeaf(YType.uint32, 'total-master-eoms-pending'), ['int'])),
-                                ('total_master_eoms_pending_cleared', (YLeaf(YType.uint32, 'total-master-eoms-pending-cleared'), ['int'])),
+                                ('total_srg_not_main', (YLeaf(YType.uint32, 'total-srg-not-main'), ['int'])),
+                                ('total_main_eoms_pending', (YLeaf(YType.uint32, 'total-main-eoms-pending'), ['int'])),
+                                ('total_main_eoms_pending_cleared', (YLeaf(YType.uint32, 'total-main-eoms-pending-cleared'), ['int'])),
                                 ('last_pause_period', (YLeaf(YType.uint64, 'last-pause-period'), ['int'])),
                                 ('total_pause_time', (YLeaf(YType.uint64, 'total-pause-time'), ['int'])),
                                 ('last_pause_time', (YLeaf(YType.uint64, 'last-pause-time'), ['int'])),
@@ -9607,10 +9607,10 @@ class Subscriber(_Entity_):
                             self.delete_encode = None
                             self.create_upd_clean_callback = None
                             self.delete_clean_callback = None
-                            self.slave_recv_entry = None
-                            self.slave_decode_fail = None
-                            self.slave_create_update = None
-                            self.slave_delete = None
+                            self.subordinate_recv_entry = None
+                            self.subordinate_decode_fail = None
+                            self.subordinate_create_update = None
+                            self.subordinate_delete = None
                             self.srg_context_malloc = None
                             self.srg_context_free = None
                             self.sod_count = None
@@ -9643,9 +9643,9 @@ class Subscriber(_Entity_):
                             self.total_resume_count = None
                             self.total_dont_send_to_txlist = None
                             self.total_srg_txlist_no_add_restore_flag_set = None
-                            self.total_srg_not_master = None
-                            self.total_master_eoms_pending = None
-                            self.total_master_eoms_pending_cleared = None
+                            self.total_srg_not_main = None
+                            self.total_main_eoms_pending = None
+                            self.total_main_eoms_pending_cleared = None
                             self.last_pause_period = None
                             self.total_pause_time = None
                             self.last_pause_time = None
@@ -9654,7 +9654,7 @@ class Subscriber(_Entity_):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Srg, ['txlist_send_triggered', 'txlist_send_failed', 'txlist_send_failed_notactive', 'actual_txlist_sent', 'alreadyin_txlist', 'txlist_encode', 'txlist_encode_fail', 'create_update_encode', 'delete_encode', 'create_upd_clean_callback', 'delete_clean_callback', 'slave_recv_entry', 'slave_decode_fail', 'slave_create_update', 'slave_delete', 'srg_context_malloc', 'srg_context_free', 'sod_count', 'eod_count', 'sod_eod_replay_req_count', 'sod_eod_dirty_mark_count', 'sod_eod_dirty_delete_count', 'ack_to_srg', 'nack_to_srg', 'nack_to_srg_fail_cnt', 'txlist_remove_all', 'txlist_del_sync', 'txlist_del_sync_notlinked', 'txlist_del_app', 'txlist_del_app_notlinked', 'txlist_clean_invalid_state', 'txlist_remove_all_internal_error', 'is_srg_flow_control_enabled', 'max_inflight_sessoin_count', 'flow_control_resume_threshold', 'inflight_session_count', 'inflight_add_count', 'inflight_under_run_count', 'inflight_alloc_fails', 'inflight_insert_failures', 'inflight_deletes', 'inflight_not_found', 'inflight_delete_failures', 'total_pause_count', 'total_resume_count', 'total_dont_send_to_txlist', 'total_srg_txlist_no_add_restore_flag_set', 'total_srg_not_master', 'total_master_eoms_pending', 'total_master_eoms_pending_cleared', 'last_pause_period', 'total_pause_time', 'last_pause_time', 'last_resume_time'], name, value)
+                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Srg, ['txlist_send_triggered', 'txlist_send_failed', 'txlist_send_failed_notactive', 'actual_txlist_sent', 'alreadyin_txlist', 'txlist_encode', 'txlist_encode_fail', 'create_update_encode', 'delete_encode', 'create_upd_clean_callback', 'delete_clean_callback', 'subordinate_recv_entry', 'subordinate_decode_fail', 'subordinate_create_update', 'subordinate_delete', 'srg_context_malloc', 'srg_context_free', 'sod_count', 'eod_count', 'sod_eod_replay_req_count', 'sod_eod_dirty_mark_count', 'sod_eod_dirty_delete_count', 'ack_to_srg', 'nack_to_srg', 'nack_to_srg_fail_cnt', 'txlist_remove_all', 'txlist_del_sync', 'txlist_del_sync_notlinked', 'txlist_del_app', 'txlist_del_app_notlinked', 'txlist_clean_invalid_state', 'txlist_remove_all_internal_error', 'is_srg_flow_control_enabled', 'max_inflight_sessoin_count', 'flow_control_resume_threshold', 'inflight_session_count', 'inflight_add_count', 'inflight_under_run_count', 'inflight_alloc_fails', 'inflight_insert_failures', 'inflight_deletes', 'inflight_not_found', 'inflight_delete_failures', 'total_pause_count', 'total_resume_count', 'total_dont_send_to_txlist', 'total_srg_txlist_no_add_restore_flag_set', 'total_srg_not_main', 'total_main_eoms_pending', 'total_main_eoms_pending_cleared', 'last_pause_period', 'total_pause_time', 'last_pause_time', 'last_resume_time'], name, value)
 
                         @staticmethod
                         def _meta_info():

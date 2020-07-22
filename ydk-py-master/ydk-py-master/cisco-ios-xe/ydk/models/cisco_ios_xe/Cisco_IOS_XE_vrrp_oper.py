@@ -15,37 +15,37 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class MasterReason(Enum):
+class MainReason(Enum):
     """
-    MasterReason (Enum Class)
+    MainReason (Enum Class)
 
-    Indicates why this router became master of the VRRP group
+    Indicates why this router became main of the VRRP group
 
-    .. data:: reason_not_master = 0
+    .. data:: reason_not_main = 0
 
-    	Router is not in master state
+    	Router is not in main state
 
     .. data:: reason_priority = 1
 
-    	Won the Master election due to higher priority
+    	Won the Main election due to higher priority
 
     .. data:: reason_preempt = 2
 
-    	Preempted a lower priority Master router
+    	Preempted a lower priority Main router
 
-    .. data:: reason_master_no_response = 3
+    .. data:: reason_main_no_response = 3
 
-    	Master router stopped responding
+    	Main router stopped responding
 
     """
 
-    reason_not_master = Enum.YLeaf(0, "reason-not-master")
+    reason_not_main = Enum.YLeaf(0, "reason-not-main")
 
     reason_priority = Enum.YLeaf(1, "reason-priority")
 
     reason_preempt = Enum.YLeaf(2, "reason-preempt")
 
-    reason_master_no_response = Enum.YLeaf(3, "reason-master-no-response")
+    reason_main_no_response = Enum.YLeaf(3, "reason-main-no-response")
 
 
 class OmpStateUpdown(Enum):
@@ -115,9 +115,9 @@ class VrrpProtoState(Enum):
 
     .. data:: proto_state_backup = 2
 
-    	Indicates that the virtual router is monitoring the availability of a master
+    	Indicates that the virtual router is monitoring the availability of a main
 
-    .. data:: proto_state_master = 3
+    .. data:: proto_state_main = 3
 
     	Indicates that the virtual router is forwarding packets for IP addresses that are associated with this router
 
@@ -131,7 +131,7 @@ class VrrpProtoState(Enum):
 
     proto_state_backup = Enum.YLeaf(2, "proto-state-backup")
 
-    proto_state_master = Enum.YLeaf(3, "proto-state-master")
+    proto_state_main = Enum.YLeaf(3, "proto-state-main")
 
     proto_state_recover = Enum.YLeaf(4, "proto-state-recover")
 
@@ -249,9 +249,9 @@ class VrrpOperData(Entity):
         
         	**config**\: False
         
-        .. attribute:: master_ip
+        .. attribute:: main_ip
         
-        	IP address of the Master router for the VRRP group
+        	IP address of the Main router for the VRRP group
         	**type**\: union of the below types:
         
         		**type**\: str
@@ -273,7 +273,7 @@ class VrrpOperData(Entity):
         
         .. attribute:: priority
         
-        	Specifies the priority value used for VRRP master election process. Valid values are 0 to 255. 0 is used by a current master router to gracefully retire from the vrrp group. 255 indicates the master router also owns the VRRP virtual IP address
+        	Specifies the priority value used for VRRP main election process. Valid values are 0 to 255. 0 is used by a current main router to gracefully retire from the vrrp group. 255 indicates the main router also owns the VRRP virtual IP address
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -282,16 +282,16 @@ class VrrpOperData(Entity):
         
         .. attribute:: advertisement_timer
         
-        	Time interval between hello packets sent by the master router in milliseconds
+        	Time interval between hello packets sent by the main router in milliseconds
         	**type**\: int
         
         	**range:** 0..4294967295
         
         	**config**\: False
         
-        .. attribute:: master_down_timer
+        .. attribute:: main_down_timer
         
-        	Time after which a backup router declares the current master to be down in milliseconds
+        	Time after which a backup router declares the current main to be down in milliseconds
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -300,7 +300,7 @@ class VrrpOperData(Entity):
         
         .. attribute:: skew_time
         
-        	Time to skew Master Down Interval in milliseconds
+        	Time to skew Main Down Interval in milliseconds
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -309,24 +309,24 @@ class VrrpOperData(Entity):
         
         .. attribute:: preempt
         
-        	Controls whether a higher priority virtual router will preempt a lower priority master
+        	Controls whether a higher priority virtual router will preempt a lower priority main
         	**type**\: bool
         
         	**config**\: False
         
-        .. attribute:: master_transitions
+        .. attribute:: main_transitions
         
-        	Number of master transitions that have happened in the VRRP group
+        	Number of main transitions that have happened in the VRRP group
         	**type**\: int
         
         	**range:** 0..4294967295
         
         	**config**\: False
         
-        .. attribute:: new_master_reason
+        .. attribute:: new_main_reason
         
-        	Indicates why this router became master of the VRRP group
-        	**type**\:  :py:class:`MasterReason <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper.MasterReason>`
+        	Indicates why this router became main of the VRRP group
+        	**type**\:  :py:class:`MainReason <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper.MainReason>`
         
         	**config**\: False
         
@@ -483,15 +483,15 @@ class VrrpOperData(Entity):
                 ('if_name', (YLeaf(YType.str, 'if-name'), ['str'])),
                 ('vrrp_state', (YLeaf(YType.enumeration, 'vrrp-state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper', 'VrrpProtoState', '')])),
                 ('virtual_mac', (YLeaf(YType.str, 'virtual-mac'), ['str'])),
-                ('master_ip', (YLeaf(YType.str, 'master-ip'), ['str','str'])),
+                ('main_ip', (YLeaf(YType.str, 'main-ip'), ['str','str'])),
                 ('is_owner', (YLeaf(YType.boolean, 'is-owner'), ['bool'])),
                 ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                 ('advertisement_timer', (YLeaf(YType.uint32, 'advertisement-timer'), ['int'])),
-                ('master_down_timer', (YLeaf(YType.uint32, 'master-down-timer'), ['int'])),
+                ('main_down_timer', (YLeaf(YType.uint32, 'main-down-timer'), ['int'])),
                 ('skew_time', (YLeaf(YType.uint32, 'skew-time'), ['int'])),
                 ('preempt', (YLeaf(YType.boolean, 'preempt'), ['bool'])),
-                ('master_transitions', (YLeaf(YType.uint32, 'master-transitions'), ['int'])),
-                ('new_master_reason', (YLeaf(YType.enumeration, 'new-master-reason'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper', 'MasterReason', '')])),
+                ('main_transitions', (YLeaf(YType.uint32, 'main-transitions'), ['int'])),
+                ('new_main_reason', (YLeaf(YType.enumeration, 'new-main-reason'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper', 'MainReason', '')])),
                 ('last_state_change_time', (YLeaf(YType.str, 'last-state-change-time'), ['str'])),
                 ('adv_interval_errors', (YLeaf(YType.uint32, 'adv-interval-errors'), ['int'])),
                 ('ip_ttl_errors', (YLeaf(YType.uint32, 'ip-ttl-errors'), ['int'])),
@@ -514,15 +514,15 @@ class VrrpOperData(Entity):
             self.if_name = None
             self.vrrp_state = None
             self.virtual_mac = None
-            self.master_ip = None
+            self.main_ip = None
             self.is_owner = None
             self.priority = None
             self.advertisement_timer = None
-            self.master_down_timer = None
+            self.main_down_timer = None
             self.skew_time = None
             self.preempt = None
-            self.master_transitions = None
-            self.new_master_reason = None
+            self.main_transitions = None
+            self.new_main_reason = None
             self.last_state_change_time = None
             self.adv_interval_errors = None
             self.ip_ttl_errors = None
@@ -543,7 +543,7 @@ class VrrpOperData(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(VrrpOperData.VrrpOperState, ['if_number', 'group_id', 'addr_type', 'version', 'virtual_ip', 'if_name', 'vrrp_state', 'virtual_mac', 'master_ip', 'is_owner', 'priority', 'advertisement_timer', 'master_down_timer', 'skew_time', 'preempt', 'master_transitions', 'new_master_reason', 'last_state_change_time', 'adv_interval_errors', 'ip_ttl_errors', 'rcvd_pri_zero_pak', 'sent_pri_zero_pak', 'rcvd_invalid_type_pak', 'addr_list_errors', 'pak_len_errors', 'discontinuity_time', 'advertisement_sent', 'advertisement_rcvd', 'omp_state', 'secondary_vip_addresses'], name, value)
+            self._perform_setattr(VrrpOperData.VrrpOperState, ['if_number', 'group_id', 'addr_type', 'version', 'virtual_ip', 'if_name', 'vrrp_state', 'virtual_mac', 'main_ip', 'is_owner', 'priority', 'advertisement_timer', 'main_down_timer', 'skew_time', 'preempt', 'main_transitions', 'new_main_reason', 'last_state_change_time', 'adv_interval_errors', 'ip_ttl_errors', 'rcvd_pri_zero_pak', 'sent_pri_zero_pak', 'rcvd_invalid_type_pak', 'addr_list_errors', 'pak_len_errors', 'discontinuity_time', 'advertisement_sent', 'advertisement_rcvd', 'omp_state', 'secondary_vip_addresses'], name, value)
 
 
         class TrackList(Entity):

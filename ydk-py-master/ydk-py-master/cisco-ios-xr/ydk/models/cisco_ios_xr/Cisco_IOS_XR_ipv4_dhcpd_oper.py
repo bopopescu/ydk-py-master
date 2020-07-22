@@ -34,21 +34,21 @@ class BagDhcpdIntfSrgRole(Enum):
 
     	DHCPv4 Interface SRG role NONE
 
-    .. data:: master = 1
+    .. data:: main = 1
 
-    	DHCPv4 Interface SRG role Master
+    	DHCPv4 Interface SRG role Main
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
-    	DHCPv4 Interface SRG role Slave
+    	DHCPv4 Interface SRG role Subordinate
 
     """
 
     none = Enum.YLeaf(0, "none")
 
-    master = Enum.YLeaf(1, "master")
+    main = Enum.YLeaf(1, "main")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
     @staticmethod

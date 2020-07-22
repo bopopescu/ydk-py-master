@@ -173,7 +173,7 @@ def main(argv):
             # Find clients that were connected in last 15 minutes
             clients = list_clients(API_KEY, switch['serial'], search_time)
             
-            # Helper variable that is a list of all MAC addresses, in upper-case to compare with master input list
+            # Helper variable that is a list of all MAC addresses, in upper-case to compare with main input list
             clients_macs = [client['mac'].upper() for client in clients]
 
             # Helper variable that is a dict of MAC address keys to client information values
@@ -181,7 +181,7 @@ def main(argv):
             for (mac, client) in zip(clients_macs, clients):
                 matching_dict[mac] = client
 
-            # Find matches between clients on switch to master input list
+            # Find matches between clients on switch to main input list
             matches = set(clients_macs).intersection(macs)
 
             # Find ports of matched clients

@@ -213,9 +213,9 @@ class Ntp(_Entity_):
     
     	**range:** 0..4294967295
     
-    .. attribute:: master
+    .. attribute:: main
     
-    	Act as NTP master clock
+    	Act as NTP main clock
     	**type**\: int
     
     	**range:** 1..20
@@ -261,13 +261,13 @@ class Ntp(_Entity_):
         self._child_classes = OrderedDict([("admin-types", ("admin_types", Ntp.AdminTypes)), ("peer-vrfs", ("peer_vrfs", Ntp.PeerVrfs)), ("dscp-ipv4", ("dscp_ipv4", Ntp.DscpIpv4)), ("dscp-ipv6", ("dscp_ipv6", Ntp.DscpIpv6)), ("sources", ("sources", Ntp.Sources)), ("drift", ("drift", Ntp.Drift)), ("authentication", ("authentication", Ntp.Authentication)), ("passive", ("passive", Ntp.Passive)), ("interface-tables", ("interface_tables", Ntp.InterfaceTables)), ("access-group-tables", ("access_group_tables", Ntp.AccessGroupTables))])
         self._leafs = OrderedDict([
             ('max_associations', (YLeaf(YType.uint32, 'max-associations'), ['int'])),
-            ('master', (YLeaf(YType.uint32, 'master'), ['int'])),
+            ('main', (YLeaf(YType.uint32, 'main'), ['int'])),
             ('broadcast_delay', (YLeaf(YType.uint32, 'broadcast-delay'), ['int'])),
             ('log_internal_sync', (YLeaf(YType.empty, 'log-internal-sync'), ['Empty'])),
             ('update_calendar', (YLeaf(YType.empty, 'update-calendar'), ['Empty'])),
         ])
         self.max_associations = None
-        self.master = None
+        self.main = None
         self.broadcast_delay = None
         self.log_internal_sync = None
         self.update_calendar = None
@@ -313,7 +313,7 @@ class Ntp(_Entity_):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Ntp, ['max_associations', 'master', 'broadcast_delay', 'log_internal_sync', 'update_calendar'], name, value)
+        self._perform_setattr(Ntp, ['max_associations', 'main', 'broadcast_delay', 'log_internal_sync', 'update_calendar'], name, value)
 
 
     class AdminTypes(_Entity_):

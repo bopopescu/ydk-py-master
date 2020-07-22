@@ -237,8 +237,8 @@ application of any critical events.
 This MIB module is defined generically so it can be
 implemented on stand alone devices or stack of devices.
 In stack of devices, one device in the stack acts as
-master agent and rest are slave agents. Each device in the
-stack has its own UDI. The master agent receives requests
+main agent and rest are subordinate agents. Each device in the
+stack has its own UDI. The main agent receives requests
 on behalf of all the devices in the stack including itself
 and delegates it to other devices as needed. It also
 collects responses from other devices and sends them to
@@ -1116,7 +1116,7 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             .. attribute:: clmgmtlicenseactionentphysicalindex
             
-            	This object represents the entPhysicalIndex of the device where the action is being executed. This object is mainly used in devices where one device is acting as a master and rest of the devices as slaves. The master device is responsible for SNMP communication with the management application. Examples include stackable switches, devices with route processor and line card configuration. If this object is not set, the license action will be executed on the master device. Note\: This object need not be set if there is a stand alone device
+            	This object represents the entPhysicalIndex of the device where the action is being executed. This object is mainly used in devices where one device is acting as a main and rest of the devices as subordinates. The main device is responsible for SNMP communication with the management application. Examples include stackable switches, devices with route processor and line card configuration. If this object is not set, the license action will be executed on the main device. Note\: This object need not be set if there is a stand alone device
             	**type**\: int
             
             	**range:** 0..2147483647
@@ -2521,7 +2521,7 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             .. attribute:: clmgmtdevcredentphysicalindex
             
-            	This object represents the entPhysicalIndex of the device for which the device credentials are being retrieved. This object is mainly used in devices where one device is acting as a master and rest of the devices as slaves. The master device is responsible for SNMP communication with the manager. Examples include stackable switches, devices with router processor and line cards.  Note\: This object need not be set if it is a stand alone device
+            	This object represents the entPhysicalIndex of the device for which the device credentials are being retrieved. This object is mainly used in devices where one device is acting as a main and rest of the devices as subordinates. The main device is responsible for SNMP communication with the manager. Examples include stackable switches, devices with router processor and line cards.  Note\: This object need not be set if it is a stand alone device
             	**type**\: int
             
             	**range:** 0..2147483647

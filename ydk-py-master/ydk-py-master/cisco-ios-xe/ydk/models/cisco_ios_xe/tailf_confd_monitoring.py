@@ -294,23 +294,23 @@ class ConfdState(Entity):
         
         	**config**\: False
         
-        .. attribute:: master_node_id
+        .. attribute:: main_node_id
         
-        	The node identifier of this node's parent node. This is the HA cluster's master node unless relay slaves are used
+        	The node identifier of this node's parent node. This is the HA cluster's main node unless relay subordinates are used
         	**type**\: str
         
         	**config**\: False
         
-        .. attribute:: connected_slave
+        .. attribute:: connected_subordinate
         
-        	The node identifiers of the currently connected slaves
+        	The node identifiers of the currently connected subordinates
         	**type**\: list of str
         
         	**config**\: False
         
-        .. attribute:: pending_slave
+        .. attribute:: pending_subordinate
         
-        	The node identifiers of slaves with pending acknowledgement of synchronous replication
+        	The node identifiers of subordinates with pending acknowledgement of synchronous replication
         	**type**\: list of str
         
         	**config**\: False
@@ -337,21 +337,21 @@ class ConfdState(Entity):
             self._leafs = OrderedDict([
                 ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Ha.Mode')])),
                 ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
-                ('master_node_id', (YLeaf(YType.str, 'master-node-id'), ['str'])),
-                ('connected_slave', (YLeafList(YType.str, 'connected-slave'), ['str'])),
-                ('pending_slave', (YLeafList(YType.str, 'pending-slave'), ['str'])),
+                ('main_node_id', (YLeaf(YType.str, 'main-node-id'), ['str'])),
+                ('connected_subordinate', (YLeafList(YType.str, 'connected-subordinate'), ['str'])),
+                ('pending_subordinate', (YLeafList(YType.str, 'pending-subordinate'), ['str'])),
             ])
             self.mode = None
             self.node_id = None
-            self.master_node_id = None
-            self.connected_slave = []
-            self.pending_slave = []
+            self.main_node_id = None
+            self.connected_subordinate = []
+            self.pending_subordinate = []
             self._segment_path = lambda: "ha"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ConfdState.Ha, ['mode', 'node_id', 'master_node_id', 'connected_slave', 'pending_slave'], name, value)
+            self._perform_setattr(ConfdState.Ha, ['mode', 'node_id', 'main_node_id', 'connected_subordinate', 'pending_subordinate'], name, value)
 
         class Mode(Enum):
             """
@@ -361,21 +361,21 @@ class ConfdState(Entity):
 
             .. data:: none = 0
 
-            .. data:: slave = 1
+            .. data:: subordinate = 1
 
-            .. data:: master = 2
+            .. data:: main = 2
 
-            .. data:: relay_slave = 3
+            .. data:: relay_subordinate = 3
 
             """
 
             none = Enum.YLeaf(0, "none")
 
-            slave = Enum.YLeaf(1, "slave")
+            subordinate = Enum.YLeaf(1, "subordinate")
 
-            master = Enum.YLeaf(2, "master")
+            main = Enum.YLeaf(2, "main")
 
-            relay_slave = Enum.YLeaf(3, "relay-slave")
+            relay_subordinate = Enum.YLeaf(3, "relay-subordinate")
 
 
 
@@ -5232,7 +5232,7 @@ class ConfdState(Entity):
                 
                 .. attribute:: write_queue
                 
-                	Number of pending write requests for the 'operational' datastore on a HA slave that is in the process of syncronizing with the master
+                	Number of pending write requests for the 'operational' datastore on a HA subordinate that is in the process of syncronizing with the main
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -5289,7 +5289,7 @@ class ConfdState(Entity):
                 
                 .. attribute:: waiting_for_replication_sync
                 
-                	Indicates whether synchronous replication from HA master to HA slave is in progress for the datastore. Not present for the 'operational' datastore
+                	Indicates whether synchronous replication from HA main to HA subordinate is in progress for the datastore. Not present for the 'operational' datastore
                 	**type**\: bool
                 
                 	**config**\: False

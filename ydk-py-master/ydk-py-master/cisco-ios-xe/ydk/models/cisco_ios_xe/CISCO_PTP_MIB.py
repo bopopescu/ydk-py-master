@@ -11,7 +11,7 @@ implemented with packet\-based networks, the IEEE Standard PTPv2
 1588 (2002). The protocol is applicable to network elements
 communicating using IP. The protocol enables heterogeneous
 systems that include clocks of various inherent precision,
-resolution, and stability to synchronize to a grandmaster
+resolution, and stability to synchronize to a grandmain
 clock.
 The protocol supports system\-wide synchronization accuracy in
 the sub\-microsecond range with minimal network and local clock
@@ -30,7 +30,7 @@ feature of Cisco System devices.
 
 Acronyms\:
          ARB       arbitrary
-         BMC       best master clock
+         BMC       best main clock
          CAN       Controller Area Network
          CP        Communication Profile
                    [according to IEC 61784\-1\:200710]
@@ -108,8 +108,8 @@ output is complete.
 Boundary clock\:
 A clock that has multiple Precision Time Protocol(PTP) ports in
 a domain and maintains the timescale used in the domain.  It
-may serve as the source of time, i.e., be a master clock, and
-may synchronize to another clock, i.e., be a slave clock.
+may serve as the source of time, i.e., be a main clock, and
+may synchronize to another clock, i.e., be a subordinate clock.
 
 Boundary node clock\:
 A clock that has multiple Precision Time Protocol(PTP) ports in
@@ -129,7 +129,7 @@ to clocks in another domain.
 
 End\-to\-end transparent clock\:
 A transparent clock that supports the use of the end\-to\-end
-delay measurement mechanism between slave clocks and the master
+delay measurement mechanism between subordinate clocks and the main
 clock.  Each node must measure the residence time of PTP event
 messages and accumulate it in Correction Field.
 
@@ -140,18 +140,18 @@ Event\:
 An abstraction of the mechanism by which signals or conditions
 are generated and represented.
 
-Foreign master\:
+Foreign main\:
 An ordinary or boundary clock sending Announce messages to
-another clock that is not the current master recognized by the
+another clock that is not the current main recognized by the
 other clock.
 
-Grandmaster clock\:
+Grandmain clock\:
 Within a domain, a clock that is the ultimate source of time
 for clock synchronization using the protocol.
 
 Holdover\:
 A clock previously synchronized/syntonized to another clock
-(normally a primary reference or a master clock) but now
+(normally a primary reference or a main clock) but now
 free\-running based on its own internal oscillator, whose
 frequency is being adjusted using data acquired while it had
 been synchronized/syntonized to the other clock.  It is said to
@@ -167,7 +167,7 @@ over such a link.
 Management node\:
 A device that configures and monitors clocks.
 
-Master clock\:
+Main clock\:
 In the context of a single Precision Time Protocol
 communication path, a clock that is the source of time to which
 all other clocks on that path synchronize.
@@ -193,16 +193,16 @@ message.
 
 On\-pass support\:
 Indicates that each node in the synchronization chain from
-master to slave can support IEEE\-1588.
+main to subordinate can support IEEE\-1588.
 
 Ordinary clock\:
 A clock that has a single Precision Time Protocol port in a
 domain and maintains the timescale used in the domain.  It may
-serve as a source of time, i.e., be a master clock, or may
-synchronize to another clock, i.e., be a slave clock.
+serve as a source of time, i.e., be a main clock, or may
+synchronize to another clock, i.e., be a subordinate clock.
 
 Parent clock\:
-The master clock to which a clock is synchronized.
+The main clock to which a clock is synchronized.
 
 
 Peer\-to\-peer transparent clock\:
@@ -211,7 +211,7 @@ Time Protocol event transit time information, also provides
 corrections for the propagation delay of the link connected to
 the port receiving the PTP event message.  In the presence of
 peer\-to\-peer transparent clocks, delay measurements between
-slave clocks and the master clock are performed using the
+subordinate clocks and the main clock are performed using the
 peer\-to\-peer delay measurement mechanism.
 
 
@@ -324,12 +324,12 @@ STRING(SIZE(1..255))
 5.3.5 PortIdentity    ClockPortNumber     INTEGER(1..65535)
 5.3.7 ClockQuality    ClockQualityClassType
 
-Simple master\-slave hierarchy [1] section 6.6.2.4
+Simple main\-subordinate hierarchy [1] section 6.6.2.4
 
   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
   \- Ordinary    \-
   \- Clock(1)    \-
-  \- GrandMaster \-
+  \- GrandMain \-
   \-\-\-\-\-\-\-M\-\-\-\-\-\-\-
          \|
          1
@@ -353,7 +353,7 @@ Simple master\-slave hierarchy [1] section 6.6.2.4
                             \- Clock(3) \-  \- Clock(4) \-
                             \-\-\-\-\-\-\-\-\-\-\-\-  \-\-\-\-\-\-\-\-\-\-\-\-
 
-  Grandmaster
+  Grandmain
 
   Boundary Clock(0\-N)   Ordinary Clocks(0\-N)
   Ordinary Clocks(0\-N)
@@ -480,9 +480,9 @@ class ClockPortState(Enum):
 
                               to receive an Announce message from
 
-                              a master.
+                              a main.
 
-    preMaster         5       The port shall behave in all respects
+    preMain         5       The port shall behave in all respects
 
                               as though it were in the MASTER state
 
@@ -496,7 +496,7 @@ class ClockPortState(Enum):
 
                               management messages.
 
-    master            6       The port is behaving as a master
+    main            6       The port is behaving as a main
 
                               port. 
 
@@ -516,11 +516,11 @@ class ClockPortState(Enum):
 
     uncalibrated      8       The local port is preparing to
 
-                              synchronize to the master port.
+                              synchronize to the main port.
 
-    slave             9       The port is synchronizing to the
+    subordinate             9       The port is synchronizing to the
 
-                              selected master port.
+                              selected main port.
 
     .. data:: initializing = 1
 
@@ -530,15 +530,15 @@ class ClockPortState(Enum):
 
     .. data:: listening = 4
 
-    .. data:: preMaster = 5
+    .. data:: preMain = 5
 
-    .. data:: master = 6
+    .. data:: main = 6
 
     .. data:: passive = 7
 
     .. data:: uncalibrated = 8
 
-    .. data:: slave = 9
+    .. data:: subordinate = 9
 
     """
 
@@ -550,15 +550,15 @@ class ClockPortState(Enum):
 
     listening = Enum.YLeaf(4, "listening")
 
-    preMaster = Enum.YLeaf(5, "preMaster")
+    preMain = Enum.YLeaf(5, "preMain")
 
-    master = Enum.YLeaf(6, "master")
+    main = Enum.YLeaf(6, "main")
 
     passive = Enum.YLeaf(7, "passive")
 
     uncalibrated = Enum.YLeaf(8, "uncalibrated")
 
-    slave = Enum.YLeaf(9, "slave")
+    subordinate = Enum.YLeaf(9, "subordinate")
 
 
 class ClockProfileType(Enum):
@@ -699,7 +699,7 @@ class ClockRoleType(Enum):
     """
     ClockRoleType (Enum Class)
 
-    The Clock Role. The protocol generates a Master Slave
+    The Clock Role. The protocol generates a Main Subordinate
 
     relationship among the clocks in the system.
 
@@ -707,25 +707,25 @@ class ClockRoleType(Enum):
 
     \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
 
-    Master clock     1        A clock that is the source of
+    Main clock     1        A clock that is the source of
 
                               time to which all other clocks on
 
                               that path synchronize.
 
-    Slave clock       2       A clock which synchronizes to
+    Subordinate clock       2       A clock which synchronizes to
 
-                              another clock (master).
+                              another clock (main).
 
-    .. data:: master = 1
+    .. data:: main = 1
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
     """
 
-    master = Enum.YLeaf(1, "master")
+    main = Enum.YLeaf(1, "main")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
 class ClockStateType(Enum):
@@ -738,55 +738,55 @@ class ClockStateType(Enum):
 
     \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
 
-    Freerun state       1   Applies to a slave device that is not
+    Freerun state       1   Applies to a subordinate device that is not
 
-                            locked to a master. This is the initial
+                            locked to a main. This is the initial
 
-                            state a slave starts out with when it
+                            state a subordinate starts out with when it
 
                             is not getting any PTP packets from the
 
-                            master or because of some other input
+                            main or because of some other input
 
                             error (erroneous packets, etc).
 
-    Holdover state      2  In this state the slave device is
+    Holdover state      2  In this state the subordinate device is
 
-                            locked to a master but communication
+                            locked to a main but communication
 
-                            with the master is lost or the
+                            with the main is lost or the
 
                             timestamps in the ptp packets are
 
-                            incorrect. But since the slave was
+                            incorrect. But since the subordinate was
 
-                            locked to the master, it can run with
+                            locked to the main, it can run with
 
                             the same accuracy for sometime. The
 
-                            slave can continue to operate in this
+                            subordinate can continue to operate in this
 
                             state for some time. If communication
 
-                            with the master is not restored for a
+                            with the main is not restored for a
 
                             while, the device is moved to the
 
                             FREERUN state.
 
-    Acquiring state     3   The slave device is receiving packets
+    Acquiring state     3   The subordinate device is receiving packets
 
-                            from a master and is trying to acquire
+                            from a main and is trying to acquire
 
                             a lock.
 
-    Freq\_locked state   4   Slave device is locked to the Master
+    Freq\_locked state   4   Subordinate device is locked to the Main
 
                             with respect to frequency, but not phase
 
                             aligned
 
-    Phase\_aligned state 5   Locked to the master with respect to
+    Phase\_aligned state 5   Locked to the main with respect to
 
                             frequency and phase.
 
@@ -1027,7 +1027,7 @@ class CISCOPTPMIB(Entity):
     
     .. attribute:: cptpclockportassociatetable
     
-    	Table of information about a given port's associated ports.  For a master port \- multiple slave ports which have established sessions with the current master port.   For a slave port \- the list of masters available for a given slave port.   Session information (pkts, errors) to be displayed based on availability and scenario
+    	Table of information about a given port's associated ports.  For a main port \- multiple subordinate ports which have established sessions with the current main port.   For a subordinate port \- the list of mains available for a given subordinate port.   Session information (pkts, errors) to be displayed based on availability and scenario
     	**type**\:  :py:class:`CPtpClockPortAssociateTable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.CPtpClockPortAssociateTable>`
     
     	**config**\: False
@@ -1640,7 +1640,7 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockcurrentdsstepsremoved
             
-            	The current clock dataset StepsRemoved value.  This object specifies the distance measured by the number of Boundary clocks between the local clock and the Foreign master as indicated in the stepsRemoved field of Announce messages
+            	The current clock dataset StepsRemoved value.  This object specifies the distance measured by the number of Boundary clocks between the local clock and the Foreign main as indicated in the stepsRemoved field of Announce messages
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -1649,9 +1649,9 @@ class CISCOPTPMIB(Entity):
             
             	**units**\: steps
             
-            .. attribute:: cptpclockcurrentdsoffsetfrommaster
+            .. attribute:: cptpclockcurrentdsoffsetfrommain
             
-            	This object specifies the current clock dataset ClockOffset value. The value of the computation of the offset in time between a slave and a master clock
+            	This object specifies the current clock dataset ClockOffset value. The value of the computation of the offset in time between a subordinate and a main clock
             	**type**\: str
             
             	**length:** 1..255
@@ -1690,21 +1690,21 @@ class CISCOPTPMIB(Entity):
                     ('cptpclockcurrentdsclocktypeindex', (YLeaf(YType.enumeration, 'cPtpClockCurrentDSClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
                     ('cptpclockcurrentdsinstanceindex', (YLeaf(YType.uint32, 'cPtpClockCurrentDSInstanceIndex'), ['int'])),
                     ('cptpclockcurrentdsstepsremoved', (YLeaf(YType.uint32, 'cPtpClockCurrentDSStepsRemoved'), ['int'])),
-                    ('cptpclockcurrentdsoffsetfrommaster', (YLeaf(YType.str, 'cPtpClockCurrentDSOffsetFromMaster'), ['str'])),
+                    ('cptpclockcurrentdsoffsetfrommain', (YLeaf(YType.str, 'cPtpClockCurrentDSOffsetFromMain'), ['str'])),
                     ('cptpclockcurrentdsmeanpathdelay', (YLeaf(YType.str, 'cPtpClockCurrentDSMeanPathDelay'), ['str'])),
                 ])
                 self.cptpclockcurrentdsdomainindex = None
                 self.cptpclockcurrentdsclocktypeindex = None
                 self.cptpclockcurrentdsinstanceindex = None
                 self.cptpclockcurrentdsstepsremoved = None
-                self.cptpclockcurrentdsoffsetfrommaster = None
+                self.cptpclockcurrentdsoffsetfrommain = None
                 self.cptpclockcurrentdsmeanpathdelay = None
                 self._segment_path = lambda: "cPtpClockCurrentDSEntry" + "[cPtpClockCurrentDSDomainIndex='" + str(self.cptpclockcurrentdsdomainindex) + "']" + "[cPtpClockCurrentDSClockTypeIndex='" + str(self.cptpclockcurrentdsclocktypeindex) + "']" + "[cPtpClockCurrentDSInstanceIndex='" + str(self.cptpclockcurrentdsinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockCurrentDSTable/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.CPtpClockCurrentDSTable.CPtpClockCurrentDSEntry, ['cptpclockcurrentdsdomainindex', 'cptpclockcurrentdsclocktypeindex', 'cptpclockcurrentdsinstanceindex', 'cptpclockcurrentdsstepsremoved', 'cptpclockcurrentdsoffsetfrommaster', 'cptpclockcurrentdsmeanpathdelay'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockCurrentDSTable.CPtpClockCurrentDSEntry, ['cptpclockcurrentdsdomainindex', 'cptpclockcurrentdsclocktypeindex', 'cptpclockcurrentdsinstanceindex', 'cptpclockcurrentdsstepsremoved', 'cptpclockcurrentdsoffsetfrommain', 'cptpclockcurrentdsmeanpathdelay'], name, value)
 
 
 
@@ -1780,7 +1780,7 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockparentdsparentportidentity
             
-            	This object specifies the value of portIdentity of the port on the master that issues the Sync messages used in synchronizing this clock
+            	This object specifies the value of portIdentity of the port on the main that issues the Sync messages used in synchronizing this clock
             	**type**\: str
             
             	**config**\: False
@@ -1803,7 +1803,7 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockparentdsclockphchrate
             
-            	This object specifies the clock's parent dataset ParentClockPhaseChangeRate value.  This value is an estimate of the parent clocks phase change rate as measured by the slave clock
+            	This object specifies the clock's parent dataset ParentClockPhaseChangeRate value.  This value is an estimate of the parent clocks phase change rate as measured by the subordinate clock
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
@@ -1812,7 +1812,7 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockparentdsgmclockidentity
             
-            	This object specifies the parent dataset Grandmaster clock identity
+            	This object specifies the parent dataset Grandmain clock identity
             	**type**\: str
             
             	**length:** 1..255
@@ -1821,7 +1821,7 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockparentdsgmclockpriority1
             
-            	This object specifies the parent dataset Grandmaster clock priority1
+            	This object specifies the parent dataset Grandmain clock priority1
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
@@ -1830,7 +1830,7 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockparentdsgmclockpriority2
             
-            	This object specifies the parent dataset grandmaster clock priority2
+            	This object specifies the parent dataset grandmain clock priority2
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
@@ -1839,7 +1839,7 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockparentdsgmclockqualityclass
             
-            	This object specifies the parent dataset grandmaster clock quality class
+            	This object specifies the parent dataset grandmain clock quality class
             	**type**\: int
             
             	**range:** 0..255
@@ -1848,14 +1848,14 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockparentdsgmclockqualityaccuracy
             
-            	This object specifies the parent dataset grandmaster clock quality accuracy
+            	This object specifies the parent dataset grandmain clock quality accuracy
             	**type**\:  :py:class:`ClockQualityAccuracyType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockQualityAccuracyType>`
             
             	**config**\: False
             
             .. attribute:: cptpclockparentdsgmclockqualityoffset
             
-            	This object specifies the parent dataset grandmaster clock quality offset
+            	This object specifies the parent dataset grandmain clock quality offset
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -2019,9 +2019,9 @@ class CISCOPTPMIB(Entity):
             
             	**config**\: False
             
-            .. attribute:: cptpclockdefaultdsslaveonly
+            .. attribute:: cptpclockdefaultdssubordinateonly
             
-            	Whether the SlaveOnly flag is set
+            	Whether the SubordinateOnly flag is set
             	**type**\: bool
             
             	**config**\: False
@@ -2075,7 +2075,7 @@ class CISCOPTPMIB(Entity):
                     ('cptpclockdefaultdsclockidentity', (YLeaf(YType.str, 'cPtpClockDefaultDSClockIdentity'), ['str'])),
                     ('cptpclockdefaultdspriority1', (YLeaf(YType.int32, 'cPtpClockDefaultDSPriority1'), ['int'])),
                     ('cptpclockdefaultdspriority2', (YLeaf(YType.int32, 'cPtpClockDefaultDSPriority2'), ['int'])),
-                    ('cptpclockdefaultdsslaveonly', (YLeaf(YType.boolean, 'cPtpClockDefaultDSSlaveOnly'), ['bool'])),
+                    ('cptpclockdefaultdssubordinateonly', (YLeaf(YType.boolean, 'cPtpClockDefaultDSSubordinateOnly'), ['bool'])),
                     ('cptpclockdefaultdsqualityclass', (YLeaf(YType.uint32, 'cPtpClockDefaultDSQualityClass'), ['int'])),
                     ('cptpclockdefaultdsqualityaccuracy', (YLeaf(YType.enumeration, 'cPtpClockDefaultDSQualityAccuracy'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockQualityAccuracyType', '')])),
                     ('cptpclockdefaultdsqualityoffset', (YLeaf(YType.int32, 'cPtpClockDefaultDSQualityOffset'), ['int'])),
@@ -2087,7 +2087,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclockdefaultdsclockidentity = None
                 self.cptpclockdefaultdspriority1 = None
                 self.cptpclockdefaultdspriority2 = None
-                self.cptpclockdefaultdsslaveonly = None
+                self.cptpclockdefaultdssubordinateonly = None
                 self.cptpclockdefaultdsqualityclass = None
                 self.cptpclockdefaultdsqualityaccuracy = None
                 self.cptpclockdefaultdsqualityoffset = None
@@ -2096,7 +2096,7 @@ class CISCOPTPMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.CPtpClockDefaultDSTable.CPtpClockDefaultDSEntry, ['cptpclockdefaultdsdomainindex', 'cptpclockdefaultdsclocktypeindex', 'cptpclockdefaultdsinstanceindex', 'cptpclockdefaultdstwostepflag', 'cptpclockdefaultdsclockidentity', 'cptpclockdefaultdspriority1', 'cptpclockdefaultdspriority2', 'cptpclockdefaultdsslaveonly', 'cptpclockdefaultdsqualityclass', 'cptpclockdefaultdsqualityaccuracy', 'cptpclockdefaultdsqualityoffset'], name, value)
+                self._perform_setattr(CISCOPTPMIB.CPtpClockDefaultDSTable.CPtpClockDefaultDSEntry, ['cptpclockdefaultdsdomainindex', 'cptpclockdefaultdsclocktypeindex', 'cptpclockdefaultdsinstanceindex', 'cptpclockdefaultdstwostepflag', 'cptpclockdefaultdsclockidentity', 'cptpclockdefaultdspriority1', 'cptpclockdefaultdspriority2', 'cptpclockdefaultdssubordinateonly', 'cptpclockdefaultdsqualityclass', 'cptpclockdefaultdsqualityaccuracy', 'cptpclockdefaultdsqualityoffset'], name, value)
 
 
 
@@ -2172,7 +2172,7 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockrunningstate
             
-            	This object specifies the Clock state returned by PTP engine which was described earlier.  Freerun state. Applies to a slave device that is not locked to a master. This is the initial state a slave starts out with when it is not getting any PTP packets from the master or because of some other input error (erroneous packets, etc).  Holdover state. In this state the slave device is locked to a master but communication with the master is lost or the timestamps in the ptp packets are incorrect. But since the slave was locked to the master, it can run with the same accuracy for sometime. The slave can continue to operate in this state for some time. If communication with the master is not restored for a while, the device is moved to the FREERUN state.  Acquiring state. The slave device is receiving packets from a master and is trying to acquire a lock.  Freq\_locked state. Slave device is locked to the Master with respect to frequency, but not phase aligned  Phase\_aligned state. Locked to the master with respect to frequency and phase
+            	This object specifies the Clock state returned by PTP engine which was described earlier.  Freerun state. Applies to a subordinate device that is not locked to a main. This is the initial state a subordinate starts out with when it is not getting any PTP packets from the main or because of some other input error (erroneous packets, etc).  Holdover state. In this state the subordinate device is locked to a main but communication with the main is lost or the timestamps in the ptp packets are incorrect. But since the subordinate was locked to the main, it can run with the same accuracy for sometime. The subordinate can continue to operate in this state for some time. If communication with the main is not restored for a while, the device is moved to the FREERUN state.  Acquiring state. The subordinate device is receiving packets from a main and is trying to acquire a lock.  Freq\_locked state. Subordinate device is locked to the Main with respect to frequency, but not phase aligned  Phase\_aligned state. Locked to the main with respect to frequency and phase
             	**type**\:  :py:class:`ClockStateType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockStateType>`
             
             	**config**\: False
@@ -2637,28 +2637,28 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockportrole
             
-            	This object describes the current role (slave/master) of the port
+            	This object describes the current role (subordinate/main) of the port
             	**type**\:  :py:class:`ClockRoleType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockRoleType>`
             
             	**config**\: False
             
             .. attribute:: cptpclockportsynconestep
             
-            	This object specifies that one\-step clock operation between the PTP master and slave device is enabled
+            	This object specifies that one\-step clock operation between the PTP main and subordinate device is enabled
             	**type**\: bool
             
             	**config**\: False
             
             .. attribute:: cptpclockportcurrentpeeraddresstype
             
-            	This object specifies the current peer's network address used for PTP communication. Based on the scenario and the setup involved, the values might look like these \- Scenario                   Value \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Single Master          master port Multiple Masters       selected master port Single Slave           slave port Multiple Slaves        <empty>  (In relevant setups, information on available slaves and available masters will be available through  cPtpClockPortAssociateTable)
+            	This object specifies the current peer's network address used for PTP communication. Based on the scenario and the setup involved, the values might look like these \- Scenario                   Value \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Single Main          main port Multiple Mains       selected main port Single Subordinate           subordinate port Multiple Subordinates        <empty>  (In relevant setups, information on available subordinates and available mains will be available through  cPtpClockPortAssociateTable)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             	**config**\: False
             
             .. attribute:: cptpclockportcurrentpeeraddress
             
-            	This object specifies the current peer's network address used for PTP communication. Based on the scenario and the setup involved, the values might look like these \- Scenario                   Value \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Single Master          master port Multiple Masters       selected master port Single Slave           slave port Multiple Slaves        <empty>  (In relevant setups, information on available slaves and available masters will be available through  cPtpClockPortAssociateTable)
+            	This object specifies the current peer's network address used for PTP communication. Based on the scenario and the setup involved, the values might look like these \- Scenario                   Value \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Single Main          main port Multiple Mains       selected main port Single Subordinate           subordinate port Multiple Subordinates        <empty>  (In relevant setups, information on available subordinates and available mains will be available through  cPtpClockPortAssociateTable)
             	**type**\: str
             
             	**length:** 0..255
@@ -2667,7 +2667,7 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockportnumofassociatedports
             
-            	This object specifies \- For a master port \- the number of PTP slave sessions (peers) associated with this PTP port. For a slave port \- the number of masters available to this slave port (might or might not be peered)
+            	This object specifies \- For a main port \- the number of PTP subordinate sessions (peers) associated with this PTP port. For a subordinate port \- the number of mains available to this subordinate port (might or might not be peered)
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -2879,7 +2879,7 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockportdsgrantduration
             
-            	This object specifies the grant duration allocated by the master
+            	This object specifies the grant duration allocated by the main
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -3042,7 +3042,7 @@ class CISCOPTPMIB(Entity):
             
             .. attribute:: cptpclockportrunningstate
             
-            	This object specifies the port state returned by PTP engine.  initializing \- In this state a port initializes                its data sets, hardware, and                communication facilities. faulty       \- The fault state of the protocol. disabled     \- The port shall not place any                messages on its communication path. listening    \- The port is waiting for the                announceReceiptTimeout to expire or                to receive an Announce message from                a master. preMaster    \- The port shall behave in all respects                as though it were in the MASTER state                except that it shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, signaling, or                management messages. master       \- The port is behaving as a master port.             passive      \- The port shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, or signaling                messages, or management messages                that are a required response to                another management message uncalibrated \- The local port is preparing to                synchronize to the master port. slave        \- The port is synchronizing to the                selected master port
+            	This object specifies the port state returned by PTP engine.  initializing \- In this state a port initializes                its data sets, hardware, and                communication facilities. faulty       \- The fault state of the protocol. disabled     \- The port shall not place any                messages on its communication path. listening    \- The port is waiting for the                announceReceiptTimeout to expire or                to receive an Announce message from                a main. preMain    \- The port shall behave in all respects                as though it were in the MASTER state                except that it shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, signaling, or                management messages. main       \- The port is behaving as a main port.             passive      \- The port shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, or signaling                messages, or management messages                that are a required response to                another management message uncalibrated \- The local port is preparing to                synchronize to the main port. subordinate        \- The port is synchronizing to the                selected main port
             	**type**\:  :py:class:`ClockPortState <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockPortState>`
             
             	**config**\: False
@@ -3324,10 +3324,10 @@ class CISCOPTPMIB(Entity):
         """
         Table of information about a given port's associated ports.
         
-        For a master port \- multiple slave ports which have established
-        sessions with the current master port.  
-        For a slave port \- the list of masters available for a given
-        slave port. 
+        For a main port \- multiple subordinate ports which have established
+        sessions with the current main port.  
+        For a subordinate port \- the list of mains available for a given
+        subordinate port. 
         
         Session information (pkts, errors) to be displayed based on
         availability and scenario.

@@ -234,11 +234,11 @@ class FsyncBagQlO1Value(Enum):
 
     .. data:: option1ssu_a = 11
 
-    	Type I or V slave clock
+    	Type I or V subordinate clock
 
     .. data:: option1ssu_b = 12
 
-    	Type VI slave clock
+    	Type VI subordinate clock
 
     .. data:: option1sec = 13
 

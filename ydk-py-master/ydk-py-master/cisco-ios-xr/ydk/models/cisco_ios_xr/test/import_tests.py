@@ -1981,7 +1981,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper import SergShowSessionError
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper import SergShowSessionOperation
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper import SergShowComp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper import SergShowSlaveMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper import SergShowSubordinateMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper import SergShowRole
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper import SergShowImRole
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper import SessionRedundancyManager
@@ -4183,9 +4183,9 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_lib_keychain_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MasterKeyAdd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MasterKeyDelete
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MasterKeyUpdate
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MainKeyAdd
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MainKeyDelete
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MainKeyUpdate
 
 
     def test_Cisco_IOS_XR_lib_keychain_cfg(self):
@@ -4196,9 +4196,9 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg import Keychains
 
 
-    def test_Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg import KeyEncryption
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_masterkey_aes_cfg import Password
+    def test_Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg import KeyEncryption
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_mainkey_aes_cfg import Password
 
 
     def test_Cisco_IOS_XR_lib_keychain_oper(self):
@@ -5779,7 +5779,7 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_subscriber_srg_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg import SubscriberRedundancyGroupSlaveMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg import SubscriberRedundancyGroupSubordinateMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg import SubscriberRedundancyGroupRole
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg import SrgAddrFamily
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_cfg import SubscriberRedundancy
@@ -5791,7 +5791,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper import SrgShowSessionError
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper import SrgShowSessionOperation
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper import SrgShowComp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper import SrgShowSlaveMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper import SrgShowSubordinateMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper import SrgShowRole
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper import SrgShowImRole
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper import SubscriberRedundancyManager

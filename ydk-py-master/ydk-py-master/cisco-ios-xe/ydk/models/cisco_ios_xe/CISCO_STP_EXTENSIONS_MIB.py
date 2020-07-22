@@ -3395,7 +3395,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             .. attribute:: stpxmstportrolevalue
             
-            	Indicates the port role on a particular MST instance for the MST protocol.   disabled \-\-  this port has no role on this MST instance.   root \-\- this port has the role of root port on this MST             instance.   designated \-\- this port has the role of designated              port on this MST instance.  alternate \-\- this port has the role of alternate port             on this MST instance.  backUp \-\- this port has the role of backup port on this               MST instance.  boundary \-\- this port has the role of boundary port on              this MST instance.  master \-\- this port has the role of master port on           this MST instance
+            	Indicates the port role on a particular MST instance for the MST protocol.   disabled \-\-  this port has no role on this MST instance.   root \-\- this port has the role of root port on this MST             instance.   designated \-\- this port has the role of designated              port on this MST instance.  alternate \-\- this port has the role of alternate port             on this MST instance.  backUp \-\- this port has the role of backup port on this               MST instance.  boundary \-\- this port has the role of boundary port on              this MST instance.  main \-\- this port has the role of main port on           this MST instance
             	**type**\:  :py:class:`StpxMSTPortRoleValue <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable.StpxMSTPortRoleEntry.StpxMSTPortRoleValue>`
             
             	**config**\: False
@@ -3463,7 +3463,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
                             this MST instance.
 
-                master \-\- this port has the role of master port on
+                main \-\- this port has the role of main port on
 
                           this MST instance.
 
@@ -3479,7 +3479,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
                 .. data:: boundary = 6
 
-                .. data:: master = 7
+                .. data:: main = 7
 
                 """
 
@@ -3495,7 +3495,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
                 boundary = Enum.YLeaf(6, "boundary")
 
-                master = Enum.YLeaf(7, "master")
+                main = Enum.YLeaf(7, "main")
 
 
 
@@ -3764,7 +3764,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             .. attribute:: stpxrstpportrolevalue
             
-            	Indicates the port role on a particular Spanning Tree  instance for the RSTP protocol.   disabled \-\-  this port has no role in this Spanning             Tree instance.   root \-\- this port has the role of root port in this             Spanning Tree instance.   designated \-\- this port has the role of designated              port in this Spanning Tree instance.  alternate \-\- this port has the role of alternate port             in this Spanning Tree instance.  backUp \-\- this port has the role of backup port in this               Spanning Tree instance.  boundary \-\- this port has the role of boundary port in              this Spanning Tree instance.  master \-\- this port has the role of master port in             this Spanning Tree instance.  This object could have a value of 'boundary' or 'master' only when the object value of stpxSpanningTreeType is mst(4)
+            	Indicates the port role on a particular Spanning Tree  instance for the RSTP protocol.   disabled \-\-  this port has no role in this Spanning             Tree instance.   root \-\- this port has the role of root port in this             Spanning Tree instance.   designated \-\- this port has the role of designated              port in this Spanning Tree instance.  alternate \-\- this port has the role of alternate port             in this Spanning Tree instance.  backUp \-\- this port has the role of backup port in this               Spanning Tree instance.  boundary \-\- this port has the role of boundary port in              this Spanning Tree instance.  main \-\- this port has the role of main port in             this Spanning Tree instance.  This object could have a value of 'boundary' or 'main' only when the object value of stpxSpanningTreeType is mst(4)
             	**type**\:  :py:class:`StpxRSTPPortRoleValue <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable.StpxRSTPPortRoleEntry.StpxRSTPPortRoleValue>`
             
             	**config**\: False
@@ -3832,11 +3832,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
                             this Spanning Tree instance.
 
-                master \-\- this port has the role of master port in
+                main \-\- this port has the role of main port in
 
                             this Spanning Tree instance.
 
-                This object could have a value of 'boundary' or 'master'
+                This object could have a value of 'boundary' or 'main'
 
                 only when the object value of stpxSpanningTreeType is mst(4).
 
@@ -3852,7 +3852,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
                 .. data:: boundary = 6
 
-                .. data:: master = 7
+                .. data:: main = 7
 
                 """
 
@@ -3868,7 +3868,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
                 boundary = Enum.YLeaf(6, "boundary")
 
-                master = Enum.YLeaf(7, "master")
+                main = Enum.YLeaf(7, "main")
 
 
 

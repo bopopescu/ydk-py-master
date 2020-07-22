@@ -19,7 +19,7 @@ Controllers (MGCs).
 The MGCs or Call Agents, synchronize with each other to 
 send coherent commands to the gateways under their control.
 
-MGCs use master/slave protocols to command the gateways under 
+MGCs use main/subordinate protocols to command the gateways under 
 their control.  Examples of these protocols are\:
   \*  Simple Gateway Control Protocol
   \*  Media Gateway Control Protocol

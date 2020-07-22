@@ -689,9 +689,9 @@ class Vpdn(_Entity_):
                         
                         	**config**\: False
                         
-                        .. attribute:: srg_slave
+                        .. attribute:: srg_subordinate
                         
-                        	Session SRG Slave
+                        	Session SRG Subordinate
                         	**type**\: bool
                         
                         	**config**\: False
@@ -723,7 +723,7 @@ class Vpdn(_Entity_):
                                 ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper', 'SessionState', '')])),
                                 ('l2tp_session_id', (YLeaf(YType.uint16, 'l2tp-session-id'), ['int'])),
                                 ('l2tp_tunnel_id', (YLeaf(YType.uint16, 'l2tp-tunnel-id'), ['int'])),
-                                ('srg_slave', (YLeaf(YType.boolean, 'srg-slave'), ['bool'])),
+                                ('srg_subordinate', (YLeaf(YType.boolean, 'srg-subordinate'), ['bool'])),
                             ])
                             self.last_change = None
                             self.interface_name = None
@@ -732,12 +732,12 @@ class Vpdn(_Entity_):
                             self.state = None
                             self.l2tp_session_id = None
                             self.l2tp_tunnel_id = None
-                            self.srg_slave = None
+                            self.srg_subordinate = None
                             self._segment_path = lambda: "session"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vpdn.Nodes.Node.Sessions.Session.Session_, ['last_change', 'interface_name', 'username', 'domain_name', 'state', 'l2tp_session_id', 'l2tp_tunnel_id', 'srg_slave'], name, value)
+                            self._perform_setattr(Vpdn.Nodes.Node.Sessions.Session.Session_, ['last_change', 'interface_name', 'username', 'domain_name', 'state', 'l2tp_session_id', 'l2tp_tunnel_id', 'srg_subordinate'], name, value)
 
                         @staticmethod
                         def _meta_info():

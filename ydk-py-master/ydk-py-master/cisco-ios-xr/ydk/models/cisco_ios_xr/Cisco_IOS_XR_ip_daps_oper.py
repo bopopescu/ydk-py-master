@@ -78,21 +78,21 @@ class DapsSergRole(Enum):
 
     	Role None
 
-    .. data:: master = 1
+    .. data:: main = 1
 
-    	Role Master
+    	Role Main
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
-    	Role Slave
+    	Role Subordinate
 
     """
 
     none = Enum.YLeaf(0, "none")
 
-    master = Enum.YLeaf(1, "master")
+    main = Enum.YLeaf(1, "main")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
     @staticmethod

@@ -610,7 +610,7 @@ def decodegroups(p_groupstr, p_dbfile):
         
     
 def buildorgstructure(p_apikey, p_filters):
-    #builds master object where all org, net, device and client data will be read
+    #builds main object where all org, net, device and client data will be read
     orgs = []
      
     printusertext('INFO: Retrieving organization info')
@@ -944,7 +944,7 @@ def cmddatabasedump(p_opt):
         try:
             db = sqlite3.connect(p_opt.dbfile)
             cursor = db.cursor()
-            cursor.execute('''SELECT name FROM sqlite_master WHERE type='table' ''')
+            cursor.execute('''SELECT name FROM sqlite_main WHERE type='table' ''')
             data = cursor.fetchall()
              
             if len(data) != 0:

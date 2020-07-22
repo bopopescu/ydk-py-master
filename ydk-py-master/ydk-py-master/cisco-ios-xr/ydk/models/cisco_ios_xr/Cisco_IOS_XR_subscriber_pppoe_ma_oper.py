@@ -5293,9 +5293,9 @@ class Pppoe(_Entity_):
                     
                     	**config**\: False
                     
-                    .. attribute:: packet_on_srg_slave
+                    .. attribute:: packet_on_srg_subordinate
                     
-                    	Packet Received on SRG Slave
+                    	Packet Received on SRG Subordinate
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -5373,7 +5373,7 @@ class Pppoe(_Entity_):
                             ('invalid_service_name', (YLeaf(YType.uint32, 'invalid-service-name'), ['int'])),
                             ('invalid_peer_mac', (YLeaf(YType.uint32, 'invalid-peer-mac'), ['int'])),
                             ('invalid_vlan_tags', (YLeaf(YType.uint32, 'invalid-vlan-tags'), ['int'])),
-                            ('packet_on_srg_slave', (YLeaf(YType.uint32, 'packet-on-srg-slave'), ['int'])),
+                            ('packet_on_srg_subordinate', (YLeaf(YType.uint32, 'packet-on-srg-subordinate'), ['int'])),
                         ])
                         self.no_interface_handle = None
                         self.no_packet_payload = None
@@ -5426,12 +5426,12 @@ class Pppoe(_Entity_):
                         self.invalid_service_name = None
                         self.invalid_peer_mac = None
                         self.invalid_vlan_tags = None
-                        self.packet_on_srg_slave = None
+                        self.packet_on_srg_subordinate = None
                         self._segment_path = lambda: "packet-error-counts"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, ['no_interface_handle', 'no_packet_payload', 'no_packet_mac_address', 'invalid_version_type_value', 'bad_packet_length', 'unknown_interface', 'pado_received', 'pads_received', 'unknown_packet_type_received', 'unexpected_session_id_in_packet', 'no_service_name_tag', 'padt_for_unknown_session', 'padt_with_wrong_peer_mac', 'padt_with_wrong_vlan_tags', 'zero_length_host_uniq', 'padt_before_pads_sent', 'session_stage_packet_for_unknown_session', 'session_stage_packet_with_wrong_mac', 'session_stage_packet_with_wrong_vlan_tags', 'session_stage_packet_with_no_error', 'tag_too_short', 'bad_tag_length_field', 'multiple_service_name_tags', 'multiple_max_payload_tags', 'invalid_max_payload_tag', 'multiple_vendor_specific_tags', 'unexpected_ac_name_tag', 'unexpected_error_tags', 'unknown_tag_received', 'no_iana_code_invendor_tag', 'invalid_iana_code_invendor_tag', 'vendor_tag_too_short', 'bad_vendor_tag_length_field', 'multiple_host_uniq_tags', 'multiple_relay_session_id_tags', 'multiple_circuit_id_tags', 'multiple_remote_id_tags', 'invalid_dsl_tag', 'multiple_of_the_same_dsl_tag', 'invalid_iwf_tag', 'multiple_iwf_tags', 'unknownvendor_tag', 'no_space_left_in_packet', 'duplicate_host_uniq_tag_received', 'duplicate_relay_session_id_tag_received', 'packet_too_long', 'invalid_ale_tag', 'multiple_ale_tags', 'invalid_service_name', 'invalid_peer_mac', 'invalid_vlan_tags', 'packet_on_srg_slave'], name, value)
+                        self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, ['no_interface_handle', 'no_packet_payload', 'no_packet_mac_address', 'invalid_version_type_value', 'bad_packet_length', 'unknown_interface', 'pado_received', 'pads_received', 'unknown_packet_type_received', 'unexpected_session_id_in_packet', 'no_service_name_tag', 'padt_for_unknown_session', 'padt_with_wrong_peer_mac', 'padt_with_wrong_vlan_tags', 'zero_length_host_uniq', 'padt_before_pads_sent', 'session_stage_packet_for_unknown_session', 'session_stage_packet_with_wrong_mac', 'session_stage_packet_with_wrong_vlan_tags', 'session_stage_packet_with_no_error', 'tag_too_short', 'bad_tag_length_field', 'multiple_service_name_tags', 'multiple_max_payload_tags', 'invalid_max_payload_tag', 'multiple_vendor_specific_tags', 'unexpected_ac_name_tag', 'unexpected_error_tags', 'unknown_tag_received', 'no_iana_code_invendor_tag', 'invalid_iana_code_invendor_tag', 'vendor_tag_too_short', 'bad_vendor_tag_length_field', 'multiple_host_uniq_tags', 'multiple_relay_session_id_tags', 'multiple_circuit_id_tags', 'multiple_remote_id_tags', 'invalid_dsl_tag', 'multiple_of_the_same_dsl_tag', 'invalid_iwf_tag', 'multiple_iwf_tags', 'unknownvendor_tag', 'no_space_left_in_packet', 'duplicate_host_uniq_tag_received', 'duplicate_relay_session_id_tag_received', 'packet_too_long', 'invalid_ale_tag', 'multiple_ale_tags', 'invalid_service_name', 'invalid_peer_mac', 'invalid_vlan_tags', 'packet_on_srg_subordinate'], name, value)
 
                     @staticmethod
                     def _meta_info():

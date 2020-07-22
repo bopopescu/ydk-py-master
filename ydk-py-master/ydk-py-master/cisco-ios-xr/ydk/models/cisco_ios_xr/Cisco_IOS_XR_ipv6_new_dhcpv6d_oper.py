@@ -169,21 +169,21 @@ class BagDhcpv6dIntfSergRole(Enum):
 
     	DHCPv6 Interface SERG role NONE
 
-    .. data:: master = 1
+    .. data:: main = 1
 
-    	DHCPv6 Interface SERG role Master
+    	DHCPv6 Interface SERG role Main
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
-    	DHCPv6 Interface SERG role Slave
+    	DHCPv6 Interface SERG role Subordinate
 
     """
 
     none = Enum.YLeaf(0, "none")
 
-    master = Enum.YLeaf(1, "master")
+    main = Enum.YLeaf(1, "main")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
     @staticmethod
@@ -202,21 +202,21 @@ class BagDhcpv6dIntfSrgRole(Enum):
 
     	DHCPv6 Interface SRG role NONE
 
-    .. data:: master = 1
+    .. data:: main = 1
 
-    	DHCPv6 Interface SRG role Master
+    	DHCPv6 Interface SRG role Main
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
-    	DHCPv6 Interface SRG role Slave
+    	DHCPv6 Interface SRG role Subordinate
 
     """
 
     none = Enum.YLeaf(0, "none")
 
-    master = Enum.YLeaf(1, "master")
+    main = Enum.YLeaf(1, "main")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
     @staticmethod

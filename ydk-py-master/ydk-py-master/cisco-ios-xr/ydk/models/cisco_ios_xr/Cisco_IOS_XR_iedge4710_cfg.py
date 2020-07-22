@@ -329,7 +329,7 @@ class SubscriberManager(_Entity_):
         
         .. attribute:: sync_account_session_id
         
-        	sync account session id from master to slave
+        	sync account session id from main to subordinate
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         

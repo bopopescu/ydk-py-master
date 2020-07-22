@@ -2383,9 +2383,9 @@ class SubscriberAccounting(_Entity_):
                         
                         	**config**\: False
                         
-                        .. attribute:: srg_master_eoms_pending_flag
+                        .. attribute:: srg_main_eoms_pending_flag
                         
-                        	True/False,if SRG Master Node Sync is still pending
+                        	True/False,if SRG Main Node Sync is still pending
                         	**type**\: bool
                         
                         	**config**\: False
@@ -2430,7 +2430,7 @@ class SubscriberAccounting(_Entity_):
                                 ('access_interface_handle', (YLeaf(YType.uint32, 'access-interface-handle'), ['int'])),
                                 ('accounting_mode', (YLeaf(YType.uint32, 'accounting-mode'), ['int'])),
                                 ('srg_node_role', (YLeaf(YType.uint32, 'srg-node-role'), ['int'])),
-                                ('srg_master_eoms_pending_flag', (YLeaf(YType.boolean, 'srg-master-eoms-pending-flag'), ['bool'])),
+                                ('srg_main_eoms_pending_flag', (YLeaf(YType.boolean, 'srg-main-eoms-pending-flag'), ['bool'])),
                                 ('srg_diameter_up_flag', (YLeaf(YType.boolean, 'srg-diameter-up-flag'), ['bool'])),
                                 ('srg_role_upd_time', (YLeaf(YType.uint32, 'srg-role-upd-time'), ['int'])),
                             ])
@@ -2438,14 +2438,14 @@ class SubscriberAccounting(_Entity_):
                             self.access_interface_handle = None
                             self.accounting_mode = None
                             self.srg_node_role = None
-                            self.srg_master_eoms_pending_flag = None
+                            self.srg_main_eoms_pending_flag = None
                             self.srg_diameter_up_flag = None
                             self.srg_role_upd_time = None
                             self._segment_path = lambda: "srg-status-counters"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature.SrgStatusCounters, ['interface_name', 'access_interface_handle', 'accounting_mode', 'srg_node_role', 'srg_master_eoms_pending_flag', 'srg_diameter_up_flag', 'srg_role_upd_time'], name, value)
+                            self._perform_setattr(SubscriberAccounting.Nodes.Node.SubscriberAccountingSrgFeatures.SubscriberAccountingSrgFeature.SrgStatusCounters, ['interface_name', 'access_interface_handle', 'accounting_mode', 'srg_node_role', 'srg_main_eoms_pending_flag', 'srg_diameter_up_flag', 'srg_role_upd_time'], name, value)
 
                         @staticmethod
                         def _meta_info():

@@ -275,21 +275,21 @@ class PtpPortState(Enum):
 
     	Any port state allowed
 
-    .. data:: slave_only = 1
+    .. data:: subordinate_only = 1
 
-    	Restrict to slave
+    	Restrict to subordinate
 
-    .. data:: master_only = 2
+    .. data:: main_only = 2
 
-    	Restrict to master
+    	Restrict to main
 
     """
 
     any = Enum.YLeaf(0, "any")
 
-    slave_only = Enum.YLeaf(1, "slave-only")
+    subordinate_only = Enum.YLeaf(1, "subordinate-only")
 
-    master_only = Enum.YLeaf(2, "master-only")
+    main_only = Enum.YLeaf(2, "main-only")
 
 
     @staticmethod
@@ -304,25 +304,25 @@ class PtpTelecomClock(Enum):
 
     Ptp telecom clock
 
-    .. data:: telecom_grandmaster = 0
+    .. data:: telecom_grandmain = 0
 
-    	Telecom grandmaster clock
+    	Telecom grandmain clock
 
     .. data:: telecom_boundary = 1
 
     	Telecom boundary clock
 
-    .. data:: telecom_slave = 2
+    .. data:: telecom_subordinate = 2
 
-    	Telecom slave clock
+    	Telecom subordinate clock
 
     """
 
-    telecom_grandmaster = Enum.YLeaf(0, "telecom-grandmaster")
+    telecom_grandmain = Enum.YLeaf(0, "telecom-grandmain")
 
     telecom_boundary = Enum.YLeaf(1, "telecom-boundary")
 
-    telecom_slave = Enum.YLeaf(2, "telecom-slave")
+    telecom_subordinate = Enum.YLeaf(2, "telecom-subordinate")
 
 
     @staticmethod

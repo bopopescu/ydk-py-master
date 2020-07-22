@@ -50,10 +50,10 @@ class hyperlinkManager:
                 break
 
 class mainWindow(tkinter.Frame):
-    def __init__(self, master = None, **kwargs):
-        tkinter.Frame.__init__(self, master)
+    def __init__(self, main = None, **kwargs):
+        tkinter.Frame.__init__(self, main)
         self._db = rssDB()
-        self.master.title( TITLE )
+        self.main.title( TITLE )
         self.createWidgets()
         self.grid()
 
@@ -75,7 +75,7 @@ class mainWindow(tkinter.Frame):
         self.listBox.grid(row = 2, column = 0, rowspan = 4, columnspan = 2, padx = 10, pady = 3)
 
         # scrollbar for listBox - must have same grid options as listBox
-        self.textScroll = tkinter.Scrollbar(self.master)
+        self.textScroll = tkinter.Scrollbar(self.main)
         self.textScroll.grid(row = 2, column = 0, columnspan = 2, rowspan = 4, pady = 3, sticky='nse')
         self.textScroll.config(command=self.listBox.yview)
         self.listBox.config(yscrollcommand=self.textScroll.set)

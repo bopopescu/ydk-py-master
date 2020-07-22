@@ -103,11 +103,11 @@ class FsyncQlValue(Enum):
 
     .. data:: o1_ssu_a = 11
 
-    	ITU-T Option 1: Type I or V slave clock
+    	ITU-T Option 1: Type I or V subordinate clock
 
     .. data:: o1_ssu_b = 12
 
-    	ITU-T Option 1: Type IV slave clock
+    	ITU-T Option 1: Type IV subordinate clock
 
     .. data:: o1_sec = 13
 

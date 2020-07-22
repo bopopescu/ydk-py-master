@@ -130,7 +130,7 @@ class StpPortRole(Enum):
 
     Spanning Tree Protocol port roles
 
-    .. data:: stp_master = 0
+    .. data:: stp_main = 0
 
     .. data:: stp_alternate = 1
 
@@ -142,7 +142,7 @@ class StpPortRole(Enum):
 
     """
 
-    stp_master = Enum.YLeaf(0, "stp-master")
+    stp_main = Enum.YLeaf(0, "stp-main")
 
     stp_alternate = Enum.YLeaf(1, "stp-alternate")
 

@@ -19,10 +19,10 @@ time servers and clients.  The service model is based
 on a returnable\-time design which depends only on
 measured clock offsets, but does not require reliable
 message delivery.  The synchronization subnet uses a
-self\-organizing, hierarchical master\-slave
+self\-organizing, hierarchical main\-subordinate
 configuration, with synchronization paths determined
 by a minimum\-weight spanning tree.  While multiple
-masters (primary servers) may exist, there is no
+mains (primary servers) may exist, there is no
 requirement for an election protocol.
 
 System Archiecture\:

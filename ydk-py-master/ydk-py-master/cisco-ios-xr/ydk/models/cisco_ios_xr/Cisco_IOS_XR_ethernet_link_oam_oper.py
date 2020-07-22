@@ -160,19 +160,19 @@ class LoopbackStatus(Enum):
 
     .. data:: initiating = 2
 
-    	Initiating master loopback
+    	Initiating main loopback
 
-    .. data:: master_loopback = 3
+    .. data:: main_loopback = 3
 
-    	In master loopback mode
+    	In main loopback mode
 
     .. data:: terminating = 4
 
-    	Terminating master loopback mode
+    	Terminating main loopback mode
 
     .. data:: local_loopback = 5
 
-    	In slave loopback mode
+    	In subordinate loopback mode
 
     .. data:: unknown = 6
 
@@ -184,7 +184,7 @@ class LoopbackStatus(Enum):
 
     initiating = Enum.YLeaf(2, "initiating")
 
-    master_loopback = Enum.YLeaf(3, "master-loopback")
+    main_loopback = Enum.YLeaf(3, "main-loopback")
 
     terminating = Enum.YLeaf(4, "terminating")
 

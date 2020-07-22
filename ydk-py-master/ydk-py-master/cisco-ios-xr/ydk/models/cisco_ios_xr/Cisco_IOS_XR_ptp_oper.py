@@ -398,21 +398,21 @@ class PtpBagPortState(Enum):
 
     	Passive state
 
-    .. data:: pre_master = 3
+    .. data:: pre_main = 3
 
-    	Pre-Master state
+    	Pre-Main state
 
-    .. data:: master = 4
+    .. data:: main = 4
 
-    	Master state
+    	Main state
 
     .. data:: uncalibrated = 5
 
     	Uncalibrated state
 
-    .. data:: slave = 6
+    .. data:: subordinate = 6
 
-    	Slave state
+    	Subordinate state
 
     .. data:: faulty = 7
 
@@ -426,13 +426,13 @@ class PtpBagPortState(Enum):
 
     passive = Enum.YLeaf(2, "passive")
 
-    pre_master = Enum.YLeaf(3, "pre-master")
+    pre_main = Enum.YLeaf(3, "pre-main")
 
-    master = Enum.YLeaf(4, "master")
+    main = Enum.YLeaf(4, "main")
 
     uncalibrated = Enum.YLeaf(5, "uncalibrated")
 
-    slave = Enum.YLeaf(6, "slave")
+    subordinate = Enum.YLeaf(6, "subordinate")
 
     faulty = Enum.YLeaf(7, "faulty")
 
@@ -492,21 +492,21 @@ class PtpBagRestrictPortState(Enum):
 
     	Any
 
-    .. data:: slave_only = 1
+    .. data:: subordinate_only = 1
 
-    	Slave only
+    	Subordinate only
 
-    .. data:: master_only = 2
+    .. data:: main_only = 2
 
-    	Master only
+    	Main only
 
     """
 
     any = Enum.YLeaf(0, "any")
 
-    slave_only = Enum.YLeaf(1, "slave-only")
+    subordinate_only = Enum.YLeaf(1, "subordinate-only")
 
-    master_only = Enum.YLeaf(2, "master-only")
+    main_only = Enum.YLeaf(2, "main-only")
 
 
     @staticmethod
@@ -521,25 +521,25 @@ class PtpBagTelecomClock(Enum):
 
     Telecom Clock
 
-    .. data:: grandmaster = 0
+    .. data:: grandmain = 0
 
-    	Grandmaster
+    	Grandmain
 
     .. data:: boundary = 1
 
     	Boundary
 
-    .. data:: slave = 2
+    .. data:: subordinate = 2
 
-    	Slave
+    	Subordinate
 
     """
 
-    grandmaster = Enum.YLeaf(0, "grandmaster")
+    grandmain = Enum.YLeaf(0, "grandmain")
 
     boundary = Enum.YLeaf(1, "boundary")
 
-    slave = Enum.YLeaf(2, "slave")
+    subordinate = Enum.YLeaf(2, "subordinate")
 
 
     @staticmethod
@@ -574,10 +574,10 @@ class Ptp(_Entity_):
     
     	**config**\: False
     
-    .. attribute:: interface_foreign_masters
+    .. attribute:: interface_foreign_mains
     
-    	Table for interface foreign master clock operational data
-    	**type**\:  :py:class:`InterfaceForeignMasters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters>`
+    	Table for interface foreign main clock operational data
+    	**type**\:  :py:class:`InterfaceForeignMains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains>`
     
     	**config**\: False
     
@@ -630,10 +630,10 @@ class Ptp(_Entity_):
     
     	**config**\: False
     
-    .. attribute:: grandmaster
+    .. attribute:: grandmain
     
-    	Grandmaster clock operational data
-    	**type**\:  :py:class:`Grandmaster <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster>`
+    	Grandmain clock operational data
+    	**type**\:  :py:class:`Grandmain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmain>`
     
     	**config**\: False
     
@@ -670,7 +670,7 @@ class Ptp(_Entity_):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("nodes", ("nodes", Ptp.Nodes)), ("summary", ("summary", Ptp.Summary)), ("interface-configuration-errors", ("interface_configuration_errors", Ptp.InterfaceConfigurationErrors)), ("interface-foreign-masters", ("interface_foreign_masters", Ptp.InterfaceForeignMasters)), ("interface-interops", ("interface_interops", Ptp.InterfaceInterops)), ("local-clock", ("local_clock", Ptp.LocalClock)), ("interface-packet-counters", ("interface_packet_counters", Ptp.InterfacePacketCounters)), ("advertised-clock", ("advertised_clock", Ptp.AdvertisedClock)), ("interfaces", ("interfaces", Ptp.Interfaces)), ("dataset", ("dataset", Ptp.Dataset)), ("global-configuration-error", ("global_configuration_error", Ptp.GlobalConfigurationError)), ("grandmaster", ("grandmaster", Ptp.Grandmaster)), ("interface-unicast-peers", ("interface_unicast_peers", Ptp.InterfaceUnicastPeers)), ("utc-offset-info", ("utc_offset_info", Ptp.UtcOffsetInfo))])
+        self._child_classes = OrderedDict([("nodes", ("nodes", Ptp.Nodes)), ("summary", ("summary", Ptp.Summary)), ("interface-configuration-errors", ("interface_configuration_errors", Ptp.InterfaceConfigurationErrors)), ("interface-foreign-mains", ("interface_foreign_mains", Ptp.InterfaceForeignMains)), ("interface-interops", ("interface_interops", Ptp.InterfaceInterops)), ("local-clock", ("local_clock", Ptp.LocalClock)), ("interface-packet-counters", ("interface_packet_counters", Ptp.InterfacePacketCounters)), ("advertised-clock", ("advertised_clock", Ptp.AdvertisedClock)), ("interfaces", ("interfaces", Ptp.Interfaces)), ("dataset", ("dataset", Ptp.Dataset)), ("global-configuration-error", ("global_configuration_error", Ptp.GlobalConfigurationError)), ("grandmain", ("grandmain", Ptp.Grandmain)), ("interface-unicast-peers", ("interface_unicast_peers", Ptp.InterfaceUnicastPeers)), ("utc-offset-info", ("utc_offset_info", Ptp.UtcOffsetInfo))])
         self._leafs = OrderedDict()
 
         self.nodes = Ptp.Nodes()
@@ -685,9 +685,9 @@ class Ptp(_Entity_):
         self.interface_configuration_errors.parent = self
         self._children_name_map["interface_configuration_errors"] = "interface-configuration-errors"
 
-        self.interface_foreign_masters = Ptp.InterfaceForeignMasters()
-        self.interface_foreign_masters.parent = self
-        self._children_name_map["interface_foreign_masters"] = "interface-foreign-masters"
+        self.interface_foreign_mains = Ptp.InterfaceForeignMains()
+        self.interface_foreign_mains.parent = self
+        self._children_name_map["interface_foreign_mains"] = "interface-foreign-mains"
 
         self.interface_interops = Ptp.InterfaceInterops()
         self.interface_interops.parent = self
@@ -717,9 +717,9 @@ class Ptp(_Entity_):
         self.global_configuration_error.parent = self
         self._children_name_map["global_configuration_error"] = "global-configuration-error"
 
-        self.grandmaster = Ptp.Grandmaster()
-        self.grandmaster.parent = self
-        self._children_name_map["grandmaster"] = "grandmaster"
+        self.grandmain = Ptp.Grandmain()
+        self.grandmain.parent = self
+        self._children_name_map["grandmain"] = "grandmain"
 
         self.interface_unicast_peers = Ptp.InterfaceUnicastPeers()
         self.interface_unicast_peers.parent = self
@@ -789,10 +789,10 @@ class Ptp(_Entity_):
             
             	**config**\: False
             
-            .. attribute:: node_interface_foreign_masters
+            .. attribute:: node_interface_foreign_mains
             
-            	Table for node foreign master clock operational data
-            	**type**\:  :py:class:`NodeInterfaceForeignMasters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters>`
+            	Table for node foreign main clock operational data
+            	**type**\:  :py:class:`NodeInterfaceForeignMains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains>`
             
             	**config**\: False
             
@@ -842,15 +842,15 @@ class Ptp(_Entity_):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_classes = OrderedDict([("node-interface-foreign-masters", ("node_interface_foreign_masters", Ptp.Nodes.Node.NodeInterfaceForeignMasters)), ("summary", ("summary", Ptp.Nodes.Node.Summary)), ("node-interfaces", ("node_interfaces", Ptp.Nodes.Node.NodeInterfaces)), ("node-interface-unicast-peers", ("node_interface_unicast_peers", Ptp.Nodes.Node.NodeInterfaceUnicastPeers)), ("packet-counters", ("packet_counters", Ptp.Nodes.Node.PacketCounters))])
+                self._child_classes = OrderedDict([("node-interface-foreign-mains", ("node_interface_foreign_mains", Ptp.Nodes.Node.NodeInterfaceForeignMains)), ("summary", ("summary", Ptp.Nodes.Node.Summary)), ("node-interfaces", ("node_interfaces", Ptp.Nodes.Node.NodeInterfaces)), ("node-interface-unicast-peers", ("node_interface_unicast_peers", Ptp.Nodes.Node.NodeInterfaceUnicastPeers)), ("packet-counters", ("packet_counters", Ptp.Nodes.Node.PacketCounters))])
                 self._leafs = OrderedDict([
                     ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
-                self.node_interface_foreign_masters = Ptp.Nodes.Node.NodeInterfaceForeignMasters()
-                self.node_interface_foreign_masters.parent = self
-                self._children_name_map["node_interface_foreign_masters"] = "node-interface-foreign-masters"
+                self.node_interface_foreign_mains = Ptp.Nodes.Node.NodeInterfaceForeignMains()
+                self.node_interface_foreign_mains.parent = self
+                self._children_name_map["node_interface_foreign_mains"] = "node-interface-foreign-mains"
 
                 self.summary = Ptp.Nodes.Node.Summary()
                 self.summary.parent = self
@@ -875,15 +875,15 @@ class Ptp(_Entity_):
                 self._perform_setattr(Ptp.Nodes.Node, ['node_name'], name, value)
 
 
-            class NodeInterfaceForeignMasters(_Entity_):
+            class NodeInterfaceForeignMains(_Entity_):
                 """
-                Table for node foreign master clock
+                Table for node foreign main clock
                 operational data
                 
-                .. attribute:: node_interface_foreign_master
+                .. attribute:: node_interface_foreign_main
                 
-                	Node interface foreign master clock operational data
-                	**type**\: list of  		 :py:class:`NodeInterfaceForeignMaster <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster>`
+                	Node interface foreign main clock operational data
+                	**type**\: list of  		 :py:class:`NodeInterfaceForeignMain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain>`
                 
                 	**config**\: False
                 
@@ -898,27 +898,27 @@ class Ptp(_Entity_):
                     if sys.version_info > (3,):
                         super().__init__()
                     else:
-                        super(Ptp.Nodes.Node.NodeInterfaceForeignMasters, self).__init__()
+                        super(Ptp.Nodes.Node.NodeInterfaceForeignMains, self).__init__()
 
-                    self.yang_name = "node-interface-foreign-masters"
+                    self.yang_name = "node-interface-foreign-mains"
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("node-interface-foreign-master", ("node_interface_foreign_master", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster))])
+                    self._child_classes = OrderedDict([("node-interface-foreign-main", ("node_interface_foreign_main", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain))])
                     self._leafs = OrderedDict()
 
-                    self.node_interface_foreign_master = YList(self)
-                    self._segment_path = lambda: "node-interface-foreign-masters"
+                    self.node_interface_foreign_main = YList(self)
+                    self._segment_path = lambda: "node-interface-foreign-mains"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters, [], name, value)
+                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains, [], name, value)
 
 
-                class NodeInterfaceForeignMaster(_Entity_):
+                class NodeInterfaceForeignMain(_Entity_):
                     """
-                    Node interface foreign master clock
+                    Node interface foreign main clock
                     operational data
                     
                     .. attribute:: interface_name  (key)
@@ -942,7 +942,7 @@ class Ptp(_Entity_):
                     .. attribute:: foreign_clock
                     
                     	Foreign clocks received on this interface
-                    	**type**\: list of  		 :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock>`
+                    	**type**\: list of  		 :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock>`
                     
                     	**config**\: False
                     
@@ -957,14 +957,14 @@ class Ptp(_Entity_):
                         if sys.version_info > (3,):
                             super().__init__()
                         else:
-                            super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster, self).__init__()
+                            super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain, self).__init__()
 
-                        self.yang_name = "node-interface-foreign-master"
-                        self.yang_parent_name = "node-interface-foreign-masters"
+                        self.yang_name = "node-interface-foreign-main"
+                        self.yang_parent_name = "node-interface-foreign-mains"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock))])
+                        self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock))])
                         self._leafs = OrderedDict([
                             ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ('port_number', (YLeaf(YType.uint16, 'port-number'), ['int'])),
@@ -973,11 +973,11 @@ class Ptp(_Entity_):
                         self.port_number = None
 
                         self.foreign_clock = YList(self)
-                        self._segment_path = lambda: "node-interface-foreign-master" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._segment_path = lambda: "node-interface-foreign-main" + "[interface-name='" + str(self.interface_name) + "']"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster, ['interface_name', 'port_number'], name, value)
+                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain, ['interface_name', 'port_number'], name, value)
 
 
                     class ForeignClock(_Entity_):
@@ -987,48 +987,48 @@ class Ptp(_Entity_):
                         .. attribute:: foreign_clock
                         
                         	Foreign clock information
-                        	**type**\:  :py:class:`ForeignClock_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_>`
+                        	**type**\:  :py:class:`ForeignClock_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_>`
                         
                         	**config**\: False
                         
                         .. attribute:: address
                         
                         	The address of the clock
-                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address>`
+                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address>`
                         
                         	**config**\: False
                         
                         .. attribute:: announce_grant
                         
                         	Unicast grant information for announce messages
-                        	**type**\:  :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.AnnounceGrant>`
+                        	**type**\:  :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.AnnounceGrant>`
                         
                         	**config**\: False
                         
                         .. attribute:: sync_grant
                         
                         	Unicast grant information for sync messages
-                        	**type**\:  :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.SyncGrant>`
+                        	**type**\:  :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.SyncGrant>`
                         
                         	**config**\: False
                         
                         .. attribute:: delay_response_grant
                         
                         	Unicast grant information for delay\-response messages
-                        	**type**\:  :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.DelayResponseGrant>`
+                        	**type**\:  :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.DelayResponseGrant>`
                         
                         	**config**\: False
                         
                         .. attribute:: is_qualified
                         
-                        	The clock is qualified for best master clock selection
+                        	The clock is qualified for best main clock selection
                         	**type**\: bool
                         
                         	**config**\: False
                         
-                        .. attribute:: is_grandmaster
+                        .. attribute:: is_grandmain
                         
-                        	This clock is the currently selected grand master clock
+                        	This clock is the currently selected grand main clock
                         	**type**\: bool
                         
                         	**config**\: False
@@ -1096,14 +1096,14 @@ class Ptp(_Entity_):
                         
                         .. attribute:: ptsf_loss_announce
                         
-                        	Announced messages are not being received from the master
+                        	Announced messages are not being received from the main
                         	**type**\: bool
                         
                         	**config**\: False
                         
                         .. attribute:: ptsf_loss_sync
                         
-                        	Sync messages are not being received from the master
+                        	Sync messages are not being received from the main
                         	**type**\: bool
                         
                         	**config**\: False
@@ -1126,17 +1126,17 @@ class Ptp(_Entity_):
                             if sys.version_info > (3,):
                                 super().__init__()
                             else:
-                                super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock, self).__init__()
+                                super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock, self).__init__()
 
                             self.yang_name = "foreign-clock"
-                            self.yang_parent_name = "node-interface-foreign-master"
+                            self.yang_parent_name = "node-interface-foreign-main"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_)), ("address", ("address", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address)), ("announce-grant", ("announce_grant", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.DelayResponseGrant))])
+                            self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_)), ("address", ("address", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address)), ("announce-grant", ("announce_grant", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.DelayResponseGrant))])
                             self._leafs = OrderedDict([
                                 ('is_qualified', (YLeaf(YType.boolean, 'is-qualified'), ['bool'])),
-                                ('is_grandmaster', (YLeaf(YType.boolean, 'is-grandmaster'), ['bool'])),
+                                ('is_grandmain', (YLeaf(YType.boolean, 'is-grandmain'), ['bool'])),
                                 ('communication_model', (YLeaf(YType.enumeration, 'communication-model'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagCommunicationModel', '')])),
                                 ('is_known', (YLeaf(YType.boolean, 'is-known'), ['bool'])),
                                 ('time_known_for', (YLeaf(YType.uint32, 'time-known-for'), ['int'])),
@@ -1149,7 +1149,7 @@ class Ptp(_Entity_):
                                 ('is_dnu', (YLeaf(YType.boolean, 'is-dnu'), ['bool'])),
                             ])
                             self.is_qualified = None
-                            self.is_grandmaster = None
+                            self.is_grandmain = None
                             self.communication_model = None
                             self.is_known = None
                             self.time_known_for = None
@@ -1161,30 +1161,30 @@ class Ptp(_Entity_):
                             self.ptsf_loss_sync = None
                             self.is_dnu = None
 
-                            self.foreign_clock = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_()
+                            self.foreign_clock = Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_()
                             self.foreign_clock.parent = self
                             self._children_name_map["foreign_clock"] = "foreign-clock"
 
-                            self.address = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address()
+                            self.address = Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
 
-                            self.announce_grant = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.AnnounceGrant()
+                            self.announce_grant = Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.AnnounceGrant()
                             self.announce_grant.parent = self
                             self._children_name_map["announce_grant"] = "announce-grant"
 
-                            self.sync_grant = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.SyncGrant()
+                            self.sync_grant = Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.SyncGrant()
                             self.sync_grant.parent = self
                             self._children_name_map["sync_grant"] = "sync-grant"
 
-                            self.delay_response_grant = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.DelayResponseGrant()
+                            self.delay_response_grant = Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.DelayResponseGrant()
                             self.delay_response_grant.parent = self
                             self._children_name_map["delay_response_grant"] = "delay-response-grant"
                             self._segment_path = lambda: "foreign-clock"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock, ['is_qualified', 'is_grandmaster', 'communication_model', 'is_known', 'time_known_for', 'foreign_domain', 'configured_priority', 'configured_clock_class', 'delay_asymmetry', 'ptsf_loss_announce', 'ptsf_loss_sync', 'is_dnu'], name, value)
+                            self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock, ['is_qualified', 'is_grandmain', 'communication_model', 'is_known', 'time_known_for', 'foreign_domain', 'configured_priority', 'configured_clock_class', 'delay_asymmetry', 'ptsf_loss_announce', 'ptsf_loss_sync', 'is_dnu'], name, value)
 
 
                         class ForeignClock_(_Entity_):
@@ -1194,21 +1194,21 @@ class Ptp(_Entity_):
                             .. attribute:: utc_offset
                             
                             	UTC offset
-                            	**type**\:  :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset>`
+                            	**type**\:  :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset>`
                             
                             	**config**\: False
                             
                             .. attribute:: receiver
                             
                             	Receiver
-                            	**type**\:  :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver>`
+                            	**type**\:  :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Receiver>`
                             
                             	**config**\: False
                             
                             .. attribute:: sender
                             
                             	Sender
-                            	**type**\:  :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Sender>`
+                            	**type**\:  :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Sender>`
                             
                             	**config**\: False
                             
@@ -1348,14 +1348,14 @@ class Ptp(_Entity_):
                                 if sys.version_info > (3,):
                                     super().__init__()
                                 else:
-                                    super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_, self).__init__()
+                                    super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_, self).__init__()
 
                                 self.yang_name = "foreign-clock"
                                 self.yang_parent_name = "foreign-clock"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset)), ("receiver", ("receiver", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver)), ("sender", ("sender", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Sender))])
+                                self._child_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset)), ("receiver", ("receiver", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Receiver)), ("sender", ("sender", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Sender))])
                                 self._leafs = OrderedDict([
                                     ('clock_id', (YLeaf(YType.uint64, 'clock-id'), ['int'])),
                                     ('priority1', (YLeaf(YType.uint8, 'priority1'), ['int'])),
@@ -1389,22 +1389,22 @@ class Ptp(_Entity_):
                                 self.configured_clock_class = None
                                 self.configured_priority = None
 
-                                self.utc_offset = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset()
+                                self.utc_offset = Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset()
                                 self.utc_offset.parent = self
                                 self._children_name_map["utc_offset"] = "utc-offset"
 
-                                self.receiver = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver()
+                                self.receiver = Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Receiver()
                                 self.receiver.parent = self
                                 self._children_name_map["receiver"] = "receiver"
 
-                                self.sender = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Sender()
+                                self.sender = Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Sender()
                                 self.sender.parent = self
                                 self._children_name_map["sender"] = "sender"
                                 self._segment_path = lambda: "foreign-clock"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_, ['clock_id', 'priority1', 'priority2', 'class_', 'accuracy', 'offset_log_variance', 'steps_removed', 'time_source', 'frequency_traceable', 'time_traceable', 'timescale', 'leap_seconds', 'local', 'configured_clock_class', 'configured_priority'], name, value)
+                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_, ['clock_id', 'priority1', 'priority2', 'class_', 'accuracy', 'offset_log_variance', 'steps_removed', 'time_source', 'frequency_traceable', 'time_traceable', 'timescale', 'leap_seconds', 'local', 'configured_clock_class', 'configured_priority'], name, value)
 
 
                             class UtcOffset(_Entity_):
@@ -1438,7 +1438,7 @@ class Ptp(_Entity_):
                                     if sys.version_info > (3,):
                                         super().__init__()
                                     else:
-                                        super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset, self).__init__()
+                                        super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset, self).__init__()
 
                                     self.yang_name = "utc-offset"
                                     self.yang_parent_name = "foreign-clock"
@@ -1456,12 +1456,12 @@ class Ptp(_Entity_):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset, ['current_offset', 'offset_valid'], name, value)
+                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset, ['current_offset', 'offset_valid'], name, value)
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset']['meta_info']
+                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset']['meta_info']
 
 
                             class Receiver(_Entity_):
@@ -1497,7 +1497,7 @@ class Ptp(_Entity_):
                                     if sys.version_info > (3,):
                                         super().__init__()
                                     else:
-                                        super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver, self).__init__()
+                                        super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Receiver, self).__init__()
 
                                     self.yang_name = "receiver"
                                     self.yang_parent_name = "foreign-clock"
@@ -1515,12 +1515,12 @@ class Ptp(_Entity_):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver, ['clock_id', 'port_number'], name, value)
+                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Receiver, ['clock_id', 'port_number'], name, value)
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver']['meta_info']
+                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Receiver']['meta_info']
 
 
                             class Sender(_Entity_):
@@ -1556,7 +1556,7 @@ class Ptp(_Entity_):
                                     if sys.version_info > (3,):
                                         super().__init__()
                                     else:
-                                        super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Sender, self).__init__()
+                                        super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Sender, self).__init__()
 
                                     self.yang_name = "sender"
                                     self.yang_parent_name = "foreign-clock"
@@ -1574,17 +1574,17 @@ class Ptp(_Entity_):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Sender, ['clock_id', 'port_number'], name, value)
+                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Sender, ['clock_id', 'port_number'], name, value)
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_.Sender']['meta_info']
+                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_.Sender']['meta_info']
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.ForeignClock_']['meta_info']
+                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.ForeignClock_']['meta_info']
 
 
                         class Address(_Entity_):
@@ -1594,14 +1594,14 @@ class Ptp(_Entity_):
                             .. attribute:: mac_address
                             
                             	Ethernet MAC address
-                            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.MacAddress>`
+                            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.MacAddress>`
                             
                             	**config**\: False
                             
                             .. attribute:: ipv6_address
                             
                             	IPv6 address
-                            	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.Ipv6Address>`
+                            	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.Ipv6Address>`
                             
                             	**config**\: False
                             
@@ -1639,14 +1639,14 @@ class Ptp(_Entity_):
                                 if sys.version_info > (3,):
                                     super().__init__()
                                 else:
-                                    super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address, self).__init__()
+                                    super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address, self).__init__()
 
                                 self.yang_name = "address"
                                 self.yang_parent_name = "foreign-clock"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.Ipv6Address))])
+                                self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.Ipv6Address))])
                                 self._leafs = OrderedDict([
                                     ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagEncap', '')])),
                                     ('address_unknown', (YLeaf(YType.boolean, 'address-unknown'), ['bool'])),
@@ -1656,18 +1656,18 @@ class Ptp(_Entity_):
                                 self.address_unknown = None
                                 self.ipv4_address = None
 
-                                self.mac_address = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.MacAddress()
+                                self.mac_address = Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.MacAddress()
                                 self.mac_address.parent = self
                                 self._children_name_map["mac_address"] = "mac-address"
 
-                                self.ipv6_address = Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.Ipv6Address()
+                                self.ipv6_address = Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.Ipv6Address()
                                 self.ipv6_address.parent = self
                                 self._children_name_map["ipv6_address"] = "ipv6-address"
                                 self._segment_path = lambda: "address"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address, ['encapsulation', 'address_unknown', 'ipv4_address'], name, value)
+                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address, ['encapsulation', 'address_unknown', 'ipv4_address'], name, value)
 
 
                             class MacAddress(_Entity_):
@@ -1694,7 +1694,7 @@ class Ptp(_Entity_):
                                     if sys.version_info > (3,):
                                         super().__init__()
                                     else:
-                                        super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.MacAddress, self).__init__()
+                                        super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.MacAddress, self).__init__()
 
                                     self.yang_name = "mac-address"
                                     self.yang_parent_name = "address"
@@ -1710,12 +1710,12 @@ class Ptp(_Entity_):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.MacAddress, ['macaddr'], name, value)
+                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.MacAddress, ['macaddr'], name, value)
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.MacAddress']['meta_info']
+                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.MacAddress']['meta_info']
 
 
                             class Ipv6Address(_Entity_):
@@ -1742,7 +1742,7 @@ class Ptp(_Entity_):
                                     if sys.version_info > (3,):
                                         super().__init__()
                                     else:
-                                        super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.Ipv6Address, self).__init__()
+                                        super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.Ipv6Address, self).__init__()
 
                                     self.yang_name = "ipv6-address"
                                     self.yang_parent_name = "address"
@@ -1758,17 +1758,17 @@ class Ptp(_Entity_):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.Ipv6Address, ['ipv6_address'], name, value)
+                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.Ipv6Address, ['ipv6_address'], name, value)
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address.Ipv6Address']['meta_info']
+                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address.Ipv6Address']['meta_info']
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.Address']['meta_info']
+                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.Address']['meta_info']
 
 
                         class AnnounceGrant(_Entity_):
@@ -1804,7 +1804,7 @@ class Ptp(_Entity_):
                                 if sys.version_info > (3,):
                                     super().__init__()
                                 else:
-                                    super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.AnnounceGrant, self).__init__()
+                                    super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.AnnounceGrant, self).__init__()
 
                                 self.yang_name = "announce-grant"
                                 self.yang_parent_name = "foreign-clock"
@@ -1822,12 +1822,12 @@ class Ptp(_Entity_):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.AnnounceGrant, ['log_grant_interval', 'grant_duration'], name, value)
+                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.AnnounceGrant, ['log_grant_interval', 'grant_duration'], name, value)
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.AnnounceGrant']['meta_info']
+                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.AnnounceGrant']['meta_info']
 
 
                         class SyncGrant(_Entity_):
@@ -1863,7 +1863,7 @@ class Ptp(_Entity_):
                                 if sys.version_info > (3,):
                                     super().__init__()
                                 else:
-                                    super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.SyncGrant, self).__init__()
+                                    super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.SyncGrant, self).__init__()
 
                                 self.yang_name = "sync-grant"
                                 self.yang_parent_name = "foreign-clock"
@@ -1881,12 +1881,12 @@ class Ptp(_Entity_):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.SyncGrant, ['log_grant_interval', 'grant_duration'], name, value)
+                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.SyncGrant, ['log_grant_interval', 'grant_duration'], name, value)
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.SyncGrant']['meta_info']
+                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.SyncGrant']['meta_info']
 
 
                         class DelayResponseGrant(_Entity_):
@@ -1923,7 +1923,7 @@ class Ptp(_Entity_):
                                 if sys.version_info > (3,):
                                     super().__init__()
                                 else:
-                                    super(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.DelayResponseGrant, self).__init__()
+                                    super(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.DelayResponseGrant, self).__init__()
 
                                 self.yang_name = "delay-response-grant"
                                 self.yang_parent_name = "foreign-clock"
@@ -1941,27 +1941,27 @@ class Ptp(_Entity_):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.DelayResponseGrant, ['log_grant_interval', 'grant_duration'], name, value)
+                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.DelayResponseGrant, ['log_grant_interval', 'grant_duration'], name, value)
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock.DelayResponseGrant']['meta_info']
+                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock.DelayResponseGrant']['meta_info']
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                            return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster.ForeignClock']['meta_info']
+                            return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain.ForeignClock']['meta_info']
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                        return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters.NodeInterfaceForeignMaster']['meta_info']
+                        return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains.NodeInterfaceForeignMain']['meta_info']
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMasters']['meta_info']
+                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaceForeignMains']['meta_info']
 
 
             class Summary(_Entity_):
@@ -1995,27 +1995,27 @@ class Ptp(_Entity_):
                 
                 	**config**\: False
                 
-                .. attribute:: port_state_pre_master_count
+                .. attribute:: port_state_pre_main_count
                 
-                	Number of interfaces in 'Pre\-Master' port state
+                	Number of interfaces in 'Pre\-Main' port state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 	**config**\: False
                 
-                .. attribute:: port_state_master_count
+                .. attribute:: port_state_main_count
                 
-                	Number of interfaces in 'Master' port state
+                	Number of interfaces in 'Main' port state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
                 	**config**\: False
                 
-                .. attribute:: port_state_slave_count
+                .. attribute:: port_state_subordinate_count
                 
-                	Number of interfaces in 'Slave' port state
+                	Number of interfaces in 'Subordinate' port state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
@@ -2081,9 +2081,9 @@ class Ptp(_Entity_):
                         ('port_state_init_count', (YLeaf(YType.uint32, 'port-state-init-count'), ['int'])),
                         ('port_state_listening_count', (YLeaf(YType.uint32, 'port-state-listening-count'), ['int'])),
                         ('port_state_passive_count', (YLeaf(YType.uint32, 'port-state-passive-count'), ['int'])),
-                        ('port_state_pre_master_count', (YLeaf(YType.uint32, 'port-state-pre-master-count'), ['int'])),
-                        ('port_state_master_count', (YLeaf(YType.uint32, 'port-state-master-count'), ['int'])),
-                        ('port_state_slave_count', (YLeaf(YType.uint32, 'port-state-slave-count'), ['int'])),
+                        ('port_state_pre_main_count', (YLeaf(YType.uint32, 'port-state-pre-main-count'), ['int'])),
+                        ('port_state_main_count', (YLeaf(YType.uint32, 'port-state-main-count'), ['int'])),
+                        ('port_state_subordinate_count', (YLeaf(YType.uint32, 'port-state-subordinate-count'), ['int'])),
                         ('port_state_uncalibrated_count', (YLeaf(YType.uint32, 'port-state-uncalibrated-count'), ['int'])),
                         ('port_state_faulty_count', (YLeaf(YType.uint32, 'port-state-faulty-count'), ['int'])),
                         ('total_interfaces', (YLeaf(YType.uint32, 'total-interfaces'), ['int'])),
@@ -2092,9 +2092,9 @@ class Ptp(_Entity_):
                     self.port_state_init_count = None
                     self.port_state_listening_count = None
                     self.port_state_passive_count = None
-                    self.port_state_pre_master_count = None
-                    self.port_state_master_count = None
-                    self.port_state_slave_count = None
+                    self.port_state_pre_main_count = None
+                    self.port_state_main_count = None
+                    self.port_state_subordinate_count = None
                     self.port_state_uncalibrated_count = None
                     self.port_state_faulty_count = None
                     self.total_interfaces = None
@@ -2103,7 +2103,7 @@ class Ptp(_Entity_):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Nodes.Node.Summary, ['port_state_init_count', 'port_state_listening_count', 'port_state_passive_count', 'port_state_pre_master_count', 'port_state_master_count', 'port_state_slave_count', 'port_state_uncalibrated_count', 'port_state_faulty_count', 'total_interfaces', 'total_interfaces_valid_port_num'], name, value)
+                    self._perform_setattr(Ptp.Nodes.Node.Summary, ['port_state_init_count', 'port_state_listening_count', 'port_state_passive_count', 'port_state_pre_main_count', 'port_state_main_count', 'port_state_subordinate_count', 'port_state_uncalibrated_count', 'port_state_faulty_count', 'total_interfaces', 'total_interfaces_valid_port_num'], name, value)
 
                 @staticmethod
                 def _meta_info():
@@ -2311,9 +2311,9 @@ class Ptp(_Entity_):
                     
                     	**config**\: False
                     
-                    .. attribute:: supports_master
+                    .. attribute:: supports_main
                     
-                    	The interface supports operation in master mode
+                    	The interface supports operation in main mode
                     	**type**\: bool
                     
                     	**config**\: False
@@ -2360,9 +2360,9 @@ class Ptp(_Entity_):
                     
                     	**config**\: False
                     
-                    .. attribute:: supports_slave
+                    .. attribute:: supports_subordinate
                     
-                    	The interface supports operation in slave mode
+                    	The interface supports operation in subordinate mode
                     	**type**\: bool
                     
                     	**config**\: False
@@ -2467,10 +2467,10 @@ class Ptp(_Entity_):
                     
                     	**config**\: False
                     
-                    .. attribute:: master_table
+                    .. attribute:: main_table
                     
-                    	The interface's master table
-                    	**type**\: list of  		 :py:class:`MasterTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable>`
+                    	The interface's main table
+                    	**type**\: list of  		 :py:class:`MainTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable>`
                     
                     	**config**\: False
                     
@@ -2492,7 +2492,7 @@ class Ptp(_Entity_):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface_name']
-                        self._child_classes = OrderedDict([("ipv6-address-array", ("ipv6_address_array", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.Ipv6AddressArray)), ("ipv4-address-array", ("ipv4_address_array", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.Ipv4AddressArray)), ("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MacAddress)), ("ingress-conversion", ("ingress_conversion", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.IngressConversion)), ("egress-conversion", ("egress_conversion", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.EgressConversion)), ("master-table", ("master_table", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable))])
+                        self._child_classes = OrderedDict([("ipv6-address-array", ("ipv6_address_array", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.Ipv6AddressArray)), ("ipv4-address-array", ("ipv4_address_array", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.Ipv4AddressArray)), ("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MacAddress)), ("ingress-conversion", ("ingress_conversion", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.IngressConversion)), ("egress-conversion", ("egress_conversion", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.EgressConversion)), ("main-table", ("main_table", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable))])
                         self._leafs = OrderedDict([
                             ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ('port_state', (YLeaf(YType.enumeration, 'port-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagPortState', '')])),
@@ -2509,14 +2509,14 @@ class Ptp(_Entity_):
                             ('log_min_delay_request_interval', (YLeaf(YType.int32, 'log-min-delay-request-interval'), ['int'])),
                             ('configured_port_state', (YLeaf(YType.enumeration, 'configured-port-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagRestrictPortState', '')])),
                             ('supports_unicast', (YLeaf(YType.boolean, 'supports-unicast'), ['bool'])),
-                            ('supports_master', (YLeaf(YType.boolean, 'supports-master'), ['bool'])),
+                            ('supports_main', (YLeaf(YType.boolean, 'supports-main'), ['bool'])),
                             ('supports_one_step', (YLeaf(YType.boolean, 'supports-one-step'), ['bool'])),
                             ('supports_two_step', (YLeaf(YType.boolean, 'supports-two-step'), ['bool'])),
                             ('supports_ethernet', (YLeaf(YType.boolean, 'supports-ethernet'), ['bool'])),
                             ('supports_multicast', (YLeaf(YType.boolean, 'supports-multicast'), ['bool'])),
                             ('supports_ipv4', (YLeaf(YType.boolean, 'supports-ipv4'), ['bool'])),
                             ('supports_ipv6', (YLeaf(YType.boolean, 'supports-ipv6'), ['bool'])),
-                            ('supports_slave', (YLeaf(YType.boolean, 'supports-slave'), ['bool'])),
+                            ('supports_subordinate', (YLeaf(YType.boolean, 'supports-subordinate'), ['bool'])),
                             ('supports_source_ip', (YLeaf(YType.boolean, 'supports-source-ip'), ['bool'])),
                             ('max_sync_rate', (YLeaf(YType.uint8, 'max-sync-rate'), ['int'])),
                             ('event_cos', (YLeaf(YType.uint32, 'event-cos'), ['int'])),
@@ -2545,14 +2545,14 @@ class Ptp(_Entity_):
                         self.log_min_delay_request_interval = None
                         self.configured_port_state = None
                         self.supports_unicast = None
-                        self.supports_master = None
+                        self.supports_main = None
                         self.supports_one_step = None
                         self.supports_two_step = None
                         self.supports_ethernet = None
                         self.supports_multicast = None
                         self.supports_ipv4 = None
                         self.supports_ipv6 = None
-                        self.supports_slave = None
+                        self.supports_subordinate = None
                         self.supports_source_ip = None
                         self.max_sync_rate = None
                         self.event_cos = None
@@ -2586,12 +2586,12 @@ class Ptp(_Entity_):
                         self.egress_conversion.parent = self
                         self._children_name_map["egress_conversion"] = "egress-conversion"
 
-                        self.master_table = YList(self)
+                        self.main_table = YList(self)
                         self._segment_path = lambda: "node-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface_name', 'port_state', 'port_number', 'line_state', 'encapsulation', 'ipv6_address', 'ipv4_address', 'two_step', 'communication_model', 'log_sync_interval', 'log_announce_interval', 'announce_timeout', 'log_min_delay_request_interval', 'configured_port_state', 'supports_unicast', 'supports_master', 'supports_one_step', 'supports_two_step', 'supports_ethernet', 'supports_multicast', 'supports_ipv4', 'supports_ipv6', 'supports_slave', 'supports_source_ip', 'max_sync_rate', 'event_cos', 'general_cos', 'event_dscp', 'general_dscp', 'unicast_peers', 'local_priority', 'signal_fail', 'profile_interop', 'interop_domain', 'interop_profile'], name, value)
+                        self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface_name', 'port_state', 'port_number', 'line_state', 'encapsulation', 'ipv6_address', 'ipv4_address', 'two_step', 'communication_model', 'log_sync_interval', 'log_announce_interval', 'announce_timeout', 'log_min_delay_request_interval', 'configured_port_state', 'supports_unicast', 'supports_main', 'supports_one_step', 'supports_two_step', 'supports_ethernet', 'supports_multicast', 'supports_ipv4', 'supports_ipv6', 'supports_subordinate', 'supports_source_ip', 'max_sync_rate', 'event_cos', 'general_cos', 'event_dscp', 'general_dscp', 'unicast_peers', 'local_priority', 'signal_fail', 'profile_interop', 'interop_domain', 'interop_profile'], name, value)
 
 
                     class Ipv6AddressArray(_Entity_):
@@ -3064,27 +3064,27 @@ class Ptp(_Entity_):
                             return meta._meta_table['Ptp.Nodes.Node.NodeInterfaces.NodeInterface.EgressConversion']['meta_info']
 
 
-                    class MasterTable(_Entity_):
+                    class MainTable(_Entity_):
                         """
-                        The interface's master table
+                        The interface's main table
                         
                         .. attribute:: address
                         
-                        	The address of the master clock
-                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address>`
+                        	The address of the main clock
+                        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address>`
                         
                         	**config**\: False
                         
                         .. attribute:: communication_model
                         
-                        	The configured communication model of the master clock
+                        	The configured communication model of the main clock
                         	**type**\:  :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
                         
                         	**config**\: False
                         
                         .. attribute:: priority
                         
-                        	The priority of the master clock, if it is set
+                        	The priority of the main clock, if it is set
                         	**type**\: int
                         
                         	**range:** 0..255
@@ -3093,28 +3093,28 @@ class Ptp(_Entity_):
                         
                         .. attribute:: known
                         
-                        	Whether the interface is receiving messages from this master
+                        	Whether the interface is receiving messages from this main
                         	**type**\: bool
                         
                         	**config**\: False
                         
                         .. attribute:: qualified
                         
-                        	The master is qualified for best master clock selection
+                        	The main is qualified for best main clock selection
                         	**type**\: bool
                         
                         	**config**\: False
                         
-                        .. attribute:: is_grandmaster
+                        .. attribute:: is_grandmain
                         
-                        	Whether this is the grandmaster
+                        	Whether this is the grandmain
                         	**type**\: bool
                         
                         	**config**\: False
                         
                         .. attribute:: ptsf_loss_announce
                         
-                        	Announced messages are not being received from the master
+                        	Announced messages are not being received from the main
                         	**type**\: int
                         
                         	**range:** 0..255
@@ -3123,7 +3123,7 @@ class Ptp(_Entity_):
                         
                         .. attribute:: ptsf_loss_sync
                         
-                        	Sync messages are not being received from the master
+                        	Sync messages are not being received from the main
                         	**type**\: int
                         
                         	**range:** 0..255
@@ -3132,7 +3132,7 @@ class Ptp(_Entity_):
                         
                         .. attribute:: is_nonnegotiated
                         
-                        	Whether this master uses non\-negotiated unicast
+                        	Whether this main uses non\-negotiated unicast
                         	**type**\: bool
                         
                         	**config**\: False
@@ -3148,20 +3148,20 @@ class Ptp(_Entity_):
                             if sys.version_info > (3,):
                                 super().__init__()
                             else:
-                                super(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable, self).__init__()
+                                super(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable, self).__init__()
 
-                            self.yang_name = "master-table"
+                            self.yang_name = "main-table"
                             self.yang_parent_name = "node-interface"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("address", ("address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address))])
+                            self._child_classes = OrderedDict([("address", ("address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address))])
                             self._leafs = OrderedDict([
                                 ('communication_model', (YLeaf(YType.enumeration, 'communication-model'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagCommunicationModel', '')])),
                                 ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
                                 ('known', (YLeaf(YType.boolean, 'known'), ['bool'])),
                                 ('qualified', (YLeaf(YType.boolean, 'qualified'), ['bool'])),
-                                ('is_grandmaster', (YLeaf(YType.boolean, 'is-grandmaster'), ['bool'])),
+                                ('is_grandmain', (YLeaf(YType.boolean, 'is-grandmain'), ['bool'])),
                                 ('ptsf_loss_announce', (YLeaf(YType.uint8, 'ptsf-loss-announce'), ['int'])),
                                 ('ptsf_loss_sync', (YLeaf(YType.uint8, 'ptsf-loss-sync'), ['int'])),
                                 ('is_nonnegotiated', (YLeaf(YType.boolean, 'is-nonnegotiated'), ['bool'])),
@@ -3170,36 +3170,36 @@ class Ptp(_Entity_):
                             self.priority = None
                             self.known = None
                             self.qualified = None
-                            self.is_grandmaster = None
+                            self.is_grandmain = None
                             self.ptsf_loss_announce = None
                             self.ptsf_loss_sync = None
                             self.is_nonnegotiated = None
 
-                            self.address = Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address()
+                            self.address = Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address()
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
-                            self._segment_path = lambda: "master-table"
+                            self._segment_path = lambda: "main-table"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable, ['communication_model', 'priority', 'known', 'qualified', 'is_grandmaster', 'ptsf_loss_announce', 'ptsf_loss_sync', 'is_nonnegotiated'], name, value)
+                            self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable, ['communication_model', 'priority', 'known', 'qualified', 'is_grandmain', 'ptsf_loss_announce', 'ptsf_loss_sync', 'is_nonnegotiated'], name, value)
 
 
                         class Address(_Entity_):
                             """
-                            The address of the master clock
+                            The address of the main clock
                             
                             .. attribute:: mac_address
                             
                             	Ethernet MAC address
-                            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.MacAddress>`
+                            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.MacAddress>`
                             
                             	**config**\: False
                             
                             .. attribute:: ipv6_address
                             
                             	IPv6 address
-                            	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.Ipv6Address>`
+                            	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.Ipv6Address>`
                             
                             	**config**\: False
                             
@@ -3237,14 +3237,14 @@ class Ptp(_Entity_):
                                 if sys.version_info > (3,):
                                     super().__init__()
                                 else:
-                                    super(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address, self).__init__()
+                                    super(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address, self).__init__()
 
                                 self.yang_name = "address"
-                                self.yang_parent_name = "master-table"
+                                self.yang_parent_name = "main-table"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.Ipv6Address))])
+                                self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.Ipv6Address))])
                                 self._leafs = OrderedDict([
                                     ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagEncap', '')])),
                                     ('address_unknown', (YLeaf(YType.boolean, 'address-unknown'), ['bool'])),
@@ -3254,18 +3254,18 @@ class Ptp(_Entity_):
                                 self.address_unknown = None
                                 self.ipv4_address = None
 
-                                self.mac_address = Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.MacAddress()
+                                self.mac_address = Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.MacAddress()
                                 self.mac_address.parent = self
                                 self._children_name_map["mac_address"] = "mac-address"
 
-                                self.ipv6_address = Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.Ipv6Address()
+                                self.ipv6_address = Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.Ipv6Address()
                                 self.ipv6_address.parent = self
                                 self._children_name_map["ipv6_address"] = "ipv6-address"
                                 self._segment_path = lambda: "address"
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address, ['encapsulation', 'address_unknown', 'ipv4_address'], name, value)
+                                self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address, ['encapsulation', 'address_unknown', 'ipv4_address'], name, value)
 
 
                             class MacAddress(_Entity_):
@@ -3292,7 +3292,7 @@ class Ptp(_Entity_):
                                     if sys.version_info > (3,):
                                         super().__init__()
                                     else:
-                                        super(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.MacAddress, self).__init__()
+                                        super(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.MacAddress, self).__init__()
 
                                     self.yang_name = "mac-address"
                                     self.yang_parent_name = "address"
@@ -3308,12 +3308,12 @@ class Ptp(_Entity_):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.MacAddress, ['macaddr'], name, value)
+                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.MacAddress, ['macaddr'], name, value)
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.MacAddress']['meta_info']
+                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.MacAddress']['meta_info']
 
 
                             class Ipv6Address(_Entity_):
@@ -3340,7 +3340,7 @@ class Ptp(_Entity_):
                                     if sys.version_info > (3,):
                                         super().__init__()
                                     else:
-                                        super(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.Ipv6Address, self).__init__()
+                                        super(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.Ipv6Address, self).__init__()
 
                                     self.yang_name = "ipv6-address"
                                     self.yang_parent_name = "address"
@@ -3356,22 +3356,22 @@ class Ptp(_Entity_):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.Ipv6Address, ['ipv6_address'], name, value)
+                                    self._perform_setattr(Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.Ipv6Address, ['ipv6_address'], name, value)
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address.Ipv6Address']['meta_info']
+                                    return meta._meta_table['Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address.Ipv6Address']['meta_info']
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable.Address']['meta_info']
+                                return meta._meta_table['Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable.Address']['meta_info']
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                            return meta._meta_table['Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MasterTable']['meta_info']
+                            return meta._meta_table['Ptp.Nodes.Node.NodeInterfaces.NodeInterface.MainTable']['meta_info']
 
                     @staticmethod
                     def _meta_info():
@@ -4537,36 +4537,36 @@ class Ptp(_Entity_):
                     
                     	**config**\: False
                     
-                    .. attribute:: wrong_master
+                    .. attribute:: wrong_main
                     
-                    	Packet from incorrect master
+                    	Packet from incorrect main
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     	**config**\: False
                     
-                    .. attribute:: unknown_master
+                    .. attribute:: unknown_main
                     
-                    	Packet from unknown master
+                    	Packet from unknown main
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     	**config**\: False
                     
-                    .. attribute:: not_master
+                    .. attribute:: not_main
                     
-                    	Packet only handled in Master state
+                    	Packet only handled in Main state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
                     
                     	**config**\: False
                     
-                    .. attribute:: not_slave
+                    .. attribute:: not_subordinate
                     
-                    	Packet only handled in Slave state
+                    	Packet only handled in Subordinate state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
@@ -4730,10 +4730,10 @@ class Ptp(_Entity_):
                             ('invalid_tl_vs', (YLeaf(YType.uint32, 'invalid-tl-vs'), ['int'])),
                             ('not_for_us', (YLeaf(YType.uint32, 'not-for-us'), ['int'])),
                             ('not_listening', (YLeaf(YType.uint32, 'not-listening'), ['int'])),
-                            ('wrong_master', (YLeaf(YType.uint32, 'wrong-master'), ['int'])),
-                            ('unknown_master', (YLeaf(YType.uint32, 'unknown-master'), ['int'])),
-                            ('not_master', (YLeaf(YType.uint32, 'not-master'), ['int'])),
-                            ('not_slave', (YLeaf(YType.uint32, 'not-slave'), ['int'])),
+                            ('wrong_main', (YLeaf(YType.uint32, 'wrong-main'), ['int'])),
+                            ('unknown_main', (YLeaf(YType.uint32, 'unknown-main'), ['int'])),
+                            ('not_main', (YLeaf(YType.uint32, 'not-main'), ['int'])),
+                            ('not_subordinate', (YLeaf(YType.uint32, 'not-subordinate'), ['int'])),
                             ('not_granted', (YLeaf(YType.uint32, 'not-granted'), ['int'])),
                             ('too_slow', (YLeaf(YType.uint32, 'too-slow'), ['int'])),
                             ('invalid_packet', (YLeaf(YType.uint32, 'invalid-packet'), ['int'])),
@@ -4760,10 +4760,10 @@ class Ptp(_Entity_):
                         self.invalid_tl_vs = None
                         self.not_for_us = None
                         self.not_listening = None
-                        self.wrong_master = None
-                        self.unknown_master = None
-                        self.not_master = None
-                        self.not_slave = None
+                        self.wrong_main = None
+                        self.unknown_main = None
+                        self.not_main = None
+                        self.not_subordinate = None
                         self.not_granted = None
                         self.too_slow = None
                         self.invalid_packet = None
@@ -4782,7 +4782,7 @@ class Ptp(_Entity_):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Nodes.Node.PacketCounters.DropReasons, ['not_ready', 'wrong_domain', 'too_short', 'looped_same_port', 'looped_higher_port', 'looped_lower_port', 'no_timestamp', 'zero_timestamp', 'invalid_tl_vs', 'not_for_us', 'not_listening', 'wrong_master', 'unknown_master', 'not_master', 'not_slave', 'not_granted', 'too_slow', 'invalid_packet', 'wrong_sequence_id', 'no_offload_session', 'not_supported', 'min_clock_class', 'bad_clock_class', 'reserved_clock_id', 'steps_removed', 'g8265_1_incompatible', 'g8275_1_incompatible', 'g8275_2_incompatible', 'incorrect_address'], name, value)
+                        self._perform_setattr(Ptp.Nodes.Node.PacketCounters.DropReasons, ['not_ready', 'wrong_domain', 'too_short', 'looped_same_port', 'looped_higher_port', 'looped_lower_port', 'no_timestamp', 'zero_timestamp', 'invalid_tl_vs', 'not_for_us', 'not_listening', 'wrong_main', 'unknown_main', 'not_main', 'not_subordinate', 'not_granted', 'too_slow', 'invalid_packet', 'wrong_sequence_id', 'no_offload_session', 'not_supported', 'min_clock_class', 'bad_clock_class', 'reserved_clock_id', 'steps_removed', 'g8265_1_incompatible', 'g8275_1_incompatible', 'g8275_2_incompatible', 'incorrect_address'], name, value)
 
                     @staticmethod
                     def _meta_info():
@@ -4836,27 +4836,27 @@ class Ptp(_Entity_):
         
         	**config**\: False
         
-        .. attribute:: port_state_pre_master_count
+        .. attribute:: port_state_pre_main_count
         
-        	Number of interfaces in 'Pre\-Master' port state
+        	Number of interfaces in 'Pre\-Main' port state
         	**type**\: int
         
         	**range:** 0..4294967295
         
         	**config**\: False
         
-        .. attribute:: port_state_master_count
+        .. attribute:: port_state_main_count
         
-        	Number of interfaces in 'Master' port state
+        	Number of interfaces in 'Main' port state
         	**type**\: int
         
         	**range:** 0..4294967295
         
         	**config**\: False
         
-        .. attribute:: port_state_slave_count
+        .. attribute:: port_state_subordinate_count
         
-        	Number of interfaces in 'Slave' port state
+        	Number of interfaces in 'Subordinate' port state
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -4922,9 +4922,9 @@ class Ptp(_Entity_):
                 ('port_state_init_count', (YLeaf(YType.uint32, 'port-state-init-count'), ['int'])),
                 ('port_state_listening_count', (YLeaf(YType.uint32, 'port-state-listening-count'), ['int'])),
                 ('port_state_passive_count', (YLeaf(YType.uint32, 'port-state-passive-count'), ['int'])),
-                ('port_state_pre_master_count', (YLeaf(YType.uint32, 'port-state-pre-master-count'), ['int'])),
-                ('port_state_master_count', (YLeaf(YType.uint32, 'port-state-master-count'), ['int'])),
-                ('port_state_slave_count', (YLeaf(YType.uint32, 'port-state-slave-count'), ['int'])),
+                ('port_state_pre_main_count', (YLeaf(YType.uint32, 'port-state-pre-main-count'), ['int'])),
+                ('port_state_main_count', (YLeaf(YType.uint32, 'port-state-main-count'), ['int'])),
+                ('port_state_subordinate_count', (YLeaf(YType.uint32, 'port-state-subordinate-count'), ['int'])),
                 ('port_state_uncalibrated_count', (YLeaf(YType.uint32, 'port-state-uncalibrated-count'), ['int'])),
                 ('port_state_faulty_count', (YLeaf(YType.uint32, 'port-state-faulty-count'), ['int'])),
                 ('total_interfaces', (YLeaf(YType.uint32, 'total-interfaces'), ['int'])),
@@ -4933,9 +4933,9 @@ class Ptp(_Entity_):
             self.port_state_init_count = None
             self.port_state_listening_count = None
             self.port_state_passive_count = None
-            self.port_state_pre_master_count = None
-            self.port_state_master_count = None
-            self.port_state_slave_count = None
+            self.port_state_pre_main_count = None
+            self.port_state_main_count = None
+            self.port_state_subordinate_count = None
             self.port_state_uncalibrated_count = None
             self.port_state_faulty_count = None
             self.total_interfaces = None
@@ -4945,7 +4945,7 @@ class Ptp(_Entity_):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.Summary, ['port_state_init_count', 'port_state_listening_count', 'port_state_passive_count', 'port_state_pre_master_count', 'port_state_master_count', 'port_state_slave_count', 'port_state_uncalibrated_count', 'port_state_faulty_count', 'total_interfaces', 'total_interfaces_valid_port_num'], name, value)
+            self._perform_setattr(Ptp.Summary, ['port_state_init_count', 'port_state_listening_count', 'port_state_passive_count', 'port_state_pre_main_count', 'port_state_main_count', 'port_state_subordinate_count', 'port_state_uncalibrated_count', 'port_state_faulty_count', 'total_interfaces', 'total_interfaces_valid_port_num'], name, value)
 
         @staticmethod
         def _meta_info():
@@ -5120,9 +5120,9 @@ class Ptp(_Entity_):
                 
                 	**config**\: False
                 
-                .. attribute:: slave
+                .. attribute:: subordinate
                 
-                	Slave\-operation configured but not supported
+                	Subordinate\-operation configured but not supported
                 	**type**\: bool
                 
                 	**config**\: False
@@ -5197,23 +5197,23 @@ class Ptp(_Entity_):
                 
                 	**config**\: False
                 
-                .. attribute:: profile_master_unicast
+                .. attribute:: profile_main_unicast
                 
-                	Unicast master is not compatible with profile
+                	Unicast main is not compatible with profile
                 	**type**\: bool
                 
                 	**config**\: False
                 
-                .. attribute:: profile_master_multicast
+                .. attribute:: profile_main_multicast
                 
-                	Multicast master is not compatible with profile
+                	Multicast main is not compatible with profile
                 	**type**\: bool
                 
                 	**config**\: False
                 
-                .. attribute:: profile_master_mixed
+                .. attribute:: profile_main_mixed
                 
-                	Mixed\-mode multicast master is not compatible with profile
+                	Mixed\-mode multicast main is not compatible with profile
                 	**type**\: bool
                 
                 	**config**\: False
@@ -5365,16 +5365,16 @@ class Ptp(_Entity_):
                 
                 	**config**\: False
                 
-                .. attribute:: invalid_master_config
+                .. attribute:: invalid_main_config
                 
-                	Master configuration is not compatible with configured clock\-type
+                	Main configuration is not compatible with configured clock\-type
                 	**type**\: bool
                 
                 	**config**\: False
                 
-                .. attribute:: invalid_slave_config
+                .. attribute:: invalid_subordinate_config
                 
-                	Slave configuration is not compatible with configured clock\-type
+                	Subordinate configuration is not compatible with configured clock\-type
                 	**type**\: bool
                 
                 	**config**\: False
@@ -5438,7 +5438,7 @@ class Ptp(_Entity_):
                         ('global_ptp', (YLeaf(YType.boolean, 'global-ptp'), ['bool'])),
                         ('ethernet_transport', (YLeaf(YType.boolean, 'ethernet-transport'), ['bool'])),
                         ('one_step', (YLeaf(YType.boolean, 'one-step'), ['bool'])),
-                        ('slave', (YLeaf(YType.boolean, 'slave'), ['bool'])),
+                        ('subordinate', (YLeaf(YType.boolean, 'subordinate'), ['bool'])),
                         ('ipv6', (YLeaf(YType.boolean, 'ipv6'), ['bool'])),
                         ('multicast', (YLeaf(YType.boolean, 'multicast'), ['bool'])),
                         ('profile_not_global', (YLeaf(YType.boolean, 'profile-not-global'), ['bool'])),
@@ -5449,9 +5449,9 @@ class Ptp(_Entity_):
                         ('profile_unicast', (YLeaf(YType.boolean, 'profile-unicast'), ['bool'])),
                         ('profile_multicast', (YLeaf(YType.boolean, 'profile-multicast'), ['bool'])),
                         ('profile_mixed', (YLeaf(YType.boolean, 'profile-mixed'), ['bool'])),
-                        ('profile_master_unicast', (YLeaf(YType.boolean, 'profile-master-unicast'), ['bool'])),
-                        ('profile_master_multicast', (YLeaf(YType.boolean, 'profile-master-multicast'), ['bool'])),
-                        ('profile_master_mixed', (YLeaf(YType.boolean, 'profile-master-mixed'), ['bool'])),
+                        ('profile_main_unicast', (YLeaf(YType.boolean, 'profile-main-unicast'), ['bool'])),
+                        ('profile_main_multicast', (YLeaf(YType.boolean, 'profile-main-multicast'), ['bool'])),
+                        ('profile_main_mixed', (YLeaf(YType.boolean, 'profile-main-mixed'), ['bool'])),
                         ('target_address_ipv4', (YLeaf(YType.boolean, 'target-address-ipv4'), ['bool'])),
                         ('target_address_ipv6', (YLeaf(YType.boolean, 'target-address-ipv6'), ['bool'])),
                         ('ipv4ttl', (YLeaf(YType.boolean, 'ipv4ttl'), ['bool'])),
@@ -5473,8 +5473,8 @@ class Ptp(_Entity_):
                         ('invalid_interop_egress_priority2', (YLeaf(YType.boolean, 'invalid-interop-egress-priority2'), ['bool'])),
                         ('invalid_interop_egress_clock_accuracy', (YLeaf(YType.boolean, 'invalid-interop-egress-clock-accuracy'), ['bool'])),
                         ('invalid_interop_egress_oslv', (YLeaf(YType.boolean, 'invalid-interop-egress-oslv'), ['bool'])),
-                        ('invalid_master_config', (YLeaf(YType.boolean, 'invalid-master-config'), ['bool'])),
-                        ('invalid_slave_config', (YLeaf(YType.boolean, 'invalid-slave-config'), ['bool'])),
+                        ('invalid_main_config', (YLeaf(YType.boolean, 'invalid-main-config'), ['bool'])),
+                        ('invalid_subordinate_config', (YLeaf(YType.boolean, 'invalid-subordinate-config'), ['bool'])),
                         ('invalid_interop_ingress_clock_class_map_from_val', (YLeafList(YType.uint8, 'invalid-interop-ingress-clock-class-map-from-val'), ['int'])),
                         ('invalid_interop_ingress_clock_class_map_to_val', (YLeafList(YType.uint8, 'invalid-interop-ingress-clock-class-map-to-val'), ['int'])),
                         ('invalid_interop_egress_clock_class_map_from_val', (YLeafList(YType.uint8, 'invalid-interop-egress-clock-class-map-from-val'), ['int'])),
@@ -5483,7 +5483,7 @@ class Ptp(_Entity_):
                     self.global_ptp = None
                     self.ethernet_transport = None
                     self.one_step = None
-                    self.slave = None
+                    self.subordinate = None
                     self.ipv6 = None
                     self.multicast = None
                     self.profile_not_global = None
@@ -5494,9 +5494,9 @@ class Ptp(_Entity_):
                     self.profile_unicast = None
                     self.profile_multicast = None
                     self.profile_mixed = None
-                    self.profile_master_unicast = None
-                    self.profile_master_multicast = None
-                    self.profile_master_mixed = None
+                    self.profile_main_unicast = None
+                    self.profile_main_multicast = None
+                    self.profile_main_mixed = None
                     self.target_address_ipv4 = None
                     self.target_address_ipv6 = None
                     self.ipv4ttl = None
@@ -5518,8 +5518,8 @@ class Ptp(_Entity_):
                     self.invalid_interop_egress_priority2 = None
                     self.invalid_interop_egress_clock_accuracy = None
                     self.invalid_interop_egress_oslv = None
-                    self.invalid_master_config = None
-                    self.invalid_slave_config = None
+                    self.invalid_main_config = None
+                    self.invalid_subordinate_config = None
                     self.invalid_interop_ingress_clock_class_map_from_val = []
                     self.invalid_interop_ingress_clock_class_map_to_val = []
                     self.invalid_interop_egress_clock_class_map_from_val = []
@@ -5528,7 +5528,7 @@ class Ptp(_Entity_):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError.ConfigurationErrors, ['global_ptp', 'ethernet_transport', 'one_step', 'slave', 'ipv6', 'multicast', 'profile_not_global', 'local_priority', 'profile_ethernet', 'profile_ipv4', 'profile_ipv6', 'profile_unicast', 'profile_multicast', 'profile_mixed', 'profile_master_unicast', 'profile_master_multicast', 'profile_master_mixed', 'target_address_ipv4', 'target_address_ipv6', 'ipv4ttl', 'ipv6_hop_limit', 'profile_port_state', 'profile_announce_interval', 'profile_sync_interval', 'profile_delay_req_interval', 'profile_sync_timeout', 'profile_delay_resp_timeout', 'invalid_grant_reduction', 'invalid_interop_domain', 'invalid_interop_ingress_clock_class_default', 'invalid_interop_ingress_priority1', 'invalid_interop_ingress_clock_accuracy', 'invalid_interop_ingress_oslv', 'invalid_interop_egress_clock_class_default', 'invalid_interop_egress_priority1', 'invalid_interop_egress_priority2', 'invalid_interop_egress_clock_accuracy', 'invalid_interop_egress_oslv', 'invalid_master_config', 'invalid_slave_config', 'invalid_interop_ingress_clock_class_map_from_val', 'invalid_interop_ingress_clock_class_map_to_val', 'invalid_interop_egress_clock_class_map_from_val', 'invalid_interop_egress_clock_class_map_to_val'], name, value)
+                    self._perform_setattr(Ptp.InterfaceConfigurationErrors.InterfaceConfigurationError.ConfigurationErrors, ['global_ptp', 'ethernet_transport', 'one_step', 'subordinate', 'ipv6', 'multicast', 'profile_not_global', 'local_priority', 'profile_ethernet', 'profile_ipv4', 'profile_ipv6', 'profile_unicast', 'profile_multicast', 'profile_mixed', 'profile_main_unicast', 'profile_main_multicast', 'profile_main_mixed', 'target_address_ipv4', 'target_address_ipv6', 'ipv4ttl', 'ipv6_hop_limit', 'profile_port_state', 'profile_announce_interval', 'profile_sync_interval', 'profile_delay_req_interval', 'profile_sync_timeout', 'profile_delay_resp_timeout', 'invalid_grant_reduction', 'invalid_interop_domain', 'invalid_interop_ingress_clock_class_default', 'invalid_interop_ingress_priority1', 'invalid_interop_ingress_clock_accuracy', 'invalid_interop_ingress_oslv', 'invalid_interop_egress_clock_class_default', 'invalid_interop_egress_priority1', 'invalid_interop_egress_priority2', 'invalid_interop_egress_clock_accuracy', 'invalid_interop_egress_oslv', 'invalid_main_config', 'invalid_subordinate_config', 'invalid_interop_ingress_clock_class_map_from_val', 'invalid_interop_ingress_clock_class_map_to_val', 'invalid_interop_egress_clock_class_map_from_val', 'invalid_interop_egress_clock_class_map_to_val'], name, value)
 
                 @staticmethod
                 def _meta_info():
@@ -5546,15 +5546,15 @@ class Ptp(_Entity_):
             return meta._meta_table['Ptp.InterfaceConfigurationErrors']['meta_info']
 
 
-    class InterfaceForeignMasters(_Entity_):
+    class InterfaceForeignMains(_Entity_):
         """
-        Table for interface foreign master clock
+        Table for interface foreign main clock
         operational data
         
-        .. attribute:: interface_foreign_master
+        .. attribute:: interface_foreign_main
         
-        	Interface foreign master clock operational data
-        	**type**\: list of  		 :py:class:`InterfaceForeignMaster <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster>`
+        	Interface foreign main clock operational data
+        	**type**\: list of  		 :py:class:`InterfaceForeignMain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain>`
         
         	**config**\: False
         
@@ -5569,28 +5569,28 @@ class Ptp(_Entity_):
             if sys.version_info > (3,):
                 super().__init__()
             else:
-                super(Ptp.InterfaceForeignMasters, self).__init__()
+                super(Ptp.InterfaceForeignMains, self).__init__()
 
-            self.yang_name = "interface-foreign-masters"
+            self.yang_name = "interface-foreign-mains"
             self.yang_parent_name = "ptp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("interface-foreign-master", ("interface_foreign_master", Ptp.InterfaceForeignMasters.InterfaceForeignMaster))])
+            self._child_classes = OrderedDict([("interface-foreign-main", ("interface_foreign_main", Ptp.InterfaceForeignMains.InterfaceForeignMain))])
             self._leafs = OrderedDict()
 
-            self.interface_foreign_master = YList(self)
-            self._segment_path = lambda: "interface-foreign-masters"
+            self.interface_foreign_main = YList(self)
+            self._segment_path = lambda: "interface-foreign-mains"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.InterfaceForeignMasters, [], name, value)
+            self._perform_setattr(Ptp.InterfaceForeignMains, [], name, value)
 
 
-        class InterfaceForeignMaster(_Entity_):
+        class InterfaceForeignMain(_Entity_):
             """
-            Interface foreign master clock operational data
+            Interface foreign main clock operational data
             
             .. attribute:: interface_name  (key)
             
@@ -5613,7 +5613,7 @@ class Ptp(_Entity_):
             .. attribute:: foreign_clock
             
             	Foreign clocks received on this interface
-            	**type**\: list of  		 :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock>`
+            	**type**\: list of  		 :py:class:`ForeignClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock>`
             
             	**config**\: False
             
@@ -5628,14 +5628,14 @@ class Ptp(_Entity_):
                 if sys.version_info > (3,):
                     super().__init__()
                 else:
-                    super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster, self).__init__()
+                    super(Ptp.InterfaceForeignMains.InterfaceForeignMain, self).__init__()
 
-                self.yang_name = "interface-foreign-master"
-                self.yang_parent_name = "interface-foreign-masters"
+                self.yang_name = "interface-foreign-main"
+                self.yang_parent_name = "interface-foreign-mains"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock))])
+                self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock))])
                 self._leafs = OrderedDict([
                     ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                     ('port_number', (YLeaf(YType.uint16, 'port-number'), ['int'])),
@@ -5644,12 +5644,12 @@ class Ptp(_Entity_):
                 self.port_number = None
 
                 self.foreign_clock = YList(self)
-                self._segment_path = lambda: "interface-foreign-master" + "[interface-name='" + str(self.interface_name) + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-masters/%s" % self._segment_path()
+                self._segment_path = lambda: "interface-foreign-main" + "[interface-name='" + str(self.interface_name) + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/interface-foreign-mains/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster, ['interface_name', 'port_number'], name, value)
+                self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain, ['interface_name', 'port_number'], name, value)
 
 
             class ForeignClock(_Entity_):
@@ -5659,48 +5659,48 @@ class Ptp(_Entity_):
                 .. attribute:: foreign_clock
                 
                 	Foreign clock information
-                	**type**\:  :py:class:`ForeignClock_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_>`
+                	**type**\:  :py:class:`ForeignClock_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_>`
                 
                 	**config**\: False
                 
                 .. attribute:: address
                 
                 	The address of the clock
-                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address>`
+                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address>`
                 
                 	**config**\: False
                 
                 .. attribute:: announce_grant
                 
                 	Unicast grant information for announce messages
-                	**type**\:  :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.AnnounceGrant>`
+                	**type**\:  :py:class:`AnnounceGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.AnnounceGrant>`
                 
                 	**config**\: False
                 
                 .. attribute:: sync_grant
                 
                 	Unicast grant information for sync messages
-                	**type**\:  :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.SyncGrant>`
+                	**type**\:  :py:class:`SyncGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.SyncGrant>`
                 
                 	**config**\: False
                 
                 .. attribute:: delay_response_grant
                 
                 	Unicast grant information for delay\-response messages
-                	**type**\:  :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.DelayResponseGrant>`
+                	**type**\:  :py:class:`DelayResponseGrant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.DelayResponseGrant>`
                 
                 	**config**\: False
                 
                 .. attribute:: is_qualified
                 
-                	The clock is qualified for best master clock selection
+                	The clock is qualified for best main clock selection
                 	**type**\: bool
                 
                 	**config**\: False
                 
-                .. attribute:: is_grandmaster
+                .. attribute:: is_grandmain
                 
-                	This clock is the currently selected grand master clock
+                	This clock is the currently selected grand main clock
                 	**type**\: bool
                 
                 	**config**\: False
@@ -5768,14 +5768,14 @@ class Ptp(_Entity_):
                 
                 .. attribute:: ptsf_loss_announce
                 
-                	Announced messages are not being received from the master
+                	Announced messages are not being received from the main
                 	**type**\: bool
                 
                 	**config**\: False
                 
                 .. attribute:: ptsf_loss_sync
                 
-                	Sync messages are not being received from the master
+                	Sync messages are not being received from the main
                 	**type**\: bool
                 
                 	**config**\: False
@@ -5798,17 +5798,17 @@ class Ptp(_Entity_):
                     if sys.version_info > (3,):
                         super().__init__()
                     else:
-                        super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock, self).__init__()
+                        super(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock, self).__init__()
 
                     self.yang_name = "foreign-clock"
-                    self.yang_parent_name = "interface-foreign-master"
+                    self.yang_parent_name = "interface-foreign-main"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_)), ("address", ("address", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address)), ("announce-grant", ("announce_grant", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.DelayResponseGrant))])
+                    self._child_classes = OrderedDict([("foreign-clock", ("foreign_clock", Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_)), ("address", ("address", Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address)), ("announce-grant", ("announce_grant", Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.AnnounceGrant)), ("sync-grant", ("sync_grant", Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.SyncGrant)), ("delay-response-grant", ("delay_response_grant", Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.DelayResponseGrant))])
                     self._leafs = OrderedDict([
                         ('is_qualified', (YLeaf(YType.boolean, 'is-qualified'), ['bool'])),
-                        ('is_grandmaster', (YLeaf(YType.boolean, 'is-grandmaster'), ['bool'])),
+                        ('is_grandmain', (YLeaf(YType.boolean, 'is-grandmain'), ['bool'])),
                         ('communication_model', (YLeaf(YType.enumeration, 'communication-model'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagCommunicationModel', '')])),
                         ('is_known', (YLeaf(YType.boolean, 'is-known'), ['bool'])),
                         ('time_known_for', (YLeaf(YType.uint32, 'time-known-for'), ['int'])),
@@ -5821,7 +5821,7 @@ class Ptp(_Entity_):
                         ('is_dnu', (YLeaf(YType.boolean, 'is-dnu'), ['bool'])),
                     ])
                     self.is_qualified = None
-                    self.is_grandmaster = None
+                    self.is_grandmain = None
                     self.communication_model = None
                     self.is_known = None
                     self.time_known_for = None
@@ -5833,30 +5833,30 @@ class Ptp(_Entity_):
                     self.ptsf_loss_sync = None
                     self.is_dnu = None
 
-                    self.foreign_clock = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_()
+                    self.foreign_clock = Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_()
                     self.foreign_clock.parent = self
                     self._children_name_map["foreign_clock"] = "foreign-clock"
 
-                    self.address = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address()
+                    self.address = Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address()
                     self.address.parent = self
                     self._children_name_map["address"] = "address"
 
-                    self.announce_grant = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.AnnounceGrant()
+                    self.announce_grant = Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.AnnounceGrant()
                     self.announce_grant.parent = self
                     self._children_name_map["announce_grant"] = "announce-grant"
 
-                    self.sync_grant = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.SyncGrant()
+                    self.sync_grant = Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.SyncGrant()
                     self.sync_grant.parent = self
                     self._children_name_map["sync_grant"] = "sync-grant"
 
-                    self.delay_response_grant = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.DelayResponseGrant()
+                    self.delay_response_grant = Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.DelayResponseGrant()
                     self.delay_response_grant.parent = self
                     self._children_name_map["delay_response_grant"] = "delay-response-grant"
                     self._segment_path = lambda: "foreign-clock"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock, ['is_qualified', 'is_grandmaster', 'communication_model', 'is_known', 'time_known_for', 'foreign_domain', 'configured_priority', 'configured_clock_class', 'delay_asymmetry', 'ptsf_loss_announce', 'ptsf_loss_sync', 'is_dnu'], name, value)
+                    self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock, ['is_qualified', 'is_grandmain', 'communication_model', 'is_known', 'time_known_for', 'foreign_domain', 'configured_priority', 'configured_clock_class', 'delay_asymmetry', 'ptsf_loss_announce', 'ptsf_loss_sync', 'is_dnu'], name, value)
 
 
                 class ForeignClock_(_Entity_):
@@ -5866,21 +5866,21 @@ class Ptp(_Entity_):
                     .. attribute:: utc_offset
                     
                     	UTC offset
-                    	**type**\:  :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset>`
+                    	**type**\:  :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset>`
                     
                     	**config**\: False
                     
                     .. attribute:: receiver
                     
                     	Receiver
-                    	**type**\:  :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver>`
+                    	**type**\:  :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Receiver>`
                     
                     	**config**\: False
                     
                     .. attribute:: sender
                     
                     	Sender
-                    	**type**\:  :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Sender>`
+                    	**type**\:  :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Sender>`
                     
                     	**config**\: False
                     
@@ -6020,14 +6020,14 @@ class Ptp(_Entity_):
                         if sys.version_info > (3,):
                             super().__init__()
                         else:
-                            super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_, self).__init__()
+                            super(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_, self).__init__()
 
                         self.yang_name = "foreign-clock"
                         self.yang_parent_name = "foreign-clock"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset)), ("receiver", ("receiver", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver)), ("sender", ("sender", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Sender))])
+                        self._child_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset)), ("receiver", ("receiver", Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Receiver)), ("sender", ("sender", Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Sender))])
                         self._leafs = OrderedDict([
                             ('clock_id', (YLeaf(YType.uint64, 'clock-id'), ['int'])),
                             ('priority1', (YLeaf(YType.uint8, 'priority1'), ['int'])),
@@ -6061,22 +6061,22 @@ class Ptp(_Entity_):
                         self.configured_clock_class = None
                         self.configured_priority = None
 
-                        self.utc_offset = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset()
+                        self.utc_offset = Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset()
                         self.utc_offset.parent = self
                         self._children_name_map["utc_offset"] = "utc-offset"
 
-                        self.receiver = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver()
+                        self.receiver = Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Receiver()
                         self.receiver.parent = self
                         self._children_name_map["receiver"] = "receiver"
 
-                        self.sender = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Sender()
+                        self.sender = Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Sender()
                         self.sender.parent = self
                         self._children_name_map["sender"] = "sender"
                         self._segment_path = lambda: "foreign-clock"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_, ['clock_id', 'priority1', 'priority2', 'class_', 'accuracy', 'offset_log_variance', 'steps_removed', 'time_source', 'frequency_traceable', 'time_traceable', 'timescale', 'leap_seconds', 'local', 'configured_clock_class', 'configured_priority'], name, value)
+                        self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_, ['clock_id', 'priority1', 'priority2', 'class_', 'accuracy', 'offset_log_variance', 'steps_removed', 'time_source', 'frequency_traceable', 'time_traceable', 'timescale', 'leap_seconds', 'local', 'configured_clock_class', 'configured_priority'], name, value)
 
 
                     class UtcOffset(_Entity_):
@@ -6110,7 +6110,7 @@ class Ptp(_Entity_):
                             if sys.version_info > (3,):
                                 super().__init__()
                             else:
-                                super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset, self).__init__()
+                                super(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset, self).__init__()
 
                             self.yang_name = "utc-offset"
                             self.yang_parent_name = "foreign-clock"
@@ -6128,12 +6128,12 @@ class Ptp(_Entity_):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset, ['current_offset', 'offset_valid'], name, value)
+                            self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset, ['current_offset', 'offset_valid'], name, value)
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                            return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.UtcOffset']['meta_info']
+                            return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.UtcOffset']['meta_info']
 
 
                     class Receiver(_Entity_):
@@ -6169,7 +6169,7 @@ class Ptp(_Entity_):
                             if sys.version_info > (3,):
                                 super().__init__()
                             else:
-                                super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver, self).__init__()
+                                super(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Receiver, self).__init__()
 
                             self.yang_name = "receiver"
                             self.yang_parent_name = "foreign-clock"
@@ -6187,12 +6187,12 @@ class Ptp(_Entity_):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver, ['clock_id', 'port_number'], name, value)
+                            self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Receiver, ['clock_id', 'port_number'], name, value)
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                            return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Receiver']['meta_info']
+                            return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Receiver']['meta_info']
 
 
                     class Sender(_Entity_):
@@ -6228,7 +6228,7 @@ class Ptp(_Entity_):
                             if sys.version_info > (3,):
                                 super().__init__()
                             else:
-                                super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Sender, self).__init__()
+                                super(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Sender, self).__init__()
 
                             self.yang_name = "sender"
                             self.yang_parent_name = "foreign-clock"
@@ -6246,17 +6246,17 @@ class Ptp(_Entity_):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Sender, ['clock_id', 'port_number'], name, value)
+                            self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Sender, ['clock_id', 'port_number'], name, value)
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                            return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_.Sender']['meta_info']
+                            return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_.Sender']['meta_info']
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                        return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.ForeignClock_']['meta_info']
+                        return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.ForeignClock_']['meta_info']
 
 
                 class Address(_Entity_):
@@ -6266,14 +6266,14 @@ class Ptp(_Entity_):
                     .. attribute:: mac_address
                     
                     	Ethernet MAC address
-                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.MacAddress>`
+                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.MacAddress>`
                     
                     	**config**\: False
                     
                     .. attribute:: ipv6_address
                     
                     	IPv6 address
-                    	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.Ipv6Address>`
+                    	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.Ipv6Address>`
                     
                     	**config**\: False
                     
@@ -6311,14 +6311,14 @@ class Ptp(_Entity_):
                         if sys.version_info > (3,):
                             super().__init__()
                         else:
-                            super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address, self).__init__()
+                            super(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address, self).__init__()
 
                         self.yang_name = "address"
                         self.yang_parent_name = "foreign-clock"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.Ipv6Address))])
+                        self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.Ipv6Address))])
                         self._leafs = OrderedDict([
                             ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagEncap', '')])),
                             ('address_unknown', (YLeaf(YType.boolean, 'address-unknown'), ['bool'])),
@@ -6328,18 +6328,18 @@ class Ptp(_Entity_):
                         self.address_unknown = None
                         self.ipv4_address = None
 
-                        self.mac_address = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.MacAddress()
+                        self.mac_address = Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.MacAddress()
                         self.mac_address.parent = self
                         self._children_name_map["mac_address"] = "mac-address"
 
-                        self.ipv6_address = Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.Ipv6Address()
+                        self.ipv6_address = Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.Ipv6Address()
                         self.ipv6_address.parent = self
                         self._children_name_map["ipv6_address"] = "ipv6-address"
                         self._segment_path = lambda: "address"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address, ['encapsulation', 'address_unknown', 'ipv4_address'], name, value)
+                        self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address, ['encapsulation', 'address_unknown', 'ipv4_address'], name, value)
 
 
                     class MacAddress(_Entity_):
@@ -6366,7 +6366,7 @@ class Ptp(_Entity_):
                             if sys.version_info > (3,):
                                 super().__init__()
                             else:
-                                super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.MacAddress, self).__init__()
+                                super(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.MacAddress, self).__init__()
 
                             self.yang_name = "mac-address"
                             self.yang_parent_name = "address"
@@ -6382,12 +6382,12 @@ class Ptp(_Entity_):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.MacAddress, ['macaddr'], name, value)
+                            self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.MacAddress, ['macaddr'], name, value)
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                            return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.MacAddress']['meta_info']
+                            return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.MacAddress']['meta_info']
 
 
                     class Ipv6Address(_Entity_):
@@ -6414,7 +6414,7 @@ class Ptp(_Entity_):
                             if sys.version_info > (3,):
                                 super().__init__()
                             else:
-                                super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.Ipv6Address, self).__init__()
+                                super(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.Ipv6Address, self).__init__()
 
                             self.yang_name = "ipv6-address"
                             self.yang_parent_name = "address"
@@ -6430,17 +6430,17 @@ class Ptp(_Entity_):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.Ipv6Address, ['ipv6_address'], name, value)
+                            self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.Ipv6Address, ['ipv6_address'], name, value)
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                            return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address.Ipv6Address']['meta_info']
+                            return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address.Ipv6Address']['meta_info']
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                        return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.Address']['meta_info']
+                        return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.Address']['meta_info']
 
 
                 class AnnounceGrant(_Entity_):
@@ -6476,7 +6476,7 @@ class Ptp(_Entity_):
                         if sys.version_info > (3,):
                             super().__init__()
                         else:
-                            super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.AnnounceGrant, self).__init__()
+                            super(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.AnnounceGrant, self).__init__()
 
                         self.yang_name = "announce-grant"
                         self.yang_parent_name = "foreign-clock"
@@ -6494,12 +6494,12 @@ class Ptp(_Entity_):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.AnnounceGrant, ['log_grant_interval', 'grant_duration'], name, value)
+                        self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.AnnounceGrant, ['log_grant_interval', 'grant_duration'], name, value)
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                        return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.AnnounceGrant']['meta_info']
+                        return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.AnnounceGrant']['meta_info']
 
 
                 class SyncGrant(_Entity_):
@@ -6535,7 +6535,7 @@ class Ptp(_Entity_):
                         if sys.version_info > (3,):
                             super().__init__()
                         else:
-                            super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.SyncGrant, self).__init__()
+                            super(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.SyncGrant, self).__init__()
 
                         self.yang_name = "sync-grant"
                         self.yang_parent_name = "foreign-clock"
@@ -6553,12 +6553,12 @@ class Ptp(_Entity_):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.SyncGrant, ['log_grant_interval', 'grant_duration'], name, value)
+                        self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.SyncGrant, ['log_grant_interval', 'grant_duration'], name, value)
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                        return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.SyncGrant']['meta_info']
+                        return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.SyncGrant']['meta_info']
 
 
                 class DelayResponseGrant(_Entity_):
@@ -6595,7 +6595,7 @@ class Ptp(_Entity_):
                         if sys.version_info > (3,):
                             super().__init__()
                         else:
-                            super(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.DelayResponseGrant, self).__init__()
+                            super(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.DelayResponseGrant, self).__init__()
 
                         self.yang_name = "delay-response-grant"
                         self.yang_parent_name = "foreign-clock"
@@ -6613,27 +6613,27 @@ class Ptp(_Entity_):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.DelayResponseGrant, ['log_grant_interval', 'grant_duration'], name, value)
+                        self._perform_setattr(Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.DelayResponseGrant, ['log_grant_interval', 'grant_duration'], name, value)
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                        return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock.DelayResponseGrant']['meta_info']
+                        return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock.DelayResponseGrant']['meta_info']
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                    return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster.ForeignClock']['meta_info']
+                    return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain.ForeignClock']['meta_info']
 
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                return meta._meta_table['Ptp.InterfaceForeignMasters.InterfaceForeignMaster']['meta_info']
+                return meta._meta_table['Ptp.InterfaceForeignMains.InterfaceForeignMain']['meta_info']
 
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-            return meta._meta_table['Ptp.InterfaceForeignMasters']['meta_info']
+            return meta._meta_table['Ptp.InterfaceForeignMains']['meta_info']
 
 
     class InterfaceInterops(_Entity_):
@@ -7354,9 +7354,9 @@ class Ptp(_Entity_):
         
         	**config**\: False
         
-        .. attribute:: grandmaster
+        .. attribute:: grandmain
         
-        	Whether the local clock is the grandmaster
+        	Whether the local clock is the grandmain
         	**type**\: bool
         
         	**config**\: False
@@ -7382,10 +7382,10 @@ class Ptp(_Entity_):
             self._child_classes = OrderedDict([("clock-properties", ("clock_properties", Ptp.LocalClock.ClockProperties)), ("virtual-port", ("virtual_port", Ptp.LocalClock.VirtualPort))])
             self._leafs = OrderedDict([
                 ('domain', (YLeaf(YType.uint8, 'domain'), ['int'])),
-                ('grandmaster', (YLeaf(YType.boolean, 'grandmaster'), ['bool'])),
+                ('grandmain', (YLeaf(YType.boolean, 'grandmain'), ['bool'])),
             ])
             self.domain = None
-            self.grandmaster = None
+            self.grandmain = None
 
             self.clock_properties = Ptp.LocalClock.ClockProperties()
             self.clock_properties.parent = self
@@ -7399,7 +7399,7 @@ class Ptp(_Entity_):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.LocalClock, ['domain', 'grandmaster'], name, value)
+            self._perform_setattr(Ptp.LocalClock, ['domain', 'grandmain'], name, value)
 
 
         class ClockProperties(_Entity_):
@@ -9858,9 +9858,9 @@ class Ptp(_Entity_):
             
             	**config**\: False
             
-            .. attribute:: supports_master
+            .. attribute:: supports_main
             
-            	The interface supports operation in master mode
+            	The interface supports operation in main mode
             	**type**\: bool
             
             	**config**\: False
@@ -9907,9 +9907,9 @@ class Ptp(_Entity_):
             
             	**config**\: False
             
-            .. attribute:: supports_slave
+            .. attribute:: supports_subordinate
             
-            	The interface supports operation in slave mode
+            	The interface supports operation in subordinate mode
             	**type**\: bool
             
             	**config**\: False
@@ -10014,10 +10014,10 @@ class Ptp(_Entity_):
             
             	**config**\: False
             
-            .. attribute:: master_table
+            .. attribute:: main_table
             
-            	The interface's master table
-            	**type**\: list of  		 :py:class:`MasterTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable>`
+            	The interface's main table
+            	**type**\: list of  		 :py:class:`MainTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MainTable>`
             
             	**config**\: False
             
@@ -10039,7 +10039,7 @@ class Ptp(_Entity_):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['interface_name']
-                self._child_classes = OrderedDict([("ipv6-address-array", ("ipv6_address_array", Ptp.Interfaces.Interface.Ipv6AddressArray)), ("ipv4-address-array", ("ipv4_address_array", Ptp.Interfaces.Interface.Ipv4AddressArray)), ("mac-address", ("mac_address", Ptp.Interfaces.Interface.MacAddress)), ("ingress-conversion", ("ingress_conversion", Ptp.Interfaces.Interface.IngressConversion)), ("egress-conversion", ("egress_conversion", Ptp.Interfaces.Interface.EgressConversion)), ("master-table", ("master_table", Ptp.Interfaces.Interface.MasterTable))])
+                self._child_classes = OrderedDict([("ipv6-address-array", ("ipv6_address_array", Ptp.Interfaces.Interface.Ipv6AddressArray)), ("ipv4-address-array", ("ipv4_address_array", Ptp.Interfaces.Interface.Ipv4AddressArray)), ("mac-address", ("mac_address", Ptp.Interfaces.Interface.MacAddress)), ("ingress-conversion", ("ingress_conversion", Ptp.Interfaces.Interface.IngressConversion)), ("egress-conversion", ("egress_conversion", Ptp.Interfaces.Interface.EgressConversion)), ("main-table", ("main_table", Ptp.Interfaces.Interface.MainTable))])
                 self._leafs = OrderedDict([
                     ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                     ('port_state', (YLeaf(YType.enumeration, 'port-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagPortState', '')])),
@@ -10056,14 +10056,14 @@ class Ptp(_Entity_):
                     ('log_min_delay_request_interval', (YLeaf(YType.int32, 'log-min-delay-request-interval'), ['int'])),
                     ('configured_port_state', (YLeaf(YType.enumeration, 'configured-port-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagRestrictPortState', '')])),
                     ('supports_unicast', (YLeaf(YType.boolean, 'supports-unicast'), ['bool'])),
-                    ('supports_master', (YLeaf(YType.boolean, 'supports-master'), ['bool'])),
+                    ('supports_main', (YLeaf(YType.boolean, 'supports-main'), ['bool'])),
                     ('supports_one_step', (YLeaf(YType.boolean, 'supports-one-step'), ['bool'])),
                     ('supports_two_step', (YLeaf(YType.boolean, 'supports-two-step'), ['bool'])),
                     ('supports_ethernet', (YLeaf(YType.boolean, 'supports-ethernet'), ['bool'])),
                     ('supports_multicast', (YLeaf(YType.boolean, 'supports-multicast'), ['bool'])),
                     ('supports_ipv4', (YLeaf(YType.boolean, 'supports-ipv4'), ['bool'])),
                     ('supports_ipv6', (YLeaf(YType.boolean, 'supports-ipv6'), ['bool'])),
-                    ('supports_slave', (YLeaf(YType.boolean, 'supports-slave'), ['bool'])),
+                    ('supports_subordinate', (YLeaf(YType.boolean, 'supports-subordinate'), ['bool'])),
                     ('supports_source_ip', (YLeaf(YType.boolean, 'supports-source-ip'), ['bool'])),
                     ('max_sync_rate', (YLeaf(YType.uint8, 'max-sync-rate'), ['int'])),
                     ('event_cos', (YLeaf(YType.uint32, 'event-cos'), ['int'])),
@@ -10092,14 +10092,14 @@ class Ptp(_Entity_):
                 self.log_min_delay_request_interval = None
                 self.configured_port_state = None
                 self.supports_unicast = None
-                self.supports_master = None
+                self.supports_main = None
                 self.supports_one_step = None
                 self.supports_two_step = None
                 self.supports_ethernet = None
                 self.supports_multicast = None
                 self.supports_ipv4 = None
                 self.supports_ipv6 = None
-                self.supports_slave = None
+                self.supports_subordinate = None
                 self.supports_source_ip = None
                 self.max_sync_rate = None
                 self.event_cos = None
@@ -10133,13 +10133,13 @@ class Ptp(_Entity_):
                 self.egress_conversion.parent = self
                 self._children_name_map["egress_conversion"] = "egress-conversion"
 
-                self.master_table = YList(self)
+                self.main_table = YList(self)
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/interfaces/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Interfaces.Interface, ['interface_name', 'port_state', 'port_number', 'line_state', 'encapsulation', 'ipv6_address', 'ipv4_address', 'two_step', 'communication_model', 'log_sync_interval', 'log_announce_interval', 'announce_timeout', 'log_min_delay_request_interval', 'configured_port_state', 'supports_unicast', 'supports_master', 'supports_one_step', 'supports_two_step', 'supports_ethernet', 'supports_multicast', 'supports_ipv4', 'supports_ipv6', 'supports_slave', 'supports_source_ip', 'max_sync_rate', 'event_cos', 'general_cos', 'event_dscp', 'general_dscp', 'unicast_peers', 'local_priority', 'signal_fail', 'profile_interop', 'interop_domain', 'interop_profile'], name, value)
+                self._perform_setattr(Ptp.Interfaces.Interface, ['interface_name', 'port_state', 'port_number', 'line_state', 'encapsulation', 'ipv6_address', 'ipv4_address', 'two_step', 'communication_model', 'log_sync_interval', 'log_announce_interval', 'announce_timeout', 'log_min_delay_request_interval', 'configured_port_state', 'supports_unicast', 'supports_main', 'supports_one_step', 'supports_two_step', 'supports_ethernet', 'supports_multicast', 'supports_ipv4', 'supports_ipv6', 'supports_subordinate', 'supports_source_ip', 'max_sync_rate', 'event_cos', 'general_cos', 'event_dscp', 'general_dscp', 'unicast_peers', 'local_priority', 'signal_fail', 'profile_interop', 'interop_domain', 'interop_profile'], name, value)
 
 
             class Ipv6AddressArray(_Entity_):
@@ -10612,27 +10612,27 @@ class Ptp(_Entity_):
                     return meta._meta_table['Ptp.Interfaces.Interface.EgressConversion']['meta_info']
 
 
-            class MasterTable(_Entity_):
+            class MainTable(_Entity_):
                 """
-                The interface's master table
+                The interface's main table
                 
                 .. attribute:: address
                 
-                	The address of the master clock
-                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable.Address>`
+                	The address of the main clock
+                	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MainTable.Address>`
                 
                 	**config**\: False
                 
                 .. attribute:: communication_model
                 
-                	The configured communication model of the master clock
+                	The configured communication model of the main clock
                 	**type**\:  :py:class:`PtpBagCommunicationModel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.PtpBagCommunicationModel>`
                 
                 	**config**\: False
                 
                 .. attribute:: priority
                 
-                	The priority of the master clock, if it is set
+                	The priority of the main clock, if it is set
                 	**type**\: int
                 
                 	**range:** 0..255
@@ -10641,28 +10641,28 @@ class Ptp(_Entity_):
                 
                 .. attribute:: known
                 
-                	Whether the interface is receiving messages from this master
+                	Whether the interface is receiving messages from this main
                 	**type**\: bool
                 
                 	**config**\: False
                 
                 .. attribute:: qualified
                 
-                	The master is qualified for best master clock selection
+                	The main is qualified for best main clock selection
                 	**type**\: bool
                 
                 	**config**\: False
                 
-                .. attribute:: is_grandmaster
+                .. attribute:: is_grandmain
                 
-                	Whether this is the grandmaster
+                	Whether this is the grandmain
                 	**type**\: bool
                 
                 	**config**\: False
                 
                 .. attribute:: ptsf_loss_announce
                 
-                	Announced messages are not being received from the master
+                	Announced messages are not being received from the main
                 	**type**\: int
                 
                 	**range:** 0..255
@@ -10671,7 +10671,7 @@ class Ptp(_Entity_):
                 
                 .. attribute:: ptsf_loss_sync
                 
-                	Sync messages are not being received from the master
+                	Sync messages are not being received from the main
                 	**type**\: int
                 
                 	**range:** 0..255
@@ -10680,7 +10680,7 @@ class Ptp(_Entity_):
                 
                 .. attribute:: is_nonnegotiated
                 
-                	Whether this master uses non\-negotiated unicast
+                	Whether this main uses non\-negotiated unicast
                 	**type**\: bool
                 
                 	**config**\: False
@@ -10696,20 +10696,20 @@ class Ptp(_Entity_):
                     if sys.version_info > (3,):
                         super().__init__()
                     else:
-                        super(Ptp.Interfaces.Interface.MasterTable, self).__init__()
+                        super(Ptp.Interfaces.Interface.MainTable, self).__init__()
 
-                    self.yang_name = "master-table"
+                    self.yang_name = "main-table"
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("address", ("address", Ptp.Interfaces.Interface.MasterTable.Address))])
+                    self._child_classes = OrderedDict([("address", ("address", Ptp.Interfaces.Interface.MainTable.Address))])
                     self._leafs = OrderedDict([
                         ('communication_model', (YLeaf(YType.enumeration, 'communication-model'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagCommunicationModel', '')])),
                         ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
                         ('known', (YLeaf(YType.boolean, 'known'), ['bool'])),
                         ('qualified', (YLeaf(YType.boolean, 'qualified'), ['bool'])),
-                        ('is_grandmaster', (YLeaf(YType.boolean, 'is-grandmaster'), ['bool'])),
+                        ('is_grandmain', (YLeaf(YType.boolean, 'is-grandmain'), ['bool'])),
                         ('ptsf_loss_announce', (YLeaf(YType.uint8, 'ptsf-loss-announce'), ['int'])),
                         ('ptsf_loss_sync', (YLeaf(YType.uint8, 'ptsf-loss-sync'), ['int'])),
                         ('is_nonnegotiated', (YLeaf(YType.boolean, 'is-nonnegotiated'), ['bool'])),
@@ -10718,36 +10718,36 @@ class Ptp(_Entity_):
                     self.priority = None
                     self.known = None
                     self.qualified = None
-                    self.is_grandmaster = None
+                    self.is_grandmain = None
                     self.ptsf_loss_announce = None
                     self.ptsf_loss_sync = None
                     self.is_nonnegotiated = None
 
-                    self.address = Ptp.Interfaces.Interface.MasterTable.Address()
+                    self.address = Ptp.Interfaces.Interface.MainTable.Address()
                     self.address.parent = self
                     self._children_name_map["address"] = "address"
-                    self._segment_path = lambda: "master-table"
+                    self._segment_path = lambda: "main-table"
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Interfaces.Interface.MasterTable, ['communication_model', 'priority', 'known', 'qualified', 'is_grandmaster', 'ptsf_loss_announce', 'ptsf_loss_sync', 'is_nonnegotiated'], name, value)
+                    self._perform_setattr(Ptp.Interfaces.Interface.MainTable, ['communication_model', 'priority', 'known', 'qualified', 'is_grandmain', 'ptsf_loss_announce', 'ptsf_loss_sync', 'is_nonnegotiated'], name, value)
 
 
                 class Address(_Entity_):
                     """
-                    The address of the master clock
+                    The address of the main clock
                     
                     .. attribute:: mac_address
                     
                     	Ethernet MAC address
-                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable.Address.MacAddress>`
+                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MainTable.Address.MacAddress>`
                     
                     	**config**\: False
                     
                     .. attribute:: ipv6_address
                     
                     	IPv6 address
-                    	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MasterTable.Address.Ipv6Address>`
+                    	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Interfaces.Interface.MainTable.Address.Ipv6Address>`
                     
                     	**config**\: False
                     
@@ -10785,14 +10785,14 @@ class Ptp(_Entity_):
                         if sys.version_info > (3,):
                             super().__init__()
                         else:
-                            super(Ptp.Interfaces.Interface.MasterTable.Address, self).__init__()
+                            super(Ptp.Interfaces.Interface.MainTable.Address, self).__init__()
 
                         self.yang_name = "address"
-                        self.yang_parent_name = "master-table"
+                        self.yang_parent_name = "main-table"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Interfaces.Interface.MasterTable.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Interfaces.Interface.MasterTable.Address.Ipv6Address))])
+                        self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Interfaces.Interface.MainTable.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Interfaces.Interface.MainTable.Address.Ipv6Address))])
                         self._leafs = OrderedDict([
                             ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagEncap', '')])),
                             ('address_unknown', (YLeaf(YType.boolean, 'address-unknown'), ['bool'])),
@@ -10802,18 +10802,18 @@ class Ptp(_Entity_):
                         self.address_unknown = None
                         self.ipv4_address = None
 
-                        self.mac_address = Ptp.Interfaces.Interface.MasterTable.Address.MacAddress()
+                        self.mac_address = Ptp.Interfaces.Interface.MainTable.Address.MacAddress()
                         self.mac_address.parent = self
                         self._children_name_map["mac_address"] = "mac-address"
 
-                        self.ipv6_address = Ptp.Interfaces.Interface.MasterTable.Address.Ipv6Address()
+                        self.ipv6_address = Ptp.Interfaces.Interface.MainTable.Address.Ipv6Address()
                         self.ipv6_address.parent = self
                         self._children_name_map["ipv6_address"] = "ipv6-address"
                         self._segment_path = lambda: "address"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Interfaces.Interface.MasterTable.Address, ['encapsulation', 'address_unknown', 'ipv4_address'], name, value)
+                        self._perform_setattr(Ptp.Interfaces.Interface.MainTable.Address, ['encapsulation', 'address_unknown', 'ipv4_address'], name, value)
 
 
                     class MacAddress(_Entity_):
@@ -10840,7 +10840,7 @@ class Ptp(_Entity_):
                             if sys.version_info > (3,):
                                 super().__init__()
                             else:
-                                super(Ptp.Interfaces.Interface.MasterTable.Address.MacAddress, self).__init__()
+                                super(Ptp.Interfaces.Interface.MainTable.Address.MacAddress, self).__init__()
 
                             self.yang_name = "mac-address"
                             self.yang_parent_name = "address"
@@ -10856,12 +10856,12 @@ class Ptp(_Entity_):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Interfaces.Interface.MasterTable.Address.MacAddress, ['macaddr'], name, value)
+                            self._perform_setattr(Ptp.Interfaces.Interface.MainTable.Address.MacAddress, ['macaddr'], name, value)
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                            return meta._meta_table['Ptp.Interfaces.Interface.MasterTable.Address.MacAddress']['meta_info']
+                            return meta._meta_table['Ptp.Interfaces.Interface.MainTable.Address.MacAddress']['meta_info']
 
 
                     class Ipv6Address(_Entity_):
@@ -10888,7 +10888,7 @@ class Ptp(_Entity_):
                             if sys.version_info > (3,):
                                 super().__init__()
                             else:
-                                super(Ptp.Interfaces.Interface.MasterTable.Address.Ipv6Address, self).__init__()
+                                super(Ptp.Interfaces.Interface.MainTable.Address.Ipv6Address, self).__init__()
 
                             self.yang_name = "ipv6-address"
                             self.yang_parent_name = "address"
@@ -10904,22 +10904,22 @@ class Ptp(_Entity_):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Interfaces.Interface.MasterTable.Address.Ipv6Address, ['ipv6_address'], name, value)
+                            self._perform_setattr(Ptp.Interfaces.Interface.MainTable.Address.Ipv6Address, ['ipv6_address'], name, value)
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                            return meta._meta_table['Ptp.Interfaces.Interface.MasterTable.Address.Ipv6Address']['meta_info']
+                            return meta._meta_table['Ptp.Interfaces.Interface.MainTable.Address.Ipv6Address']['meta_info']
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                        return meta._meta_table['Ptp.Interfaces.Interface.MasterTable.Address']['meta_info']
+                        return meta._meta_table['Ptp.Interfaces.Interface.MainTable.Address']['meta_info']
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                    return meta._meta_table['Ptp.Interfaces.Interface.MasterTable']['meta_info']
+                    return meta._meta_table['Ptp.Interfaces.Interface.MainTable']['meta_info']
 
             @staticmethod
             def _meta_info():
@@ -11103,9 +11103,9 @@ class Ptp(_Entity_):
             
             	**config**\: False
             
-            .. attribute:: slave_only
+            .. attribute:: subordinate_only
             
-            	Whether the local\-clock is globally configured as slave\-only
+            	Whether the local\-clock is globally configured as subordinate\-only
             	**type**\: bool
             
             	**config**\: False
@@ -11155,7 +11155,7 @@ class Ptp(_Entity_):
                     ('priority1', (YLeaf(YType.uint8, 'priority1'), ['int'])),
                     ('priority2', (YLeaf(YType.uint8, 'priority2'), ['int'])),
                     ('domain_number', (YLeaf(YType.uint8, 'domain-number'), ['int'])),
-                    ('slave_only', (YLeaf(YType.boolean, 'slave-only'), ['bool'])),
+                    ('subordinate_only', (YLeaf(YType.boolean, 'subordinate-only'), ['bool'])),
                     ('local_priority', (YLeaf(YType.uint32, 'local-priority'), ['int'])),
                     ('signal_fail', (YLeaf(YType.boolean, 'signal-fail'), ['bool'])),
                 ])
@@ -11168,7 +11168,7 @@ class Ptp(_Entity_):
                 self.priority1 = None
                 self.priority2 = None
                 self.domain_number = None
-                self.slave_only = None
+                self.subordinate_only = None
                 self.local_priority = None
                 self.signal_fail = None
                 self._segment_path = lambda: "default-ds"
@@ -11176,7 +11176,7 @@ class Ptp(_Entity_):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Dataset.DefaultDs, ['two_step_flag', 'clock_id', 'number_ports', 'clock_class', 'clock_accuracy', 'oslv', 'priority1', 'priority2', 'domain_number', 'slave_only', 'local_priority', 'signal_fail'], name, value)
+                self._perform_setattr(Ptp.Dataset.DefaultDs, ['two_step_flag', 'clock_id', 'number_ports', 'clock_class', 'clock_accuracy', 'oslv', 'priority1', 'priority2', 'domain_number', 'subordinate_only', 'local_priority', 'signal_fail'], name, value)
 
             @staticmethod
             def _meta_info():
@@ -11198,7 +11198,7 @@ class Ptp(_Entity_):
             
             	**config**\: False
             
-            .. attribute:: offset_from_master
+            .. attribute:: offset_from_main
             
             	The UTC offset of the local\-clock from the GM
             	**type**\: int
@@ -11209,7 +11209,7 @@ class Ptp(_Entity_):
             
             .. attribute:: mean_path_delay
             
-            	The mean path delay bewteen the foreign\-master and the local\-clock
+            	The mean path delay bewteen the foreign\-main and the local\-clock
             	**type**\: int
             
             	**range:** \-9223372036854775808..9223372036854775807
@@ -11237,18 +11237,18 @@ class Ptp(_Entity_):
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
                     ('steps_removed', (YLeaf(YType.uint16, 'steps-removed'), ['int'])),
-                    ('offset_from_master', (YLeaf(YType.int64, 'offset-from-master'), ['int'])),
+                    ('offset_from_main', (YLeaf(YType.int64, 'offset-from-main'), ['int'])),
                     ('mean_path_delay', (YLeaf(YType.int64, 'mean-path-delay'), ['int'])),
                 ])
                 self.steps_removed = None
-                self.offset_from_master = None
+                self.offset_from_main = None
                 self.mean_path_delay = None
                 self._segment_path = lambda: "current-ds"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/dataset/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Dataset.CurrentDs, ['steps_removed', 'offset_from_master', 'mean_path_delay'], name, value)
+                self._perform_setattr(Ptp.Dataset.CurrentDs, ['steps_removed', 'offset_from_main', 'mean_path_delay'], name, value)
 
             @staticmethod
             def _meta_info():
@@ -11572,9 +11572,9 @@ class Ptp(_Entity_):
                 
                 	**config**\: False
                 
-                .. attribute:: master_only
+                .. attribute:: main_only
                 
-                	Is the port master\-only?
+                	Is the port main\-only?
                 	**type**\: bool
                 
                 	**config**\: False
@@ -11619,7 +11619,7 @@ class Ptp(_Entity_):
                         ('log_min_p_delay_req_interval', (YLeaf(YType.int16, 'log-min-p-delay-req-interval'), ['int'])),
                         ('version_number', (YLeaf(YType.uint8, 'version-number'), ['int'])),
                         ('local_priority', (YLeaf(YType.uint32, 'local-priority'), ['int'])),
-                        ('master_only', (YLeaf(YType.boolean, 'master-only'), ['bool'])),
+                        ('main_only', (YLeaf(YType.boolean, 'main-only'), ['bool'])),
                         ('signal_fail', (YLeaf(YType.boolean, 'signal-fail'), ['bool'])),
                     ])
                     self.interface_name = None
@@ -11635,14 +11635,14 @@ class Ptp(_Entity_):
                     self.log_min_p_delay_req_interval = None
                     self.version_number = None
                     self.local_priority = None
-                    self.master_only = None
+                    self.main_only = None
                     self.signal_fail = None
                     self._segment_path = lambda: "port-ds" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/dataset/port-dses/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Dataset.PortDses.PortDs, ['interface_name', 'clock_id', 'port_number', 'port_state', 'log_min_delay_req_interval', 'peer_mean_path_delay', 'log_announce_interval', 'annoucne_receipt_timeout', 'log_sync_interval', 'delay_mechanism', 'log_min_p_delay_req_interval', 'version_number', 'local_priority', 'master_only', 'signal_fail'], name, value)
+                    self._perform_setattr(Ptp.Dataset.PortDses.PortDs, ['interface_name', 'clock_id', 'port_number', 'port_state', 'log_min_delay_req_interval', 'peer_mean_path_delay', 'log_announce_interval', 'annoucne_receipt_timeout', 'log_sync_interval', 'delay_mechanism', 'log_min_p_delay_req_interval', 'version_number', 'local_priority', 'main_only', 'signal_fail'], name, value)
 
                 @staticmethod
                 def _meta_info():
@@ -12061,41 +12061,41 @@ class Ptp(_Entity_):
             return meta._meta_table['Ptp.GlobalConfigurationError']['meta_info']
 
 
-    class Grandmaster(_Entity_):
+    class Grandmain(_Entity_):
         """
-        Grandmaster clock operational data
+        Grandmain clock operational data
         
         .. attribute:: clock_properties
         
-        	Grandmaster clock
-        	**type**\:  :py:class:`ClockProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties>`
+        	Grandmain clock
+        	**type**\:  :py:class:`ClockProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmain.ClockProperties>`
         
         	**config**\: False
         
         .. attribute:: address
         
-        	The grandmaster's address information
-        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.Address>`
+        	The grandmain's address information
+        	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmain.Address>`
         
         	**config**\: False
         
         .. attribute:: used_for_time
         
-        	Whether the grandmaster is setting time\-of\-day on the system
+        	Whether the grandmain is setting time\-of\-day on the system
         	**type**\: bool
         
         	**config**\: False
         
         .. attribute:: used_for_frequency
         
-        	Whether the grandmaster is setting frequency on the system
+        	Whether the grandmain is setting frequency on the system
         	**type**\: bool
         
         	**config**\: False
         
         .. attribute:: known_for_time
         
-        	How long the clock has been grandmaster for, in seconds
+        	How long the clock has been grandmain for, in seconds
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -12106,7 +12106,7 @@ class Ptp(_Entity_):
         
         .. attribute:: domain
         
-        	The PTP domain that the grandmaster is in
+        	The PTP domain that the grandmain is in
         	**type**\: int
         
         	**range:** 0..255
@@ -12124,14 +12124,14 @@ class Ptp(_Entity_):
             if sys.version_info > (3,):
                 super().__init__()
             else:
-                super(Ptp.Grandmaster, self).__init__()
+                super(Ptp.Grandmain, self).__init__()
 
-            self.yang_name = "grandmaster"
+            self.yang_name = "grandmain"
             self.yang_parent_name = "ptp"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("clock-properties", ("clock_properties", Ptp.Grandmaster.ClockProperties)), ("address", ("address", Ptp.Grandmaster.Address))])
+            self._child_classes = OrderedDict([("clock-properties", ("clock_properties", Ptp.Grandmain.ClockProperties)), ("address", ("address", Ptp.Grandmain.Address))])
             self._leafs = OrderedDict([
                 ('used_for_time', (YLeaf(YType.boolean, 'used-for-time'), ['bool'])),
                 ('used_for_frequency', (YLeaf(YType.boolean, 'used-for-frequency'), ['bool'])),
@@ -12143,43 +12143,43 @@ class Ptp(_Entity_):
             self.known_for_time = None
             self.domain = None
 
-            self.clock_properties = Ptp.Grandmaster.ClockProperties()
+            self.clock_properties = Ptp.Grandmain.ClockProperties()
             self.clock_properties.parent = self
             self._children_name_map["clock_properties"] = "clock-properties"
 
-            self.address = Ptp.Grandmaster.Address()
+            self.address = Ptp.Grandmain.Address()
             self.address.parent = self
             self._children_name_map["address"] = "address"
-            self._segment_path = lambda: "grandmaster"
+            self._segment_path = lambda: "grandmain"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.Grandmaster, ['used_for_time', 'used_for_frequency', 'known_for_time', 'domain'], name, value)
+            self._perform_setattr(Ptp.Grandmain, ['used_for_time', 'used_for_frequency', 'known_for_time', 'domain'], name, value)
 
 
         class ClockProperties(_Entity_):
             """
-            Grandmaster clock
+            Grandmain clock
             
             .. attribute:: utc_offset
             
             	UTC offset
-            	**type**\:  :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties.UtcOffset>`
+            	**type**\:  :py:class:`UtcOffset <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmain.ClockProperties.UtcOffset>`
             
             	**config**\: False
             
             .. attribute:: receiver
             
             	Receiver
-            	**type**\:  :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties.Receiver>`
+            	**type**\:  :py:class:`Receiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmain.ClockProperties.Receiver>`
             
             	**config**\: False
             
             .. attribute:: sender
             
             	Sender
-            	**type**\:  :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.ClockProperties.Sender>`
+            	**type**\:  :py:class:`Sender <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmain.ClockProperties.Sender>`
             
             	**config**\: False
             
@@ -12319,14 +12319,14 @@ class Ptp(_Entity_):
                 if sys.version_info > (3,):
                     super().__init__()
                 else:
-                    super(Ptp.Grandmaster.ClockProperties, self).__init__()
+                    super(Ptp.Grandmain.ClockProperties, self).__init__()
 
                 self.yang_name = "clock-properties"
-                self.yang_parent_name = "grandmaster"
+                self.yang_parent_name = "grandmain"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.Grandmaster.ClockProperties.UtcOffset)), ("receiver", ("receiver", Ptp.Grandmaster.ClockProperties.Receiver)), ("sender", ("sender", Ptp.Grandmaster.ClockProperties.Sender))])
+                self._child_classes = OrderedDict([("utc-offset", ("utc_offset", Ptp.Grandmain.ClockProperties.UtcOffset)), ("receiver", ("receiver", Ptp.Grandmain.ClockProperties.Receiver)), ("sender", ("sender", Ptp.Grandmain.ClockProperties.Sender))])
                 self._leafs = OrderedDict([
                     ('clock_id', (YLeaf(YType.uint64, 'clock-id'), ['int'])),
                     ('priority1', (YLeaf(YType.uint8, 'priority1'), ['int'])),
@@ -12360,23 +12360,23 @@ class Ptp(_Entity_):
                 self.configured_clock_class = None
                 self.configured_priority = None
 
-                self.utc_offset = Ptp.Grandmaster.ClockProperties.UtcOffset()
+                self.utc_offset = Ptp.Grandmain.ClockProperties.UtcOffset()
                 self.utc_offset.parent = self
                 self._children_name_map["utc_offset"] = "utc-offset"
 
-                self.receiver = Ptp.Grandmaster.ClockProperties.Receiver()
+                self.receiver = Ptp.Grandmain.ClockProperties.Receiver()
                 self.receiver.parent = self
                 self._children_name_map["receiver"] = "receiver"
 
-                self.sender = Ptp.Grandmaster.ClockProperties.Sender()
+                self.sender = Ptp.Grandmain.ClockProperties.Sender()
                 self.sender.parent = self
                 self._children_name_map["sender"] = "sender"
                 self._segment_path = lambda: "clock-properties"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/%s" % self._segment_path()
+                self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmain/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Grandmaster.ClockProperties, ['clock_id', 'priority1', 'priority2', 'class_', 'accuracy', 'offset_log_variance', 'steps_removed', 'time_source', 'frequency_traceable', 'time_traceable', 'timescale', 'leap_seconds', 'local', 'configured_clock_class', 'configured_priority'], name, value)
+                self._perform_setattr(Ptp.Grandmain.ClockProperties, ['clock_id', 'priority1', 'priority2', 'class_', 'accuracy', 'offset_log_variance', 'steps_removed', 'time_source', 'frequency_traceable', 'time_traceable', 'timescale', 'leap_seconds', 'local', 'configured_clock_class', 'configured_priority'], name, value)
 
 
             class UtcOffset(_Entity_):
@@ -12410,7 +12410,7 @@ class Ptp(_Entity_):
                     if sys.version_info > (3,):
                         super().__init__()
                     else:
-                        super(Ptp.Grandmaster.ClockProperties.UtcOffset, self).__init__()
+                        super(Ptp.Grandmain.ClockProperties.UtcOffset, self).__init__()
 
                     self.yang_name = "utc-offset"
                     self.yang_parent_name = "clock-properties"
@@ -12425,16 +12425,16 @@ class Ptp(_Entity_):
                     self.current_offset = None
                     self.offset_valid = None
                     self._segment_path = lambda: "utc-offset"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/clock-properties/%s" % self._segment_path()
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmain/clock-properties/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Grandmaster.ClockProperties.UtcOffset, ['current_offset', 'offset_valid'], name, value)
+                    self._perform_setattr(Ptp.Grandmain.ClockProperties.UtcOffset, ['current_offset', 'offset_valid'], name, value)
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                    return meta._meta_table['Ptp.Grandmaster.ClockProperties.UtcOffset']['meta_info']
+                    return meta._meta_table['Ptp.Grandmain.ClockProperties.UtcOffset']['meta_info']
 
 
             class Receiver(_Entity_):
@@ -12470,7 +12470,7 @@ class Ptp(_Entity_):
                     if sys.version_info > (3,):
                         super().__init__()
                     else:
-                        super(Ptp.Grandmaster.ClockProperties.Receiver, self).__init__()
+                        super(Ptp.Grandmain.ClockProperties.Receiver, self).__init__()
 
                     self.yang_name = "receiver"
                     self.yang_parent_name = "clock-properties"
@@ -12485,16 +12485,16 @@ class Ptp(_Entity_):
                     self.clock_id = None
                     self.port_number = None
                     self._segment_path = lambda: "receiver"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/clock-properties/%s" % self._segment_path()
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmain/clock-properties/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Grandmaster.ClockProperties.Receiver, ['clock_id', 'port_number'], name, value)
+                    self._perform_setattr(Ptp.Grandmain.ClockProperties.Receiver, ['clock_id', 'port_number'], name, value)
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                    return meta._meta_table['Ptp.Grandmaster.ClockProperties.Receiver']['meta_info']
+                    return meta._meta_table['Ptp.Grandmain.ClockProperties.Receiver']['meta_info']
 
 
             class Sender(_Entity_):
@@ -12530,7 +12530,7 @@ class Ptp(_Entity_):
                     if sys.version_info > (3,):
                         super().__init__()
                     else:
-                        super(Ptp.Grandmaster.ClockProperties.Sender, self).__init__()
+                        super(Ptp.Grandmain.ClockProperties.Sender, self).__init__()
 
                     self.yang_name = "sender"
                     self.yang_parent_name = "clock-properties"
@@ -12545,38 +12545,38 @@ class Ptp(_Entity_):
                     self.clock_id = None
                     self.port_number = None
                     self._segment_path = lambda: "sender"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/clock-properties/%s" % self._segment_path()
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmain/clock-properties/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Grandmaster.ClockProperties.Sender, ['clock_id', 'port_number'], name, value)
+                    self._perform_setattr(Ptp.Grandmain.ClockProperties.Sender, ['clock_id', 'port_number'], name, value)
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                    return meta._meta_table['Ptp.Grandmaster.ClockProperties.Sender']['meta_info']
+                    return meta._meta_table['Ptp.Grandmain.ClockProperties.Sender']['meta_info']
 
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                return meta._meta_table['Ptp.Grandmaster.ClockProperties']['meta_info']
+                return meta._meta_table['Ptp.Grandmain.ClockProperties']['meta_info']
 
 
         class Address(_Entity_):
             """
-            The grandmaster's address information
+            The grandmain's address information
             
             .. attribute:: mac_address
             
             	Ethernet MAC address
-            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.Address.MacAddress>`
+            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmain.Address.MacAddress>`
             
             	**config**\: False
             
             .. attribute:: ipv6_address
             
             	IPv6 address
-            	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmaster.Address.Ipv6Address>`
+            	**type**\:  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.Grandmain.Address.Ipv6Address>`
             
             	**config**\: False
             
@@ -12614,14 +12614,14 @@ class Ptp(_Entity_):
                 if sys.version_info > (3,):
                     super().__init__()
                 else:
-                    super(Ptp.Grandmaster.Address, self).__init__()
+                    super(Ptp.Grandmain.Address, self).__init__()
 
                 self.yang_name = "address"
-                self.yang_parent_name = "grandmaster"
+                self.yang_parent_name = "grandmain"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Grandmaster.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Grandmaster.Address.Ipv6Address))])
+                self._child_classes = OrderedDict([("mac-address", ("mac_address", Ptp.Grandmain.Address.MacAddress)), ("ipv6-address", ("ipv6_address", Ptp.Grandmain.Address.Ipv6Address))])
                 self._leafs = OrderedDict([
                     ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper', 'PtpBagEncap', '')])),
                     ('address_unknown', (YLeaf(YType.boolean, 'address-unknown'), ['bool'])),
@@ -12631,19 +12631,19 @@ class Ptp(_Entity_):
                 self.address_unknown = None
                 self.ipv4_address = None
 
-                self.mac_address = Ptp.Grandmaster.Address.MacAddress()
+                self.mac_address = Ptp.Grandmain.Address.MacAddress()
                 self.mac_address.parent = self
                 self._children_name_map["mac_address"] = "mac-address"
 
-                self.ipv6_address = Ptp.Grandmaster.Address.Ipv6Address()
+                self.ipv6_address = Ptp.Grandmain.Address.Ipv6Address()
                 self.ipv6_address.parent = self
                 self._children_name_map["ipv6_address"] = "ipv6-address"
                 self._segment_path = lambda: "address"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/%s" % self._segment_path()
+                self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmain/%s" % self._segment_path()
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Grandmaster.Address, ['encapsulation', 'address_unknown', 'ipv4_address'], name, value)
+                self._perform_setattr(Ptp.Grandmain.Address, ['encapsulation', 'address_unknown', 'ipv4_address'], name, value)
 
 
             class MacAddress(_Entity_):
@@ -12670,7 +12670,7 @@ class Ptp(_Entity_):
                     if sys.version_info > (3,):
                         super().__init__()
                     else:
-                        super(Ptp.Grandmaster.Address.MacAddress, self).__init__()
+                        super(Ptp.Grandmain.Address.MacAddress, self).__init__()
 
                     self.yang_name = "mac-address"
                     self.yang_parent_name = "address"
@@ -12683,16 +12683,16 @@ class Ptp(_Entity_):
                     ])
                     self.macaddr = None
                     self._segment_path = lambda: "mac-address"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/address/%s" % self._segment_path()
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmain/address/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Grandmaster.Address.MacAddress, ['macaddr'], name, value)
+                    self._perform_setattr(Ptp.Grandmain.Address.MacAddress, ['macaddr'], name, value)
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                    return meta._meta_table['Ptp.Grandmaster.Address.MacAddress']['meta_info']
+                    return meta._meta_table['Ptp.Grandmain.Address.MacAddress']['meta_info']
 
 
             class Ipv6Address(_Entity_):
@@ -12719,7 +12719,7 @@ class Ptp(_Entity_):
                     if sys.version_info > (3,):
                         super().__init__()
                     else:
-                        super(Ptp.Grandmaster.Address.Ipv6Address, self).__init__()
+                        super(Ptp.Grandmain.Address.Ipv6Address, self).__init__()
 
                     self.yang_name = "ipv6-address"
                     self.yang_parent_name = "address"
@@ -12732,26 +12732,26 @@ class Ptp(_Entity_):
                     ])
                     self.ipv6_address = None
                     self._segment_path = lambda: "ipv6-address"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmaster/address/%s" % self._segment_path()
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ptp-oper:ptp/grandmain/address/%s" % self._segment_path()
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Grandmaster.Address.Ipv6Address, ['ipv6_address'], name, value)
+                    self._perform_setattr(Ptp.Grandmain.Address.Ipv6Address, ['ipv6_address'], name, value)
 
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                    return meta._meta_table['Ptp.Grandmaster.Address.Ipv6Address']['meta_info']
+                    return meta._meta_table['Ptp.Grandmain.Address.Ipv6Address']['meta_info']
 
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-                return meta._meta_table['Ptp.Grandmaster.Address']['meta_info']
+                return meta._meta_table['Ptp.Grandmain.Address']['meta_info']
 
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ptp_oper as meta
-            return meta._meta_table['Ptp.Grandmaster']['meta_info']
+            return meta._meta_table['Ptp.Grandmain']['meta_info']
 
 
     class InterfaceUnicastPeers(_Entity_):
@@ -13334,7 +13334,7 @@ class Ptp(_Entity_):
         
         .. attribute:: current_gm_offset_info
         
-        	The UTC offset information recovered from the current grandmaster
+        	The UTC offset information recovered from the current grandmain
         	**type**\:  :py:class:`CurrentGmOffsetInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.UtcOffsetInfo.CurrentGmOffsetInfo>`
         
         	**config**\: False
@@ -13348,7 +13348,7 @@ class Ptp(_Entity_):
         
         .. attribute:: previous_gm_offset_info
         
-        	The UTC offset information recovered from the prevous grandmaster
+        	The UTC offset information recovered from the prevous grandmain
         	**type**\:  :py:class:`PreviousGmOffsetInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.UtcOffsetInfo.PreviousGmOffsetInfo>`
         
         	**config**\: False
@@ -13362,7 +13362,7 @@ class Ptp(_Entity_):
         
         .. attribute:: gm_leap_second
         
-        	The upcoming leap second advertised by the grandmaster (if there is one)
+        	The upcoming leap second advertised by the grandmain (if there is one)
         	**type**\:  :py:class:`GmLeapSecond <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_oper.Ptp.UtcOffsetInfo.GmLeapSecond>`
         
         	**config**\: False
@@ -13549,7 +13549,7 @@ class Ptp(_Entity_):
         class CurrentGmOffsetInfo(_Entity_):
             """
             The UTC offset information recovered from the
-            current grandmaster
+            current grandmain
             
             .. attribute:: offset
             
@@ -13692,7 +13692,7 @@ class Ptp(_Entity_):
         class PreviousGmOffsetInfo(_Entity_):
             """
             The UTC offset information recovered from the
-            prevous grandmaster
+            prevous grandmain
             
             .. attribute:: offset
             
@@ -13836,7 +13836,7 @@ class Ptp(_Entity_):
         class GmLeapSecond(_Entity_):
             """
             The upcoming leap second advertised by the
-            grandmaster (if there is one)
+            grandmain (if there is one)
             
             .. attribute:: offset
             

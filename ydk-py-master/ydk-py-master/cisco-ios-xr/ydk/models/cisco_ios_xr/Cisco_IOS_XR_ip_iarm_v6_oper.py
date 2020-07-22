@@ -926,9 +926,9 @@ class Ipv6arm(_Entity_):
         
         	**config**\: False
         
-        .. attribute:: db_master_version
+        .. attribute:: db_main_version
         
-        	IP\-ARM DB master version
+        	IP\-ARM DB main version
         	**type**\: int
         
         	**range:** 0..4294967295
@@ -967,20 +967,20 @@ class Ipv6arm(_Entity_):
                 ('producer_count', (YLeaf(YType.int32, 'producer-count'), ['int'])),
                 ('address_conflict_count', (YLeaf(YType.int32, 'address-conflict-count'), ['int'])),
                 ('unnumbered_conflict_count', (YLeaf(YType.int32, 'unnumbered-conflict-count'), ['int'])),
-                ('db_master_version', (YLeaf(YType.uint32, 'db-master-version'), ['int'])),
+                ('db_main_version', (YLeaf(YType.uint32, 'db-main-version'), ['int'])),
                 ('vrf_count', (YLeaf(YType.int32, 'vrf-count'), ['int'])),
             ])
             self.producer_count = None
             self.address_conflict_count = None
             self.unnumbered_conflict_count = None
-            self.db_master_version = None
+            self.db_main_version = None
             self.vrf_count = None
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v6-oper:ipv6arm/%s" % self._segment_path()
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv6arm.Summary, ['producer_count', 'address_conflict_count', 'unnumbered_conflict_count', 'db_master_version', 'vrf_count'], name, value)
+            self._perform_setattr(Ipv6arm.Summary, ['producer_count', 'address_conflict_count', 'unnumbered_conflict_count', 'db_main_version', 'vrf_count'], name, value)
 
         @staticmethod
         def _meta_info():

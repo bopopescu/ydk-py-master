@@ -205,7 +205,7 @@ class Vrrp(_Entity_):
             
             .. attribute:: mac_refresh
             
-            	VRRP Slave MAC\-refresh rate in seconds
+            	VRRP Subordinate MAC\-refresh rate in seconds
             	**type**\: int
             
             	**range:** 0..10000
@@ -271,10 +271,10 @@ class Vrrp(_Entity_):
                 	Version 3 VRRP configuration
                 	**type**\:  :py:class:`Version3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3>`
                 
-                .. attribute:: slave_virtual_routers
+                .. attribute:: subordinate_virtual_routers
                 
-                	The VRRP slave group configuration table
-                	**type**\:  :py:class:`SlaveVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters>`
+                	The VRRP subordinate group configuration table
+                	**type**\:  :py:class:`SubordinateVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters>`
                 
                 
 
@@ -294,16 +294,16 @@ class Vrrp(_Entity_):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("version3", ("version3", Vrrp.Interfaces.Interface.Ipv6.Version3)), ("slave-virtual-routers", ("slave_virtual_routers", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters))])
+                    self._child_classes = OrderedDict([("version3", ("version3", Vrrp.Interfaces.Interface.Ipv6.Version3)), ("subordinate-virtual-routers", ("subordinate_virtual_routers", Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters))])
                     self._leafs = OrderedDict()
 
                     self.version3 = Vrrp.Interfaces.Interface.Ipv6.Version3()
                     self.version3.parent = self
                     self._children_name_map["version3"] = "version3"
 
-                    self.slave_virtual_routers = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters()
-                    self.slave_virtual_routers.parent = self
-                    self._children_name_map["slave_virtual_routers"] = "slave-virtual-routers"
+                    self.subordinate_virtual_routers = Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters()
+                    self.subordinate_virtual_routers.parent = self
+                    self._children_name_map["subordinate_virtual_routers"] = "subordinate-virtual-routers"
                     self._segment_path = lambda: "ipv6"
                     self._is_frozen = True
 
@@ -454,7 +454,7 @@ class Vrrp(_Entity_):
                             
                             .. attribute:: preempt
                             
-                            	Preempt Master router if higher priority
+                            	Preempt Main router if higher priority
                             	**type**\: int
                             
                             	**range:** 0..3600
@@ -970,14 +970,14 @@ class Vrrp(_Entity_):
                         return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.Version3']['meta_info']
 
 
-                class SlaveVirtualRouters(_Entity_):
+                class SubordinateVirtualRouters(_Entity_):
                     """
-                    The VRRP slave group configuration table
+                    The VRRP subordinate group configuration table
                     
-                    .. attribute:: slave_virtual_router
+                    .. attribute:: subordinate_virtual_router
                     
-                    	The VRRP slave being configured
-                    	**type**\: list of  		 :py:class:`SlaveVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter>`
+                    	The VRRP subordinate being configured
+                    	**type**\: list of  		 :py:class:`SubordinateVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter>`
                     
                     
 
@@ -990,29 +990,29 @@ class Vrrp(_Entity_):
                         if sys.version_info > (3,):
                             super().__init__()
                         else:
-                            super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters, self).__init__()
+                            super(Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters, self).__init__()
 
-                        self.yang_name = "slave-virtual-routers"
+                        self.yang_name = "subordinate-virtual-routers"
                         self.yang_parent_name = "ipv6"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("slave-virtual-router", ("slave_virtual_router", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter))])
+                        self._child_classes = OrderedDict([("subordinate-virtual-router", ("subordinate_virtual_router", Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter))])
                         self._leafs = OrderedDict()
 
-                        self.slave_virtual_router = YList(self)
-                        self._segment_path = lambda: "slave-virtual-routers"
+                        self.subordinate_virtual_router = YList(self)
+                        self._segment_path = lambda: "subordinate-virtual-routers"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters, [], name, value)
+                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters, [], name, value)
 
 
-                    class SlaveVirtualRouter(_Entity_):
+                    class SubordinateVirtualRouter(_Entity_):
                         """
-                        The VRRP slave being configured
+                        The VRRP subordinate being configured
                         
-                        .. attribute:: slave_virtual_router_id  (key)
+                        .. attribute:: subordinate_virtual_router_id  (key)
                         
                         	Virtual Router ID
                         	**type**\: int
@@ -1022,16 +1022,16 @@ class Vrrp(_Entity_):
                         .. attribute:: link_local_ipv6_address
                         
                         	The VRRP IPv6 virtual linklocal address
-                        	**type**\:  :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address>`
+                        	**type**\:  :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.LinkLocalIpv6Address>`
                         
                         .. attribute:: global_ipv6_addresses
                         
                         	The table of VRRP virtual global IPv6 addresses
-                        	**type**\:  :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses>`
+                        	**type**\:  :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.GlobalIpv6Addresses>`
                         
                         .. attribute:: follow
                         
-                        	VRRP Session name for this slave to follow
+                        	VRRP Session name for this subordinate to follow
                         	**type**\: str
                         
                         .. attribute:: accept_mode_disable
@@ -1050,35 +1050,35 @@ class Vrrp(_Entity_):
                             if sys.version_info > (3,):
                                 super().__init__()
                             else:
-                                super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter, self).__init__()
+                                super(Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter, self).__init__()
 
-                            self.yang_name = "slave-virtual-router"
-                            self.yang_parent_name = "slave-virtual-routers"
+                            self.yang_name = "subordinate-virtual-router"
+                            self.yang_parent_name = "subordinate-virtual-routers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self.ylist_key_names = ['slave_virtual_router_id']
-                            self._child_classes = OrderedDict([("link-local-ipv6-address", ("link_local_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address)), ("global-ipv6-addresses", ("global_ipv6_addresses", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses))])
+                            self.ylist_key_names = ['subordinate_virtual_router_id']
+                            self._child_classes = OrderedDict([("link-local-ipv6-address", ("link_local_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.LinkLocalIpv6Address)), ("global-ipv6-addresses", ("global_ipv6_addresses", Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.GlobalIpv6Addresses))])
                             self._leafs = OrderedDict([
-                                ('slave_virtual_router_id', (YLeaf(YType.uint32, 'slave-virtual-router-id'), ['int'])),
+                                ('subordinate_virtual_router_id', (YLeaf(YType.uint32, 'subordinate-virtual-router-id'), ['int'])),
                                 ('follow', (YLeaf(YType.str, 'follow'), ['str'])),
                                 ('accept_mode_disable', (YLeaf(YType.empty, 'accept-mode-disable'), ['Empty'])),
                             ])
-                            self.slave_virtual_router_id = None
+                            self.subordinate_virtual_router_id = None
                             self.follow = None
                             self.accept_mode_disable = None
 
-                            self.link_local_ipv6_address = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address()
+                            self.link_local_ipv6_address = Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.LinkLocalIpv6Address()
                             self.link_local_ipv6_address.parent = self
                             self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
 
-                            self.global_ipv6_addresses = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses()
+                            self.global_ipv6_addresses = Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.GlobalIpv6Addresses()
                             self.global_ipv6_addresses.parent = self
                             self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
-                            self._segment_path = lambda: "slave-virtual-router" + "[slave-virtual-router-id='" + str(self.slave_virtual_router_id) + "']"
+                            self._segment_path = lambda: "subordinate-virtual-router" + "[subordinate-virtual-router-id='" + str(self.subordinate_virtual_router_id) + "']"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter, ['slave_virtual_router_id', 'follow', 'accept_mode_disable'], name, value)
+                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter, ['subordinate_virtual_router_id', 'follow', 'accept_mode_disable'], name, value)
 
 
                         class LinkLocalIpv6Address(_Entity_):
@@ -1116,10 +1116,10 @@ class Vrrp(_Entity_):
                                 if sys.version_info > (3,):
                                     super().__init__()
                                 else:
-                                    super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, self).__init__()
+                                    super(Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.LinkLocalIpv6Address, self).__init__()
 
                                 self.yang_name = "link-local-ipv6-address"
-                                self.yang_parent_name = "slave-virtual-router"
+                                self.yang_parent_name = "subordinate-virtual-router"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
@@ -1134,12 +1134,12 @@ class Vrrp(_Entity_):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, ['ip_address', 'auto_configure'], name, value)
+                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.LinkLocalIpv6Address, ['ip_address', 'auto_configure'], name, value)
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address']['meta_info']
+                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.LinkLocalIpv6Address']['meta_info']
 
 
                         class GlobalIpv6Addresses(_Entity_):
@@ -1150,7 +1150,7 @@ class Vrrp(_Entity_):
                             .. attribute:: global_ipv6_address
                             
                             	A VRRP virtual global IPv6 IP address
-                            	**type**\: list of  		 :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address>`
+                            	**type**\: list of  		 :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address>`
                             
                             
 
@@ -1163,14 +1163,14 @@ class Vrrp(_Entity_):
                                 if sys.version_info > (3,):
                                     super().__init__()
                                 else:
-                                    super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses, self).__init__()
+                                    super(Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.GlobalIpv6Addresses, self).__init__()
 
                                 self.yang_name = "global-ipv6-addresses"
-                                self.yang_parent_name = "slave-virtual-router"
+                                self.yang_parent_name = "subordinate-virtual-router"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("global-ipv6-address", ("global_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address))])
+                                self._child_classes = OrderedDict([("global-ipv6-address", ("global_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address))])
                                 self._leafs = OrderedDict()
 
                                 self.global_ipv6_address = YList(self)
@@ -1178,7 +1178,7 @@ class Vrrp(_Entity_):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses, [], name, value)
+                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.GlobalIpv6Addresses, [], name, value)
 
 
                             class GlobalIpv6Address(_Entity_):
@@ -1209,7 +1209,7 @@ class Vrrp(_Entity_):
                                     if sys.version_info > (3,):
                                         super().__init__()
                                     else:
-                                        super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
+                                        super(Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
 
                                     self.yang_name = "global-ipv6-address"
                                     self.yang_parent_name = "global-ipv6-addresses"
@@ -1225,27 +1225,27 @@ class Vrrp(_Entity_):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, ['ip_address'], name, value)
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, ['ip_address'], name, value)
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address']['meta_info']
+                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address']['meta_info']
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses']['meta_info']
+                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter.GlobalIpv6Addresses']['meta_info']
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                            return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter']['meta_info']
+                            return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters.SubordinateVirtualRouter']['meta_info']
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters']['meta_info']
+                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv6.SubordinateVirtualRouters']['meta_info']
 
                 @staticmethod
                 def _meta_info():
@@ -1328,10 +1328,10 @@ class Vrrp(_Entity_):
                 	Version 3 VRRP configuration
                 	**type**\:  :py:class:`Version3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3>`
                 
-                .. attribute:: slave_virtual_routers
+                .. attribute:: subordinate_virtual_routers
                 
-                	The VRRP slave group configuration table
-                	**type**\:  :py:class:`SlaveVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters>`
+                	The VRRP subordinate group configuration table
+                	**type**\:  :py:class:`SubordinateVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters>`
                 
                 .. attribute:: version2
                 
@@ -1356,16 +1356,16 @@ class Vrrp(_Entity_):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("version3", ("version3", Vrrp.Interfaces.Interface.Ipv4.Version3)), ("slave-virtual-routers", ("slave_virtual_routers", Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters)), ("version2", ("version2", Vrrp.Interfaces.Interface.Ipv4.Version2))])
+                    self._child_classes = OrderedDict([("version3", ("version3", Vrrp.Interfaces.Interface.Ipv4.Version3)), ("subordinate-virtual-routers", ("subordinate_virtual_routers", Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters)), ("version2", ("version2", Vrrp.Interfaces.Interface.Ipv4.Version2))])
                     self._leafs = OrderedDict()
 
                     self.version3 = Vrrp.Interfaces.Interface.Ipv4.Version3()
                     self.version3.parent = self
                     self._children_name_map["version3"] = "version3"
 
-                    self.slave_virtual_routers = Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters()
-                    self.slave_virtual_routers.parent = self
-                    self._children_name_map["slave_virtual_routers"] = "slave-virtual-routers"
+                    self.subordinate_virtual_routers = Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters()
+                    self.subordinate_virtual_routers.parent = self
+                    self._children_name_map["subordinate_virtual_routers"] = "subordinate-virtual-routers"
 
                     self.version2 = Vrrp.Interfaces.Interface.Ipv4.Version2()
                     self.version2.parent = self
@@ -1509,7 +1509,7 @@ class Vrrp(_Entity_):
                             
                             .. attribute:: preempt
                             
-                            	Preempt Master router if higher priority
+                            	Preempt Main router if higher priority
                             	**type**\: int
                             
                             	**range:** 0..3600
@@ -1962,14 +1962,14 @@ class Vrrp(_Entity_):
                         return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.Version3']['meta_info']
 
 
-                class SlaveVirtualRouters(_Entity_):
+                class SubordinateVirtualRouters(_Entity_):
                     """
-                    The VRRP slave group configuration table
+                    The VRRP subordinate group configuration table
                     
-                    .. attribute:: slave_virtual_router
+                    .. attribute:: subordinate_virtual_router
                     
-                    	The VRRP slave being configured
-                    	**type**\: list of  		 :py:class:`SlaveVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter>`
+                    	The VRRP subordinate being configured
+                    	**type**\: list of  		 :py:class:`SubordinateVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter>`
                     
                     
 
@@ -1982,29 +1982,29 @@ class Vrrp(_Entity_):
                         if sys.version_info > (3,):
                             super().__init__()
                         else:
-                            super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters, self).__init__()
+                            super(Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters, self).__init__()
 
-                        self.yang_name = "slave-virtual-routers"
+                        self.yang_name = "subordinate-virtual-routers"
                         self.yang_parent_name = "ipv4"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("slave-virtual-router", ("slave_virtual_router", Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter))])
+                        self._child_classes = OrderedDict([("subordinate-virtual-router", ("subordinate_virtual_router", Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter))])
                         self._leafs = OrderedDict()
 
-                        self.slave_virtual_router = YList(self)
-                        self._segment_path = lambda: "slave-virtual-routers"
+                        self.subordinate_virtual_router = YList(self)
+                        self._segment_path = lambda: "subordinate-virtual-routers"
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters, [], name, value)
+                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters, [], name, value)
 
 
-                    class SlaveVirtualRouter(_Entity_):
+                    class SubordinateVirtualRouter(_Entity_):
                         """
-                        The VRRP slave being configured
+                        The VRRP subordinate being configured
                         
-                        .. attribute:: slave_virtual_router_id  (key)
+                        .. attribute:: subordinate_virtual_router_id  (key)
                         
                         	Virtual Router ID
                         	**type**\: int
@@ -2014,11 +2014,11 @@ class Vrrp(_Entity_):
                         .. attribute:: secondary_ipv4_addresses
                         
                         	The table of VRRP secondary IPv4 addresses
-                        	**type**\:  :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses>`
+                        	**type**\:  :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter.SecondaryIpv4Addresses>`
                         
                         .. attribute:: follow
                         
-                        	VRRP Session name for this slave to follow
+                        	VRRP Session name for this subordinate to follow
                         	**type**\: str
                         
                         .. attribute:: accept_mode_disable
@@ -2044,33 +2044,33 @@ class Vrrp(_Entity_):
                             if sys.version_info > (3,):
                                 super().__init__()
                             else:
-                                super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter, self).__init__()
+                                super(Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter, self).__init__()
 
-                            self.yang_name = "slave-virtual-router"
-                            self.yang_parent_name = "slave-virtual-routers"
+                            self.yang_name = "subordinate-virtual-router"
+                            self.yang_parent_name = "subordinate-virtual-routers"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self.ylist_key_names = ['slave_virtual_router_id']
-                            self._child_classes = OrderedDict([("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses))])
+                            self.ylist_key_names = ['subordinate_virtual_router_id']
+                            self._child_classes = OrderedDict([("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter.SecondaryIpv4Addresses))])
                             self._leafs = OrderedDict([
-                                ('slave_virtual_router_id', (YLeaf(YType.uint32, 'slave-virtual-router-id'), ['int'])),
+                                ('subordinate_virtual_router_id', (YLeaf(YType.uint32, 'subordinate-virtual-router-id'), ['int'])),
                                 ('follow', (YLeaf(YType.str, 'follow'), ['str'])),
                                 ('accept_mode_disable', (YLeaf(YType.empty, 'accept-mode-disable'), ['Empty'])),
                                 ('primary_ipv4_address', (YLeaf(YType.str, 'primary-ipv4-address'), ['str'])),
                             ])
-                            self.slave_virtual_router_id = None
+                            self.subordinate_virtual_router_id = None
                             self.follow = None
                             self.accept_mode_disable = None
                             self.primary_ipv4_address = None
 
-                            self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses()
+                            self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter.SecondaryIpv4Addresses()
                             self.secondary_ipv4_addresses.parent = self
                             self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
-                            self._segment_path = lambda: "slave-virtual-router" + "[slave-virtual-router-id='" + str(self.slave_virtual_router_id) + "']"
+                            self._segment_path = lambda: "subordinate-virtual-router" + "[subordinate-virtual-router-id='" + str(self.subordinate_virtual_router_id) + "']"
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter, ['slave_virtual_router_id', 'follow', 'accept_mode_disable', 'primary_ipv4_address'], name, value)
+                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter, ['subordinate_virtual_router_id', 'follow', 'accept_mode_disable', 'primary_ipv4_address'], name, value)
 
 
                         class SecondaryIpv4Addresses(_Entity_):
@@ -2080,7 +2080,7 @@ class Vrrp(_Entity_):
                             .. attribute:: secondary_ipv4_address
                             
                             	A VRRP secondary IPv4 address
-                            	**type**\: list of  		 :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address>`
+                            	**type**\: list of  		 :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address>`
                             
                             
 
@@ -2093,14 +2093,14 @@ class Vrrp(_Entity_):
                                 if sys.version_info > (3,):
                                     super().__init__()
                                 else:
-                                    super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses, self).__init__()
+                                    super(Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter.SecondaryIpv4Addresses, self).__init__()
 
                                 self.yang_name = "secondary-ipv4-addresses"
-                                self.yang_parent_name = "slave-virtual-router"
+                                self.yang_parent_name = "subordinate-virtual-router"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("secondary-ipv4-address", ("secondary_ipv4_address", Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address))])
+                                self._child_classes = OrderedDict([("secondary-ipv4-address", ("secondary_ipv4_address", Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address))])
                                 self._leafs = OrderedDict()
 
                                 self.secondary_ipv4_address = YList(self)
@@ -2108,7 +2108,7 @@ class Vrrp(_Entity_):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses, [], name, value)
+                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter.SecondaryIpv4Addresses, [], name, value)
 
 
                             class SecondaryIpv4Address(_Entity_):
@@ -2133,7 +2133,7 @@ class Vrrp(_Entity_):
                                     if sys.version_info > (3,):
                                         super().__init__()
                                     else:
-                                        super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
+                                        super(Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
 
                                     self.yang_name = "secondary-ipv4-address"
                                     self.yang_parent_name = "secondary-ipv4-addresses"
@@ -2149,27 +2149,27 @@ class Vrrp(_Entity_):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, ['ip_address'], name, value)
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, ['ip_address'], name, value)
 
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address']['meta_info']
+                                    return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address']['meta_info']
 
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses']['meta_info']
+                                return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter.SecondaryIpv4Addresses']['meta_info']
 
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                            return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter']['meta_info']
+                            return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters.SubordinateVirtualRouter']['meta_info']
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_vrrp_cfg as meta
-                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters']['meta_info']
+                        return meta._meta_table['Vrrp.Interfaces.Interface.Ipv4.SubordinateVirtualRouters']['meta_info']
 
 
                 class Version2(_Entity_):
@@ -2299,7 +2299,7 @@ class Vrrp(_Entity_):
                             
                             .. attribute:: preempt
                             
-                            	Preempt Master router if higher priority
+                            	Preempt Main router if higher priority
                             	**type**\: int
                             
                             	**range:** 0..3600
